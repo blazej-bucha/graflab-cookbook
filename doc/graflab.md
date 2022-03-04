@@ -88,9 +88,10 @@ parameters, so let's explain them:
 
   * `2` -- scattered points to be manually defined
 
-The following variables are relevant only if `point_type == 0` (grid-wise 
-computations).  A grid can be defined in two ways, `A` and `B`.  A mix of the 
-two is not allowed.  The content of the variable depends on the grid type.
+The following variables are relevant only if `point_type == 0`.  If `point_type 
+~= 0`, set all these variables to `[]`.  A grid can be defined in two ways, `A` 
+and `B`.  A mix of the two is not allowed.  The content of the variables 
+depends on the grid type.
 
 * `lat_grd_min`
 
@@ -137,11 +138,13 @@ two is not allowed.  The content of the variable depends on the grid type.
     reference sphere defined by the radius `R` (see above); the height is 
     measured in the radial direction
 
-The following variable is relevant only if `point_type == 1`
+The following variable is relevant only if `point_type == 1`.  If `point_type 
+~= 1`, set all these variables to `[]`.
 
 * `sctr_points_path` -- Path to the scattered points file
 
-The following variables are relevant only if `point_type == 2`
+The following variables are relevant only if `point_type == 2`.  If `point_type 
+~= 2`, set all these variables to `[]`.
 
 * `lat_sctr` -- Latitudes in degrees as a column vector or a scalar
 
@@ -153,8 +156,8 @@ The following variables are relevant only if `point_type == 2`
 
   * If `crd == 1`, spherical radii in metres as a column vector or a scalar
 
-The variables that follow no longer depend on `point_type`, so are relevant for 
-any computation.
+The variables that follow no longer depend on `point_type`, so must be 
+specified for any computation.
 
 * `out_path` -- Path to the output data file (*without* any suffix such as 
   `txt` or `mat`)
@@ -199,7 +202,6 @@ any computation.
     (`Vxx`, `Vyy`, `Vzz`)
 
   * 15 -- Gravitational tensor in the local north-oriented reference frame 
-
     (`Vxy`, `Vxz`, `Vyz`)
 
   * 16 -- Gravity vector in the local north-oriented reference frame (`gX`, 
@@ -236,7 +238,8 @@ any computation.
   * `2` -- Extended-range arithmetic
 
 * `DTM_path` -- Path to a spherical harmonic coefficients file of a digital 
-  elevation model (used only if `quantity == 10` or `quantity == 23`)
+  elevation model.  This variable is used only if `quantity == 10` or `quantity 
+  == 23`.  Otherwise, set this variable to `[]`.
 
 * `export_data_txt` -- Export data to a text file, `0` for no, `1` for yes
 
@@ -255,57 +258,59 @@ any computation.
   * `2` -- Yes and use the `imagesc` function (not as nice as with `1`, but the 
     plotting is very fast)
 
-The following variables are used only if `display_data == 1`.
+The following variables are used only if `display_data == 1`.  Otherwise, set 
+these variables to `[]`.
 
 * `graphic_format` -- Graphic file format
 
-   * `1` for bmp
+   * `1` -- bmp
 
-   * `2` for emf
+   * `2` -- emf
 
-   * `3` for eps
+   * `3` -- eps
 
-   * `4` for jpeg
+   * `4` -- jpeg
 
-   * `5` for pdf
+   * `5` -- pdf
 
-   * `6` for png
+   * `6` -- png
 
-   * `7` tiff
+   * `7` -- tiff
 
 * `colormap`
 
-  * `1` for jet
+  * `1` -- jet
 
-  * `2` for hsv
+  * `2` -- hsv
 
-  * `3` for hot
+  * `3` -- hot
 
-  * `4` for cool
+  * `4` -- cool
 
-  * `5` for spring
+  * `5` -- spring
 
-  * `6` for summer
+  * `6` -- summer
 
-  * `7` for autumn
+  * `7` -- autumn
 
-  * `8` for winter
+  * `8` -- winter
 
-  * `9` for gray
+  * `9` -- gray
 
-  * `10` for bone
+  * `10` -- bone
 
-  * `11` for copper
+  * `11` -- copper
 
-  * `12` for pink
+  * `12` -- pink
 
-  * `13` for lines
+  * `13` -- lines
 
-* `number_of_colors` -- Number of the colors to divide `colormap`
+* `number_of_colors` -- Number of the colors to split `colormap`
 
 * `dpi` -- I am sure you got this one
 
-The following variable no longer depend on `display_data`.
+The following variable no longer depend on `display_data` and needs to be 
+specified.
 
 * `status_bar` -- Display a kind of a progress bar, `0` for no, `1` for yes
 

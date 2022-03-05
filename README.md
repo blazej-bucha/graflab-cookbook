@@ -2,10 +2,10 @@
 
 GrafLab and isGrafLab cookbooks.
 
-Provided are HOWTOs, exemplifying basic and advanced applications using the 
-command line.  The cookbook is centered around the gravity field modelling, but 
-included are several tricks to exploit the routines beyond their original 
-intention (planetary topographies, etc.).
+Provided are HOWTOs, showing basic and advanced applications using the command 
+line.  The cookbooks are centered around gravity field modelling, but included 
+are several tricks to exploit the routines beyond their original intention 
+(planetary topographies, etc.).
 
 [GrafLab](https://blazejbucha.com/#GrafLab) (GRAvity Field LABoratory) is 
 a MATLAB-based routine to compute gravity field quantities up to high degrees 
@@ -81,6 +81,9 @@ back.
 
 ## isGrafLab
 
+If you are not familiar with the isGrafLab command line interface, you may want 
+to go [here](doc/isgraflab.md), learn the interface at first and then return 
+back.
 
 * [15](src/howto15.m): Synthesis at grids residing on the Earth's topography 
   in spherical coordinates

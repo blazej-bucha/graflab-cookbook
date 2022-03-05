@@ -9,8 +9,8 @@ intention (planetary topographies, etc.).
 
 [GrafLab](https://blazejbucha.com/#GrafLab) (GRAvity Field LABoratory) is 
 a MATLAB-based routine to compute gravity field quantities up to high degrees 
-(tens of thousands and beyond) from spherical harmonic gravity models.  
-Computed can be, for instance, the geoid, the height anomaly, gravity 
+(tens of thousands and beyond) from spherical harmonic gravity models. Computed 
+can be, for instance, the geoid, the height anomaly, gravity 
 anomalies/disturbances, deflections of the vertical or the gravitational 
 tensors.
 
@@ -53,7 +53,7 @@ back.
   computation points
 
 * [06](src/howto06.m): Methods to compute the fully-normalized associated 
-  Legendre 1.
+  Legendre functions
 
 * [07](src/howto07.m): Outputs from GrafLab
 

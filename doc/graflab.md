@@ -1,6 +1,6 @@
 # GrafLab Command Line Interface
 
-This is the function prototype for GrafLab:
+Function prototype for GrafLab:
 
 ```
 function out = GrafLab('OK', ...
@@ -313,6 +313,10 @@ The following variable no longer depend on `display_data` and needs to be
 specified.
 
 * `status_bar` -- Display a kind of a progress bar, `0` for no, `1` for yes
+
+
+  
+  
 
 
 You should now be ready to return [back](../README.md) and go through the 

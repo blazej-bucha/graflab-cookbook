@@ -31,7 +31,7 @@ Each HOWTO has its own source code. Beginners should go through the HOWTOs in
 the order they are numbered. Advanced users may pick whatever HOWTO they are 
 interested in. In any case, you **must** start by executing the `init.m` script 
 from the `src` directory. It downloads the source codes of GrafLab and 
-isGrafLab and some input data. Most useful information is usually given as 
+isGrafLab and some input data. The most useful information is usually given as 
 comments in the HOWTO m-files, so instead of just executing the scripts, feel 
 free to study the code as well.
 

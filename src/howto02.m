@@ -6,22 +6,10 @@
 % All the GrafLab input parameters are explained in "../doc/graflab.md".
 
 
-% Intro
-% =============================================================================
-
 clear;
 clc;
-
-
-fprintf("===================================================\n");
-fprintf("HOWTO02: Minimum and maximum harmonic degree of the synthesis\n");
-fprintf("===================================================\n");
-
-
-% Did we execute the "./init.m" script first?
-init_checker();
-
-% =============================================================================
+howto = 2;
+intro(howto, "Minimum and maximum harmonic degree of the synthesis");
 
 
 
@@ -280,11 +268,4 @@ fprintf("\n");
 
 
 
-% Outro
-% =============================================================================
-
-fprintf("===================================================\n");
-fprintf("End of HOWTO02\n");
-fprintf("===================================================\n");
-
-% =============================================================================
+outro(howto);

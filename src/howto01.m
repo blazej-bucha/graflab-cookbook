@@ -7,22 +7,10 @@
 % All the GrafLab input parameters are explained in "../doc/graflab.md".
 
 
-% Intro
-% =============================================================================
-
 clear;
 clc;
-
-
-fprintf("===================================================\n");
-fprintf("HOWTO01: Synthesis at grids and at scattered points\n");
-fprintf("===================================================\n");
-
-
-% Did we execute the "./init.m" script first?
-init_checker();
-
-% =============================================================================
+howto = 1;
+intro(howto, "Synthesis at grids and at scattered points");
 
 
 
@@ -297,11 +285,4 @@ fprintf("Now you may want to explore the ""%s*"" files.\n\n", out_path);
 
 
 
-% Outro
-% =============================================================================
-
-fprintf("===================================================\n");
-fprintf("End of HOWTO01\n");
-fprintf("===================================================\n");
-
-% =============================================================================
+outro(howto);

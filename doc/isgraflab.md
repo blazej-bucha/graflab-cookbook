@@ -37,7 +37,7 @@ function out = isGrafLab('OK', ...
 ```
 
 Many of the parameters are the same as in [GrafLab](./graflab.md). Below are 
-explained only the new parameters that are unique to isGrafLab.
+explained only the new ones that are unique to isGrafLab.
 
 * `ts` -- Order of the Taylor series
 

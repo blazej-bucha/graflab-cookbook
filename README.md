@@ -3,7 +3,7 @@
 GrafLab and isGrafLab cookbooks.
 
 Provided are HOWTOs, showing basic and advanced applications using the command 
-line.  The cookbooks are centered around gravity field modelling, but included 
+line. The cookbooks are centered around gravity field modelling, but included 
 are several tricks to exploit the routines beyond their original intention 
 (planetary topographies, etc.).
 
@@ -27,11 +27,14 @@ the Earth's surface.
 
 # HOWTOs
 
-For beginners, it is recommended to go through the HOWTOs in the order they are 
-numbered.  Advanced users may pick whatever HOWTO they are interested in.  In 
-any case, you **must** start by executing the `init.m` script from the `src` 
-directory.  The `init.m` script downloads all the source codes and the input 
-data files needed to run the HOWTO scripts.
+Each HOWTO has its own source code. Beginners should go through the HOWTOs in 
+the order they are numbered. Advanced users may pick whatever HOWTO they are 
+interested in. In any case, you **must** start by executing the `init.m` script 
+from the `src` directory. It downloads the source codes of GrafLab and 
+isGrafLab and some input data. Most useful information is usually given as 
+comments in the HOWTO m-files, so instead of just executing the scripts, feel 
+free to study the code as well.
+
 
 ## GrafLab
 
@@ -49,11 +52,11 @@ back.
 
 * [04](src/howto04.m): Reference ellipsoid and normal gravity field
 
-* [05](src/howto05.m): Spherical vs. ellipsoidal coordinates of the 
-  computation points
+* [05](src/howto05.m): Spherical vs. ellipsoidal coordinates of the computation 
+                       points
 
 * [06](src/howto06.m): Methods to compute the fully-normalized associated 
-  Legendre functions
+                       Legendre functions
 
 * [07](src/howto07.m): Outputs from GrafLab
 
@@ -61,7 +64,7 @@ back.
 ### Advanced
 
 * [08](src/howto08.m): Synthesis of other functions than gravity field 
-  quantities, e.g. planetary topographies
+                       quantities, e.g. planetary topographies
 
 * [09](src/howto09.m): Synthesis of gravity fields implied by celestial bodies
 
@@ -70,12 +73,15 @@ back.
 * [11](src/howto11.m): Grids with varying spacings in latitudes and longitudes
 
 * [12](src/howto12.m): Stop the Earth's rotation to get gravitational 
-  quantities instead of the gravity quantities
+                       quantities instead of the gravity quantities
 
 * [13](src/howto13.m): Exploit the symmetry of Legendre functions with respect 
   to the equator to improve the computational speed
 
 * [14](src/howto14.m): Commission error
+
+* [15](src/howto15.m): A trick with the minimum and the maximum degree of the 
+                       synthesis
 
 
 
@@ -85,10 +91,10 @@ If you are not familiar with the isGrafLab command line interface, you may want
 to go [here](doc/isgraflab.md), learn the interface at first and then return 
 back.
 
-* [15](src/howto15.m): Synthesis at grids residing on the Earth's topography 
+* [16](src/howto16.m): Synthesis at grids residing on the Earth's topography 
   in spherical coordinates
 
-* [16](src/howto16.m): Synthesis at grids residing on the Earth's topography 
+* [17](src/howto17.m): Synthesis at grids residing on the Earth's topography 
   in ellipsoidal coordinates
 
 

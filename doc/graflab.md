@@ -39,8 +39,8 @@ function out = GrafLab('OK', ...
     status_bar)
 ```
 
-Throughout the HOWTOs, we constantly keep the same names of these input 
-parameters, so let's explain them:
+Throughout the HOWTOs, we keep the same names of these input parameters, so 
+let's explain them:
 
 * `GM` -- Geocentric gravitational constant of GGM (`m^3 * s^-2`)
 
@@ -88,10 +88,10 @@ parameters, so let's explain them:
 
   * `2` -- scattered points to be manually defined
 
-The following variables are relevant only if `point_type == 0`.  If `point_type 
-~= 0`, set all these variables to `[]`.  A grid can be defined in two ways, `A` 
-and `B`.  A mix of the two is not allowed.  The content of the variables 
-depends on the grid type.
+The following variables are relevant only if `point_type == 0`. If `point_type 
+~= 0`, set all these variables to `[]`. A grid can be defined in two ways, `A` 
+and `B`. A mix of the two is not allowed. The content of the variables depends 
+on the grid type.
 
 * `lat_grd_min`
 
@@ -138,12 +138,12 @@ depends on the grid type.
     reference sphere defined by the radius `R` (see above); the height is 
     measured in the radial direction
 
-The following variable is relevant only if `point_type == 1`.  If `point_type 
-~= 1`, set all these variables to `[]`.
+The following variable is relevant only if `point_type == 1`. If `point_type ~= 
+1`, set all these variables to `[]`.
 
 * `sctr_points_path` -- Path to the scattered points file
 
-The following variables are relevant only if `point_type == 2`.  If `point_type 
+The following variables are relevant only if `point_type == 2`. If `point_type 
 ~= 2`, set all these variables to `[]`.
 
 * `lat_sctr` -- Latitudes in degrees as a column vector or a scalar
@@ -169,7 +169,7 @@ specified for any computation.
   * `1` -- Computed will be a commission error from a covariance matrix
 
 * `quantity` -- A scalar or a column vector defining quantities to be 
-  computed.  If it is a vector, the maximum size allowed is `4`.  The following 
+  computed. If it is a vector, the maximum size allowed is `4`. The following 
   values are accepted:
 
   * 2  -- Deflection of the vertical `eta` (the east--west component)
@@ -227,19 +227,22 @@ specified for any computation.
 
   * 25 -- Second radial derivative of gravity potential
 
+  The definition of each quantity can be found 
+  [here](https://blazejbucha.com/graflab/Definition_of_functionals_of_the_geopotential_used_in_GrafLab_software.pdf).
+
 
 * `fnALFs` -- Method to compute the fully-normalized associated Legendre 
   functions
 
-  * `0` -- Standard forward column method
+  * `1` -- Standard forward column method
 
-  * `1` -- Modified forward column method
+  * `2` -- Modified forward column method
 
-  * `2` -- Extended-range arithmetic
+  * `3` -- Extended-range arithmetic
 
 * `DTM_path` -- Path to a spherical harmonic coefficients file of a digital 
-  elevation model.  This variable is used only if `quantity == 10` or `quantity 
-  == 23`.  Otherwise, set this variable to `[]`.
+  elevation model. This variable is used only if `quantity == 10` or `quantity 
+  == 23`. Otherwise, set this variable to `[]`.
 
 * `export_data_txt` -- Export data to a text file, `0` for no, `1` for yes
 
@@ -247,7 +250,7 @@ specified for any computation.
 
 * `export_data_mat` -- Export data to a `mat` file, `0` for no, `1` for yes
 
-* `display_data` -- Display data.  This is option can be used only if 
+* `display_data` -- Display data. This is option can be used only if 
   `point_type == 0` (grid-wise computation)
 
   * `0` -- No
@@ -258,7 +261,7 @@ specified for any computation.
   * `2` -- Yes and use the `imagesc` function (not as nice as with `1`, but the 
     plotting is very fast)
 
-The following variables are used only if `display_data == 1`.  Otherwise, set 
+The following variables are used only if `display_data == 1`. Otherwise, set 
 these variables to `[]`.
 
 * `graphic_format` -- Graphic file format

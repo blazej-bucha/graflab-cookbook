@@ -17,7 +17,7 @@ intro(howto, "Gravitational field models");
 
 % Structure of a global geopotential model (GGM) file
 % =============================================================================
-
+%
 % The structure of the GGM coefficients table must follow either "Table 1" or 
 % "Table 2".  Any other ordering scheme may not be processed correctly by 
 % GrafLab, so is not recommended.
@@ -25,7 +25,7 @@ intro(howto, "Gravitational field models");
 %
 % Table 1: GGM up to degree "2"
 % ----------------------------------------
-%   n   m       C_nm           S_nm
+%   n   m       Cnm           Snm
 % ----------------------------------------
 %   0   0    1.00000E+00    0.00000E+00
 %   1   0    0.00000E+00    0.00000E+00
@@ -38,7 +38,7 @@ intro(howto, "Gravitational field models");
 %
 % Table 2: GGM up to degree "2"
 % ----------------------------------------
-%   n   m       C_nm           S_nm
+%   n   m       Cnm           Snm
 % ----------------------------------------
 %   0   0    1.00000E+00    0.00000E+00
 %   1   0    0.00000E+00    0.00000E+00
@@ -47,7 +47,7 @@ intro(howto, "Gravitational field models");
 %   2   1   -0.20662E-09    0.13844E-08
 %   2   2    0.24394E-05   -0.14003E-05
 % ----------------------------------------
-
+%
 % =============================================================================
 
 
@@ -70,7 +70,7 @@ R                 = 6378136.3;
 nmin              = 0;
 nmax              = 'nmaxGGM';
 ellipsoid         = 1;  % GRS80
-GGM_mat          = '../data/input/EGM96.mat';
+GGM_mat           = '../data/input/EGM96.mat';
 crd               = 0;  % Evaluation points are defined in ellipsoidal 
                         % coordinates
 point_type        = 0;  % Computation at a grid
@@ -148,8 +148,8 @@ out_mat = GrafLab('OK', ...
 % This example shows how to import a GGM that obeys the structure of "Table 1" 
 % or "Table 2" from a text file.
 
-GGM_txt          = '../data/output/EGM96.txt';
-out_path          = sprintf('../data/output/howto03-table-txt');
+GGM_txt  = '../data/output/EGM96.txt';
+out_path = sprintf('../data/output/howto03-table-txt');
 
 
 fprintf("\n");

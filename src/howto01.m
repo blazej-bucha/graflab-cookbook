@@ -128,9 +128,9 @@ fprintf("Synthesis at a scattered points loaded from a text file\n");
 fprintf("-------------------------------------------------------\n");
 fprintf("\n");
 
-point_type        = 1;  % Load evaluation points from a text file
-sctr_points_path  = '../data/input/input-points.txt';
-out_path          = '../data/output/howto01-sctr-load';
+point_type       = 1;  % Load evaluation points from a text file
+sctr_points_path = '../data/input/input-points.txt';
+out_path         = '../data/output/howto01-sctr-load';
 
 
 fprintf("Five evaluation points will be loaded from ""%s""\n", ...
@@ -194,17 +194,17 @@ fprintf("Synthesis at a scattered points taken from a MATLAB variable\n");
 fprintf("------------------------------------------------------------\n");
 fprintf("\n");
 
-point_type           = 2;  % Define evaluation points from MATLAB variables
-out_path             = '../data/output/howto01-sctr-var';
+point_type = 2;  % Define evaluation points from MATLAB variables
+out_path   = '../data/output/howto01-sctr-var';
 
 
 % Let's take the grid points from the evaluation at a grid, consider them as 
 % scattered points and pass them to GrafLab.
 [lon_sctr, lat_sctr] = meshgrid(lon_grd_min:lon_grd_step:lon_grd_max, ...
                                 lat_grd_min:lat_grd_step:lat_grd_max);
-lat_sctr             = lat_sctr(:);
-lon_sctr             = lon_sctr(:);
-h_sctr               = zeros(length(lat_sctr), 1);
+lat_sctr = lat_sctr(:);
+lon_sctr = lon_sctr(:);
+h_sctr   = zeros(length(lat_sctr), 1);
 
 
 fprintf("Taking %d grid points from the synthesis at a grid " + ...

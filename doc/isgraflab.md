@@ -96,9 +96,5 @@ explained only the new ones that are unique to isGrafLab.
     respectively
 
 
-  
-  
-
-
 You should now be ready to return [back](../README.md) and go through the 
 HOWTOs.

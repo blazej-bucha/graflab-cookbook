@@ -39,7 +39,7 @@ function out = GrafLab('OK', ...
     status_bar)
 ```
 
-Throughout the HOWTOs, we keep the same names of these input parameters, so 
+Throughout the HOWTOs, we keep the same names of these **input** parameters, so 
 let's explain them:
 
 * `GM` -- Geocentric gravitational constant of GGM (`m^3 * s^-2`)
@@ -317,9 +317,10 @@ specified.
 
 * `status_bar` -- Display a kind of a progress bar, `0` for no, `1` for yes
 
-
-  
-  
+The only **output** parameter is the `out` variable.  It contains the numerical 
+data used to prepare the output data files if `export_data_txt == 1` and/or 
+`export_data_mat == 1`.  Throughout the cookbook, the name of this output 
+variable may vary.
 
 
 You should now be ready to return [back](../README.md) and go through the 

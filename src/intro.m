@@ -1,8 +1,8 @@
-function intro(n, str)
+function intro(n, title, description)
 
 
 fprintf("===================================================\n");
-fprintf("HOWTO%02d: %s\n", n, str);
+fprintf("HOWTO%02d: %s\n\n%s\n", n, title, description);
 fprintf("===================================================\n");
 
 

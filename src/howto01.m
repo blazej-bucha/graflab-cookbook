@@ -1,16 +1,15 @@
 % HOWTO NO. 1: Synthesis at grids and at scattered points
 %
-% This script demonstrates synthesis at grids and at scattered points.  The 
-% scattered points can either be loaded from an input file or taken from 
-% a MATLAB variable.
-%
 % All the GrafLab input parameters are explained in "../doc/graflab.md".
 
 
 clear;
 clc;
 howto = 1;
-intro(howto, "Synthesis at grids and at scattered points");
+intro(howto, "SYNTHESIS AT GRIDS AND AT SCATTERED POINTS", ...
+      "This HOWTO demonstrates synthesis at grids and at scattered " + ...
+      "points.  The scattered points can either be loaded from an " + ...
+      "input file or taken from a MATLAB variable.");
 
 
 
@@ -20,7 +19,7 @@ intro(howto, "Synthesis at grids and at scattered points");
 % Synthesis at grids
 % =============================================================================
 
-fprintf("\n");
+fprintf("\n\n\n\n");
 fprintf("-------------------\n");
 fprintf("Synthesis at a grid\n");
 fprintf("-------------------\n");
@@ -39,7 +38,7 @@ lat_grd_min       = -90.0;
 lat_grd_step      =   1.0;
 lat_grd_max       =  90.0;
 lon_grd_min       =   0.0;
-lon_grd_step      =   1.0;
+lon_grd_step      = lat_grd_step;
 lon_grd_max       = 360.0;
 h_grd             =   0.0;
 out_path          = '../data/output/howto01-grd';
@@ -53,7 +52,9 @@ display_data      = 0;
 status_bar        = 1;
 
 
-fprintf("The synthesis is done at a global grid with %d points.\n", ...
+fprintf("The synthesis is done at a global grid at a ""%0.16e"" deg " + ...
+        "spatial resolution (%d points).\n", ...
+        lat_grd_step, ...
         length(lat_grd_min:lat_grd_step:lat_grd_max) * ...
         length(lon_grd_min:lon_grd_step:lon_grd_max));
 fprintf("\n");
@@ -122,7 +123,7 @@ fprintf("""%s.mat"" is a MATLAB binary file with the numerical outputs " + ...
 % Synthesis at scattered points -- load evaluation points
 % =============================================================================
 
-fprintf("\n");
+fprintf("\n\n\n\n");
 fprintf("-------------------------------------------------------\n");
 fprintf("Synthesis at a scattered points loaded from a text file\n");
 fprintf("-------------------------------------------------------\n");
@@ -188,7 +189,7 @@ fprintf("Now you may want to explore the ""%s*"" files.\n\n", out_path);
 % Synthesis at scattered points -- take evaluation points from MATLAB variables
 % =============================================================================
 
-fprintf("\n");
+fprintf("\n\n\n\n");
 fprintf("------------------------------------------------------------\n");
 fprintf("Synthesis at a scattered points taken from a MATLAB variable\n");
 fprintf("------------------------------------------------------------\n");
@@ -207,7 +208,7 @@ lon_sctr = lon_sctr(:);
 h_sctr   = zeros(length(lat_sctr), 1);
 
 
-fprintf("Taking %d grid points from the synthesis at a grid " + ...
+fprintf("Taking the %d grid points from the synthesis at a grid " + ...
         "and considering them as scattered points.  The results " + ...
         "should be the same as that from the grid synthesis.\n", ...
         length(lat_sctr));
@@ -269,10 +270,10 @@ fprintf("The grid-wise synthesis took %0.3f sec, while the " + ...
 
 
 fprintf("\n");
-fprintf("Now compute the RMS of the differences between the synthesis " + ...
-        "at a grid and at scattered points.  The RMS is %0.16e " + ...
-        "which confirms that both approaches yield the same results.\n", ...
-        rms (out_grd(:, end) - out_sctr(:, end)));
+fprintf("Now let's compute the RMS of the differences between the " + ...
+        "synthesis at a grid and at scattered points.  The RMS is " + ...
+        "%0.16e which confirms that both approaches yield the same ", ...
+        "results.\n", rms (out_grd(:, end) - out_sctr(:, end)));
 
 
 fprintf("\n");

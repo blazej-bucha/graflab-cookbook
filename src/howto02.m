@@ -1,15 +1,14 @@
 % HOWTO NO. 2: Minimum and maximum harmonic degree of the synthesis
 %
-% This script shows how to modify the minimum and the maximum harmonic degree 
-% of the synthesis.
-%
 % All the GrafLab input parameters are explained in "../doc/graflab.md".
 
 
 clear;
 clc;
 howto = 2;
-intro(howto, "Minimum and maximum harmonic degree of the synthesis");
+intro(howto, "MINIMUM AND MAXIMUM HARMONIC DEGREE OF THE SYNTHESIS", ...
+      "This HOWTO shows how to modify the minimum and the " + ...
+      "maximum harmonic degree of the synthesis.");
 
 
 
@@ -47,7 +46,7 @@ display_data      = 0;
 status_bar        = 1;
 
 
-fprintf("\n");
+fprintf("\n\n\n\n");
 fprintf("-----------------------------------------\n");
 fprintf("Synthesis from nmin = %d up to nmax = %d\n", nmin, nmax);
 fprintf("-----------------------------------------\n");
@@ -100,22 +99,25 @@ out_grd = GrafLab('OK', ...
 % Synthesis up to the maximum degree of a GGM
 % =============================================================================
 
-% The maximum harmonic degree in "GGM_path" is 360.  To do the synthesis up to 
-% this degree, you may manually set "nmax" to "360" or, even better, to 
-% 'nmaxGGM'.  In the latter case, GrafLab scans the file for its maximum 
-% harmonic degree and automatically uses the maximum value it founds.  This is 
-% useful when dealing with multiple GGM files with varying maximum harmonic 
-% degree, e.g., monthly gravity field solutions.
-nmax     = 'nmaxGGM';
-out_path = sprintf('../data/output/howto02-nmin%d-nmaxGGM', nmin);
-
-
 fprintf("\n");
 fprintf("-----------------------------------------\n");
 fprintf("Synthesis from nmin = %d up to the maximum harmonic degree " + ...
         "found in ""%s""\n", nmin, GGM_path);
 fprintf("-----------------------------------------\n");
 fprintf("\n");
+fprintf("The maximum harmonic degree in ""%s"" is 360.  " + ...
+        "To do the synthesis up to this degree, you may manually " + ...
+        "set the ""nmax"" value to ""360"" or, even better, to " + ...
+        "'nmaxGGM'.  In the latter case, GrafLab scans the file for its " + ...
+        "maximum harmonic degree and automatically uses the " + ...
+        "maximum value it founds.  This is useful when dealing " + ...
+        "with multiple GGM files with varying maximum harmonic " + ...
+        "degree, e.g., monthly gravity field solutions.\n", GGM_path);
+fprintf("\n");
+
+
+nmax     = 'nmaxGGM';
+out_path = sprintf('../data/output/howto02-nmin%d-nmaxGGM', nmin);
 
 
 % Do the synthesis
@@ -198,27 +200,27 @@ fprintf("\n");
 % Synthesis from "nmin" larger than zero
 % =============================================================================
 
-% In addition to modifying "nmax", you may also change the "nmin" value.  
-% "nmin" represents the minimum degree of the harmonic synthesis.
-%
-% For some gravity field quantities, however, GrafLab does not allow non-zero 
-% "nmin" value.  The quantities includes: 9, 10, 15, 20, 23 (see the code
-% numbers for "quantity" from "../doc/graflab.md").  If you attempt to 
-% evaluated these quantities with "nmin > 0", you will get an error.
-%
-% If you set "nmin" to a value larger than "nmax", you will get an error.
-
-
-nmin = 5;  % Increase the minimum degree of the synthesis
+nmin     = 5;  % Increase the minimum degree of the synthesis
 quantity = [5];
 out_path = sprintf('../data/output/howto02-nmin%d-nmaxGGM', nmin);
 
 
-fprintf("\n");
+fprintf("\n\n\n\n");
 fprintf("-----------------------------------------\n");
 fprintf("Synthesis from nmin = %d up to the maximum harmonic degree " + ...
         "found in ""%s""\n", nmin, GGM_path);
 fprintf("-----------------------------------------\n");
+fprintf("\n");
+fprintf("In addition to modifying ""nmax"", you may also change " + ...
+        "the ""nmin"" value.  ""nmin"" represents the minimum degree " + ...
+        "of the harmonic synthesis.  For some gravity field " + ...
+        "quantities, however, GrafLab does not allow non-zero " + ...
+        """nmin"" value.  The quantities includes: 9, 10, 15, 20, 23 " + ...
+        "(see the code numbers for ""quantity"" from " + ...
+        """../doc/graflab.md"").  If you attempt to evaluate these " + ...
+        "quantities with ""nmin > 0"", you will get an error.  If you " + ...
+        "set ""nmin"" to a value larger than ""nmax"", you will get an " + ...
+        "error, too.\n");
 fprintf("\n");
 
 

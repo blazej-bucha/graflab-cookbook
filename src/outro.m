@@ -2,7 +2,7 @@ function outro(n)
 
 
 fprintf("===================================================\n");
-fprintf("End of HOWTO%02d\n", n);
+fprintf("END OF HOWTO%02d\n", n);
 fprintf("===================================================\n");
 
 

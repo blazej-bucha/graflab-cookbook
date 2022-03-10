@@ -49,7 +49,7 @@ nmin              = 0;
 nmax              = 360;
 ellipsoid         = 1;  % GRS80
 GGM_path          = '../data/input/DTM2006.mat';
-crd               = 1;  % Evaluation points are defined in ellipsoidal 
+crd               = 1;  % Evaluation points are defined in spherical 
                         % coordinates
 point_type        = 0;  % Computation at a grid
 lat_grd_min       = -90.0;
@@ -67,7 +67,8 @@ h_grd             =   0.0; % Note that the synthesis is done here in a grid,
                            % "h_sctr" to "1.0".
 out_path          = '../data/output/howto06-topography';
 quantity_or_error = 0;
-quantity          = [11];  % Gravitational potential
+quantity          = [11];  % Gravitational potential; in this case, however, 
+                           % gravitational potential
 fnALFs            = 1;
 export_data_txt   = 1;
 export_report     = 1;
@@ -81,7 +82,6 @@ status_bar        = 1;
 
 
 % Do the synthesis
-tic
 out = GrafLab('OK', ...
     GM, ...
     R, ...
@@ -116,7 +116,6 @@ out = GrafLab('OK', ...
     number_of_colors, ...
     dpi, ...
     status_bar);
-time_grd = toc;
 
 
 fprintf("\n");

@@ -61,21 +61,17 @@ back.
 * [06](src/howto06.m): Synthesis of other functions than gravity field 
                        quantities, e.g. planetary topographies
 
-* [07](src/howto07.m): Synthesis of gravity fields implied by celestial bodies
-
-* [08](src/howto08.m): Synthesis with a custom reference ellipsoid
-
-* [09](src/howto09.m): Grids with varying spacings in latitudes and longitudes
-
-* [10](src/howto10.m): Stop the Earth's rotation to get gravitational 
+* [07](src/howto07.m): Stop the Earth's rotation to get gravitational 
                        quantities instead of the gravity quantities
 
-* [11](src/howto11.m): Exploit the symmetry of Legendre functions with respect 
+* [08](src/howto08.m): Grids with varying spacings in latitudes and longitudes
+
+* [09](src/howto09.m): Exploit the symmetry of Legendre functions with respect 
   to the equator to improve the computational speed
 
-* [12](src/howto12.m): Commission error
+* [10](src/howto10.m): Commission error
 
-* [13](src/howto13.m): A trick with the minimum and the maximum degree of the 
+* [11](src/howto11.m): A trick with the minimum and the maximum degree of the 
                        synthesis
 
 
@@ -86,10 +82,10 @@ If you are not familiar with the isGrafLab command line interface, you may want
 to go [here](doc/isgraflab.md), learn the interface at first and then return 
 back.
 
-* [14](src/howto14.m): Synthesis at grids residing on the Earth's topography 
+* [12](src/howto12.m): Synthesis at grids residing on the Earth's topography 
   in spherical coordinates
 
-* [15](src/howto15.m): Synthesis at grids residing on the Earth's topography 
+* [13](src/howto13.m): Synthesis at grids residing on the Earth's topography 
   in ellipsoidal coordinates
 
 

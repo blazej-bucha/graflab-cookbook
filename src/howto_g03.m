@@ -1,4 +1,4 @@
-%% HOWTO NO. 3: Minimum and maximum harmonic degree of the synthesis
+%% HOWTO g03: Minimum and maximum harmonic degree of the synthesis
 %
 % You will learn how to modify the minimum and the maximum harmonic degrees of 
 % the synthesis.
@@ -30,7 +30,7 @@ lon_grd_min       =   0.0;
 lon_grd_step      =   1.0;
 lon_grd_max       = 360.0;
 h_grd             =   0.0;
-out_path          = sprintf('../data/output/howto03-nmin%d-nmax%d', ...
+out_path          = sprintf('../data/output/howto-g03-nmin%d-nmax%d', ...
                             nmin, nmax);
 quantity_or_error = 0;
 quantity          = 5;
@@ -95,7 +95,7 @@ GrafLab('OK', ...
 %%
 % Update the GrafLab input parameters.
 nmax     = 'nmaxGGM';
-out_path = sprintf('../data/output/howto03-nmin%d-nmaxGGM', nmin);
+out_path = sprintf('../data/output/howto-g03-nmin%d-nmaxGGM', nmin);
 
 
 %%
@@ -170,7 +170,7 @@ out_grd = GrafLab('OK', ...
 %%
 % We simply increase "nmin" and modify the name of the output files.
 nmin     = 100;  % Increase the minimum degree of the synthesis
-out_path = sprintf('../data/output/howto03-nmin%d-nmaxGGM', nmin);
+out_path = sprintf('../data/output/howto-g03-nmin%d-nmaxGGM', nmin);
 
 
 %%

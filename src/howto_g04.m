@@ -1,4 +1,4 @@
-%% HOWTO NO. 4: Methods to compute the Legendre functions
+%% HOWTO g04: Methods to compute the Legendre functions
 %
 % You will learn about the pros and cons of the three supported methods to 
 % compute Legendre functions.
@@ -48,7 +48,7 @@ lon_grd_min       =   0.1;
 lon_grd_step      = lat_grd_step;
 lon_grd_max       = 360.0;
 h_grd             =   0.0;
-out_path          = '../data/output/howto04-grd';
+out_path          = '../data/output/howto-g04-grd';
 quantity_or_error = 0;
 quantity          = 5;
 export_data_txt   = 0;
@@ -118,7 +118,7 @@ h_sctr   = zeros(length(lat_sctr), 1);
 %
 % Update some GrafLab input parameters.
 point_type = 2;  % Computation at a grid
-out_path   = '../data/output/howto04-sctr';
+out_path   = '../data/output/howto-g04-sctr';
 
 
 %%

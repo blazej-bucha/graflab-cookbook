@@ -1,4 +1,4 @@
-%% HOWTO NO. 2: Gravitational field models
+%% HOWTO g02: Gravitational field models
 %
 % You will learn about the formats of gravitational field models that are 
 % supported by GrafLab.
@@ -72,7 +72,7 @@ lon_grd_min       =   0.0;
 lon_grd_step      =   1.0;
 lon_grd_max       = 360.0;
 h_grd             =   0.0;
-out_path          = '../data/output/howto02-table-mat';
+out_path          = '../data/output/howto-g02-table-mat';
 quantity_or_error = 0;
 quantity          = 5;
 fnALFs            = 1;
@@ -131,7 +131,7 @@ GGM = load(GGM_mat);
 GGM = GGM.EGM96;
 GGM_txt  = '../data/output/EGM96.txt';  % This is the text version of "GGM_mat"
 save(GGM_txt, 'GGM', '-ascii', '-double');
-out_path = sprintf('../data/output/howto02-table-txt');
+out_path = sprintf('../data/output/howto-g02-table-txt');
 
 
 %%
@@ -207,7 +207,7 @@ fprintf("The RMS of the difference is %0.16e\n", rms(out_mat(:, end) - ...
 GM       = 1.0;
 R        = 1.0;
 GGM_gfc  = '../data/input/GO_CONS_GCF_2_TIM_R6.gfc';  % This is the "gfc" file
-out_path = '../data/output/howto02-gfc';
+out_path = '../data/output/howto-g02-gfc';
 
 
 %%

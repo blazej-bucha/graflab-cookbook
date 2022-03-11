@@ -1,4 +1,4 @@
-%% HOWTO NO. 6: Synthesis of planetary topographies
+%% HOWTO g06: Synthesis of planetary topographies
 %
 % You will learn how to synthese a planetary topography.  In fact, the same 
 % approach can be applied to any surface spherical harmonic synthesis of the 
@@ -56,7 +56,7 @@ h_grd             =   0.0; % Note that the synthesis is here done at a grid,
                            % radius of the evaluation points "r" will be "1.0".  
                            % If you do the synthesis at scattered points, you 
                            % should set "h_sctr" to "1.0".
-out_path          = '../data/output/howto06-topography';
+out_path          = '../data/output/howto-g06-topography';
 quantity_or_error = 0;
 quantity          = 11;  % Gravitational potential; in this case, however, 
                          % we synthese the Earth's topography

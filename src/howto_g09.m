@@ -1,4 +1,4 @@
-%% HOWTO NO. 9: Exploit the symmetry of Legendre functions
+%% HOWTO g09: Exploit the symmetry of Legendre functions
 %
 % You will learn about the conditions that must be satisfied to take advantage 
 % of the symmetry property of Legendre functions.
@@ -104,7 +104,7 @@ lon_grd_min       = lon;
 lon_grd_step      = 'empty';
 lon_grd_max       = 'empty';
 h_grd             = h;
-out_path          = '../data/output/howto09-symm';
+out_path          = '../data/output/howto-g09-symm';
 quantity_or_error = 0;
 quantity          = 5;
 fnALFs            = 3;  % Important

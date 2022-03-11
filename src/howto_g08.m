@@ -1,4 +1,4 @@
-%% HOWTO NO. 8: Grids with varying spacings in latitudes and longitudes
+%% HOWTO g08: Grids with varying spacings in latitudes and longitudes
 %
 % You will learn how to do the efficient grid-wise synthesis, but this time 
 % with varying grid step in latitude and/or longitude.
@@ -66,7 +66,7 @@ lon_grd_min       = lon;     % Our column vector of ellipsoidal longitudes
 lon_grd_step      = 'empty'; % Required if "lon_grd_min" is an array
 lon_grd_max       = 'empty'; % Required if "lon_grd_min" is an array
 h_grd             = h;
-out_path          = '../data/output/howto08-varying-grd-latitude';
+out_path          = '../data/output/howto-g08-varying-grd-latitude';
 quantity_or_error = 0;
 quantity          = 5;  % Disturbing potential
 fnALFs            = 1;

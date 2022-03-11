@@ -1,4 +1,4 @@
-%% HOWTO NO. 5: Plotting in GrafLab and the output variable
+%% HOWTO g05: Plotting in GrafLab and the output variable
 %
 % You will learn how to plot the results of the synthesis with GrafLab and 
 % about the GrafLab output variable.
@@ -34,7 +34,7 @@ lon_grd_min       =   0.0;
 lon_grd_step      = lat_grd_step;
 lon_grd_max       = 360.0;
 h_grd             =   0.0;
-out_path          = '../data/output/howto05-mapping-toolbox';
+out_path          = '../data/output/howto-g05-mapping-toolbox';
 quantity_or_error = 0;
 quantity          = 5;
 fnALFs            = 1;
@@ -108,7 +108,7 @@ fprintf("%0.1f sec.\n", time_mt);
 %
 % Update some of the GrafLab input paramaters.
 display_data = 2;  % Use the "imagesc" function to plot the synthesis
-out_path     = '../data/output/howto05-imagesc';
+out_path     = '../data/output/howto-g05-imagesc';
 
 
 %%

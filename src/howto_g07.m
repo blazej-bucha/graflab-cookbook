@@ -1,4 +1,4 @@
-%% HOWTO NO. 7: Stop the rotation to get gravitational quantities
+%% HOWTO g07: Stop the rotation to get gravitational quantities
 %
 % You will learn how to stop the Earth's rotation in order to compute, for 
 % instance, the *gravitational* vector instead of the *gravity* vector (no
@@ -46,7 +46,7 @@ lon_grd_min       =   0.0;
 lon_grd_step      = lat_grd_step;
 lon_grd_max       = 360.0;
 h_grd             =   0.0;
-out_path          = '../data/output/howto07-gravitational-vector-sph-crd';
+out_path          = '../data/output/howto-g07-gravitational-vector-sph-crd';
 quantity_or_error = 0;
 quantity          = 16;  % Gravity vector; in this case, however, 
                          % gravitational vector

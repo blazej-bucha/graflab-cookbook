@@ -9,11 +9,10 @@ are several tricks to exploit the routines beyond their original intention
 (planetary topographies, etc.).
 
 
-The HOWTOs are ordinary MATLAB m-file scripts. Attached is the 
-`./src/compile_doc.m` script to convert the m-files to Live Scripts, PDF and 
-HTML documentation if this is what you prefer. It saves the outputs to the 
-`./doc` directory. The current version of the compiled cookbook is also 
-available online at 
+The HOWTOs are ordinary MATLAB scripts. Attached is the `./src/compile_doc.m` 
+script to convert the m-files to Live Scripts, PDF and HTML documentation if 
+this is what you prefer. The outputs are saved to the `./doc` directory. The 
+current version of the compiled cookbook is also available online at 
 [https://blazejbucha.com/graflab/doc](https://blazejbucha.com/graflab/doc).
 
 
@@ -46,34 +45,31 @@ If you are not familiar with the GrafLab command line interface, you may want
 to go [here](doc/graflab.md), learn the interface at first and then return 
 back.
 
-### Basics
+* [g01](src/howto-g01.m): Synthesis at grids and at scattered points
 
-* [01](src/howto01.m): Synthesis at grids and at scattered points
+* [g02](src/howto-g02.m): Gravitational field models
 
-* [02](src/howto02.m): Gravitational field models
+* [g03](src/howto-g03.m): Minimum and maximum harmonic degree of the 
+  synthesis
 
-* [03](src/howto03.m): Minimum and maximum harmonic degree of the synthesis
+* [g04](src/howto-g04.m): Methods to compute the Legendre functions
 
-* [04](src/howto04.m): Methods to compute the Legendre functions
+* [g05](src/howto-g05.m): Plotting in GrafLab and the output variable
 
-* [05](src/howto05.m): Plotting in GrafLab and the output variable
+* [g06](src/howto-g06.m): Synthesis of planetary topographies
 
+* [g07](src/howto-g07.m): Stop the Earth's rotation to get gravitational 
+  quantities
 
-### Advanced
+* [g08](src/howto-g08.m): Grids with varying spacings in latitudes and 
+  longitudes
 
-* [06](src/howto06.m): Synthesis of planetary topographies
+* [g09](src/howto-g09.m): Exploit the symmetry of Legendre functions
 
-* [07](src/howto07.m): Stop the Earth's rotation to get gravitational 
-                       quantities
+* [g10](src/howto-g10.m): Commission error
 
-* [08](src/howto08.m): Grids with varying spacings in latitudes and longitudes
-
-* [09](src/howto09.m): Exploit the symmetry of Legendre functions
-
-* [10](src/howto10.m): Commission error
-
-* [11](src/howto11.m): A trick with the minimum and the maximum degree of the 
-                       synthesis
+* [g11](src/howto-g11.m): A trick with the minimum and the maximum degree of 
+  the synthesis
 
 
 
@@ -83,10 +79,10 @@ If you are not familiar with the isGrafLab command line interface, you may want
 to go [here](doc/isgraflab.md), learn the interface at first and then return 
 back.
 
-* [12](src/howto12.m): Synthesis at grids residing on the Earth's topography 
+* [i01](src/howto-i01.m): Synthesis at grids residing on the Earth's topography 
   in spherical coordinates
 
-* [13](src/howto13.m): Synthesis at grids residing on the Earth's topography 
+* [i02](src/howto-i02.m): Synthesis at grids residing on the Earth's topography 
   in ellipsoidal coordinates
 
 

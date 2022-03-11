@@ -1,4 +1,4 @@
-%% HOWTO NO. 1: Synthesis at grids and at scattered points
+%% HOWTO g01: Synthesis at grids and at scattered points
 %
 % You will learn how to perform spherical harmonic synthesis at
 %
@@ -36,7 +36,7 @@ lon_grd_min       =   0.0;
 lon_grd_step      = lat_grd_step;
 lon_grd_max       = 360.0;
 h_grd             =   0.0;
-out_path          = '../data/output/howto01-grd';
+out_path          = '../data/output/howto-g01-grd';
 quantity_or_error = 0;
 quantity          = 5;
 fnALFs            = 1;
@@ -116,7 +116,7 @@ fprintf("""%s.mat""\n", out_path);
 % (5 points).
 point_type       = 1;  % Evaluation points from a text file
 sctr_points_path = '../data/input/input-points.txt';
-out_path         = '../data/output/howto01-sctr-load-txt';
+out_path         = '../data/output/howto-g01-sctr-load-txt';
 
 
 %%
@@ -179,7 +179,7 @@ save(sctr_points_path, "sctr_points", "-v7.3");
 
 %%
 % Update the GrafLab input parameters.
-out_path         = '../data/output/howto01-sctr-load-mat';
+out_path         = '../data/output/howto-g01-sctr-load-mat';
 
 
 %%
@@ -243,7 +243,7 @@ h_sctr   = zeros(length(lat_sctr), 1);
 
 % Update the GrafLab input parameters
 point_type = 2;  % Evaluation points from MATLAB variables
-out_path   = '../data/output/howto01-sctr-var';
+out_path   = '../data/output/howto-g01-sctr-var';
 
 
 %%

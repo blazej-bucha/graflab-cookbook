@@ -3,8 +3,8 @@
 % You will learn about the formats of gravitational field models that are 
 % supported by GrafLab.
 %
-% All the GrafLab input parameters are explained in <../doc/graflab.md 
-% ../doc/graflab.md>.
+% All the GrafLab input parameters are explained in <../graflab.md 
+% ../graflab.md>.
 
 
 %%

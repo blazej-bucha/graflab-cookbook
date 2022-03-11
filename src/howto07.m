@@ -4,8 +4,8 @@
 % instance, the *gravitational* vector instead of the *gravity* vector (no
 % centrifugal force).
 %
-% All the GrafLab input parameters are explained in <../doc/graflab.md 
-% ../doc/graflab.md>.
+% All the GrafLab input parameters are explained in <../graflab.md 
+% ../graflab.md>.
 
 
 %%
@@ -182,3 +182,6 @@ GrafLab('OK', ...
     dpi, ...
     status_bar);
 
+
+%%
+% The same comment as from the very end of HOWTO NO. 6 applies here, too.

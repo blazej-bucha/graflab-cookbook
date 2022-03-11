@@ -9,8 +9,8 @@
 % The scattered points will be loaded from a text file, a binary "mat" file and
 % also will be taken from a MATLAB variable.
 %
-% All the GrafLab input parameters are explained in <../doc/graflab.md 
-% ../doc/graflab.md>.
+% All the GrafLab input parameters are explained in <../graflab.md 
+% ../graflab.md>.
 
 
 %%

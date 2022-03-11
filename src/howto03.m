@@ -3,8 +3,8 @@
 % You will learn how to modify the minimum and the maximum harmonic degrees of 
 % the synthesis.
 %
-% All the GrafLab input parameters are explained in <../doc/graflab.md 
-% ../doc/graflab.md>.
+% All the GrafLab input parameters are explained in <../graflab.md 
+% ../graflab.md>.
 
 
 %%

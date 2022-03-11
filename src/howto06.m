@@ -17,8 +17,8 @@
 % respectively. This means GrafLab can synthesize a wide range of (real)
 % functions given on a sphere.
 %
-% All the GrafLab input parameters are explained in <../doc/graflab.md 
-% ../doc/graflab.md>.
+% All the GrafLab input parameters are explained in <../graflab.md 
+% ../graflab.md>.
 
 
 
@@ -114,3 +114,11 @@ out = GrafLab('OK', ...
 % You may now take a look at the ouput files.
 fprintf("The ""%s*_Gravitational_potential.png"" file shows the " + ...
         "synthesized topography.\n", out_path);
+
+
+%%
+% Note that GrafLab thinks it computed the gravitational potential. It has no 
+% idea (how could it?) that we actually computed the Earth's topography. This 
+% is why the plot, the report file, the file name, etc. still report the 
+% gravitational potential.
+

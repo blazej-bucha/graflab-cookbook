@@ -1,77 +1,70 @@
-% HOWTO NO. 4: Methods to compute the fully-normalized associated Legendre 
-% functions
+%% HOWTO NO. 4: Methods to compute the Legendre functions
 %
-% All the GrafLab input parameters are explained in "../doc/graflab.md".
+% You will learn about the pros and cons of the three supported methods to 
+% compute Legendre functions.
+%
+% All the GrafLab input parameters are explained in <../doc/graflab.md 
+% ../doc/graflab.md>.
 
 
-clear;
-clc;
-howto = 4;
-intro(howto, "METHODS TO COMPUTE THE FULLY-NORMALIZED ASSOCIATED " + ...
-      "LEGENDRE FUNCTIONS", ...
-      "This HOWTO describes pros and cons of the three supported " + ...
-      "methods to computes Legendre functions.");
-
-fprintf("\n\n\n\n");
-fprintf("The standard forward column method (SFCM, ""fnALFs = 1"") " + ...
-        "can be used up to degree ""1800"".\n");
-fprintf("The modified forward column method (MFCM, ""fnALFs = 2"") " + ...
-        "can be used up to degree ""2700"".\n");
-fprintf("The extended range arithmetic approach (ERA, ""fnALFs = 3"") " + ...
-        "can be used up to almost an arbitrary degree.\n");
-fprintf("\n");
-fprintf("Let's do some grid-wise and point-wise syntheses with all " + ...
-        "three methods to see which one should be preferred " + ...
-        "in case more than one method is stable within your range of " + ...
-        "harmonic degrees.\n");
+%%
+% Let's start by clearing the workspace, command window and by checking whether 
+% all input data are available.
+clear; clc; init_checker();
 
 
+%% Brief summary
+% The standard forward column method (SFCM, "fnALFs = 1") can be used up to 
+% degree 1800.
+%
+% The modified forward column method (MFCM, "fnALFs = 2") can be used up to 
+% degree 2700.
+%
+% The extended range arithmetic approach (ERA, "fnALFs = 3") can be used up to 
+% almost an arbitrary degree.
+%
+% Let's do some grid-wise and point-wise syntheses with all three methods to 
+% see which one should be preferred in case more than one method is stable 
+% within your range of harmonic degrees.
 
 
-% Benchmarks for grid-wise computations
-% =============================================================================
+%% Benchmarks for grid-wise computations
+% Note that the same number of points is use for all grid computations.
+%
+% Define all GrafLab input parameters except the method to compute the Legendre 
+% functions.
+GM                = 3986004.415E+8;
+R                 = 6378136.3;
+nmin              = 0;
+nmax              = 360;
+ellipsoid         = 1;
+GGM_path          = '../data/input/EGM96.mat';
+crd               = 0;
+point_type        = 0;
+lat_grd_min       = -90.0;
+lat_grd_step      =   0.1;
+lat_grd_max       =  90.0;
+lon_grd_min       =   0.1;
+lon_grd_step      = lat_grd_step;
+lon_grd_max       = 360.0;
+h_grd             =   0.0;
+out_path          = '../data/output/howto04-grd';
+quantity_or_error = 0;
+quantity          = 5;
+export_data_txt   = 0;
+export_report     = 0;
+export_data_mat   = 0;
+display_data      = 0;
+status_bar        = 1;
 
-fprintf("\n\n\n\n");
-fprintf("-------------------\n");
-fprintf("Grid-wise computations\n");
-fprintf("-------------------\n");
-fprintf("\n");
-fprintf("The same number of points is use for all grid computations.\n");
-fprintf("\n");
 
-
+%%
+% Do the tests by looping over the methods to compute Legendre functions.
 time_grd = zeros(3, 1);
 for fnALFs = [1, 2, 3]
 
     fprintf("fnALFs method: %d\n", fnALFs);
 
-    GM                = 3986004.415E+8;
-    R                 = 6378136.3;
-    nmin              = 0;
-    nmax              = 360;
-    ellipsoid         = 1;  % GRS80
-    GGM_path          = '../data/input/EGM96.mat';
-    crd               = 0;  % Evaluation points are defined in ellipsoidal 
-                            % coordinates
-    point_type        = 0;  % Computation at a grid
-    lat_grd_min       = -90.0;
-    lat_grd_step      =   0.1;
-    lat_grd_max       =  90.0;
-    lon_grd_min       =   0.1;
-    lon_grd_step      = lat_grd_step;
-    lon_grd_max       = 360.0;
-    h_grd             =   0.0;
-    out_path          = '../data/output/howto04-grd';
-    quantity_or_error = 0;
-    quantity          = [5];  % Disturbing potential
-    export_data_txt   = 0;
-    export_report     = 0;
-    export_data_mat   = 0;
-    display_data      = 0;
-    status_bar        = 1;
-
-
-    % Do the synthesis
     tic
     out_grd = GrafLab('OK', ...
         GM, ...
@@ -107,49 +100,33 @@ for fnALFs = [1, 2, 3]
         [], ...
         [], ...
         status_bar);
-
     time_grd(fnALFs) = toc;
-
-    fprintf("\n");
 
 end
 
 
+%% Benchmarks for point-wise computations
+% The same number of scattered points is use for all point-wise computations.
+%
+% Now let's define the scattered points
+[lon_sctr, lat_sctr] = meshgrid(0.0:2.0:360.0, ...
+                                -90.0:2.0:90.0);
+lat_sctr = lat_sctr(:);
+lon_sctr = lon_sctr(:);
+h_sctr   = zeros(length(lat_sctr), 1);
 
-% =============================================================================
-
-
-
-
-
-
-% Benchmarks for point-wise computations
-% =============================================================================
-
-fprintf("\n\n\n\n");
-fprintf("-------------------\n");
-fprintf("Point-wise computations\n");
-fprintf("-------------------\n");
-fprintf("\n");
-fprintf("The same number of points is use for all point-wise computations.\n");
-fprintf("\n");
+%
+% Update some GrafLab input parameters.
+point_type = 2;  % Computation at a grid
+out_path   = '../data/output/howto04-sctr';
 
 
+%%
+% Do the tests by looping over the methods to compute Legendre functions.
 time_sctr = zeros(3, 1);
 for fnALFs = [1, 2, 3]
 
     fprintf("fnALFs method: %d\n", fnALFs);
-
-    point_type = 2;  % Computation at a grid
-    out_path   = '../data/output/howto04-sctr';
-
-
-    % Now let's define the scattered points
-    [lon_sctr, lat_sctr] = meshgrid(0.0:2.0:360.0, ...
-                                    -90.0:2.0:90.0);
-    lat_sctr = lat_sctr(:);
-    lon_sctr = lon_sctr(:);
-    h_sctr   = zeros(length(lat_sctr), 1);
 
 
     % Do the synthesis
@@ -190,46 +167,27 @@ for fnALFs = [1, 2, 3]
         status_bar);
     time_sctr(fnALFs) = toc;
 
-
-    fprintf("\n");
 end
 
 
-
-% =============================================================================
-
-
-
-
-
-
-% Print the results of the test
-% =============================================================================
-
-fprintf("\n\n\n\n");
-fprintf("-------------------\n");
-fprintf("Results of the benchmarks\n");
-fprintf("-------------------\n");
-fprintf("Grid-wise computation times in sec:\n");
-fprintf("   SFCM: %0.1f\n", time_grd(1));
-fprintf("   MFCM: %0.1f\n", time_grd(2));
-fprintf("    ERA: %0.1f\n", time_grd(3));
-fprintf("   Outcome:  Up to degree ""1800"", use SFCM.  Beyond that " + ...
-        "degree, use ERA.  Avoid using MFCM.\n");
-fprintf("\n");
-fprintf("Point-wise computation times in sec:\n");
-fprintf("   SFCM: %0.1f\n", time_sctr(1));
-fprintf("   MFCM: %0.1f\n", time_sctr(2));
-fprintf("    ERA: %0.1f\n", time_sctr(3));
-fprintf("   Outcome:  Up to degree ""1800"", use SFCM or MFCM.  From " + ...
-        "degrees ""1801"" to ""2700"", use MFCM.  Beyond degree " + ...
-        """2700"", use ERA.\n");
-fprintf("\n");
-
-% =============================================================================
+%% Results of the benchmarks
+% Grid-wise computation times in sec:
+fprintf("SFCM: %0.1f\n", time_grd(1));
+fprintf("MFCM: %0.1f\n", time_grd(2));
+fprintf(" ERA: %0.1f\n", time_grd(3));
 
 
+%%
+% Point-wise computation times in sec:
+fprintf("SFCM: %0.1f\n", time_sctr(1));
+fprintf("MFCM: %0.1f\n", time_sctr(2));
+fprintf(" ERA: %0.1f\n", time_sctr(3));
 
 
-
-outro(howto);
+%% Conclusions
+%
+% For grid computations up to degree 1800, use SFCM. Beyond that degree, use 
+% ERA. Avoid using MFCM.
+%
+% For point-wise synthesis up to degree 1800, use SFCM or MFCM. For degree from 
+% 1801 to 2700, use MFCM.  Beyond degree 2700, use ERA.

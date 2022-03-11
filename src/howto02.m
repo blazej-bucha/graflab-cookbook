@@ -1,70 +1,70 @@
-% HOWTO NO. 3: Gravitational field models
+%% HOWTO NO. 2: Gravitational field models
 %
-% All the GrafLab input parameters are explained in "../doc/graflab.md".
+% You will learn about the formats of gravitational field models that are 
+% supported by GrafLab.
+%
+% All the GrafLab input parameters are explained in <../doc/graflab.md 
+% ../doc/graflab.md>.
 
 
-clear;
-clc;
-howto = 2;
-intro(howto, "GRAVITATIONAL FIELD MODELS", ...
-      "This HOWTO shows the GGM formats accepted by GrafLab.");
+%%
+% Let's start by clearing the workspace, command window and by checking whether 
+% all input data are available.
+clear; clc; init_checker();
 
 
 
 
 
-fprintf("\n\n\n\n");
-fprintf("-----------------------------------------\n");
-fprintf("Structure of a global geopotential model (GGM) file\n" + ...
-        "-----------------------------------------\n" + ...
-        "The structure of the GGM coefficients table must follow " + ...
-        "either ""Table 1"" or  ""Table 2"".  Any other ordering " + ...
-        "scheme may not be processed correctly by " + ...
-        "GrafLab, so is not recommended. " + ...
-        "\n" + ...
-        "\n" + ...
-        "Table 1: GGM up to degree ""2"" \n" + ...
-        "........................................\n" + ...
-        "  n   m       Cnm           Snm \n" + ...
-        "........................................\n" + ...
-        "  0   0    1.00000E+00    0.00000E+00 \n" + ...
-        "  1   0    0.00000E+00    0.00000E+00 \n" + ...
-        "  1   1    0.00000E+00    0.00000E+00 \n" + ...
-        "  2   0   -0.48417E-03    0.00000E+00 \n" + ...
-        "  2   1   -0.20662E-09    0.13844E-08 \n" + ...
-        "  2   2    0.24394E-05   -0.14003E-05 \n" + ...
-        "........................................\n" + ...
-        "\n" + ...
-        "\n" + ...
-        "Table 2: GGM up to degree ""2"" \n" + ...
-        "........................................\n" + ...
-        "  n   m       Cnm           Snm \n" + ...
-        "........................................\n" + ...
-        "  0   0    1.00000E+00    0.00000E+00 \n" + ...
-        "  1   0    0.00000E+00    0.00000E+00 \n" + ...
-        "  2   0   -0.48417E-03    0.00000E+00 \n" + ...
-        "  1   1    0.00000E+00    0.00000E+00 \n" + ...
-        "  2   1   -0.20662E-09    0.13844E-08 \n" + ...
-        "  2   2    0.24394E-05   -0.14003E-05 \n" + ...
-        "........................................\n");
+%% Structure of a global geopotential model (GGM) file
+% The structure of the GGM coefficients table must follow either "Table 1" or  
+% "Table 2".  Any other ordering scheme may not be processed correctly by 
+% GrafLab, so is not recommended.
+%
+% Table 1: GGM coefficients table up to degree 2.  The column order is degree,
+% order, Cnm and Snm
+%
+%   0   0    1.00000E+00    0.00000E+00
+%   1   0    0.00000E+00    0.00000E+00
+%   1   1    0.00000E+00    0.00000E+00
+%   2   0   -0.48417E-03    0.00000E+00
+%   2   1   -0.20662E-09    0.13844E-08
+%   2   2    0.24394E-05   -0.14003E-05
+%
+%
+% Table 2: GGM coefficients table up to degree 2.  The column order is degree,
+% order, Cnm and Snm
+%
+%   0   0    1.00000E+00    0.00000E+00
+%   1   0    0.00000E+00    0.00000E+00
+%   2   0   -0.48417E-03    0.00000E+00
+%   1   1    0.00000E+00    0.00000E+00
+%   2   1   -0.20662E-09    0.13844E-08
+%   2   2    0.24394E-05   -0.14003E-05
 
 
 
 
 
 
-% MATLAB's binary file format
-% =============================================================================
+%% MATLAB's binary file
+% The "mat" file must store one variable only. The variable must be a matrix 
+% with the structure as shown in "Table 1" or "Table 2" above. An example of 
+% a valid MATLAB binary file format of a GGM can be found in 
+% "../data/input/EGM96.mat".
 
+
+%%
+% Let's define the GrafLab input parameters.
 GM                = 3986004.415E+8;
 R                 = 6378136.3;
 nmin              = 0;
 nmax              = 'nmaxGGM';
-ellipsoid         = 1;  % GRS80
-GGM_mat           = '../data/input/EGM96.mat';
-crd               = 0;  % Evaluation points are defined in ellipsoidal 
-                        % coordinates
-point_type        = 0;  % Computation at a grid
+ellipsoid         = 1;
+GGM_mat           = '../data/input/EGM96.mat';  % This is the MATLAB binary 
+                                                % file with GGM coefficients
+crd               = 0;
+point_type        = 0;
 lat_grd_min       = -90.0;
 lat_grd_step      =   1.0;
 lat_grd_max       =  90.0;
@@ -72,9 +72,9 @@ lon_grd_min       =   0.0;
 lon_grd_step      =   1.0;
 lon_grd_max       = 360.0;
 h_grd             =   0.0;
-out_path          = sprintf('../data/output/howto03-table-mat');
+out_path          = '../data/output/howto02-table-mat';
 quantity_or_error = 0;
-quantity          = [5];  % Disturbing potential
+quantity          = 5;
 fnALFs            = 1;
 export_data_txt   = 1;
 export_report     = 1;
@@ -83,20 +83,7 @@ display_data      = 0;
 status_bar        = 1;
 
 
-fprintf("\n\n\n\n");
-fprintf("-----------------------------------------\n");
-fprintf("MATLAB binary file ""%s""\n", GGM_mat);
-fprintf("-----------------------------------------\n");
-fprintf("\n");
-fprintf("GGM can be stored in the MATLAB's binary file format.  " + ...
-        "The ""mat"" file must store one variable only.  The variable " + ...
-        "must be a matrix with the structure as shown in " + ...
-        """Table 1"" or ""Table 2"" above.  An example of a valid " + ...
-        "MATLAB binary file format of a GGM can be found in " + ...
-        """../data/input/EGM96.mat"".\n");
-fprintf("\n");
-
-
+%%
 % Do the synthesis
 out_mat = GrafLab('OK', ...
     GM, ...
@@ -133,40 +120,21 @@ out_mat = GrafLab('OK', ...
     [], ...
     status_bar);
 
-% =============================================================================
 
-
-
-
-
-
-% Text format
-% =============================================================================
-
-GGM_txt  = '../data/output/EGM96.txt';
-out_path = sprintf('../data/output/howto03-table-txt');
-
-
-fprintf("\n\n\n\n");
-fprintf("-----------------------------------------\n");
-fprintf("Text file ""%s""\n", GGM_txt);
-fprintf("-----------------------------------------\n");
-fprintf("\n");
-fprintf("This example shows how to import a GGM that obeys the " + ...
-        "structure of ""Table 1"" or ""Table 2"" but is stored in a " + ...
-        "text file.");
-fprintf("\n");
-
-
-% Let's save now the "../data/input/EGM96.mat" file to a text file.  In this 
-% way, we obtain a text representation of the binary "mat" file.
-fprintf("\n");
-fprintf("Converting ""%s"" to a text file ""%s""...\n\n", GGM_mat, GGM_txt);
+%% Text format
+% This example shows how to import a text format of GGM that obeys the 
+% structure of "Table 1" or "Table 2".
+%
+% Let's save now the "GGM_mat" file to a text file and update some GrafLab 
+% input parameters.
 GGM = load(GGM_mat);
 GGM = GGM.EGM96;
+GGM_txt  = '../data/output/EGM96.txt';  % This is the text version of "GGM_mat"
 save(GGM_txt, 'GGM', '-ascii', '-double');
+out_path = sprintf('../data/output/howto02-table-txt');
 
 
+%%
 % Do the synthesis
 out_txt = GrafLab('OK', ...
     GM, ...
@@ -204,69 +172,44 @@ out_txt = GrafLab('OK', ...
     status_bar);
 
 
-fprintf("\n");
-fprintf("The RMS of the difference obtained with GGM from a MATLAB " + ...
-        "binary format and a text file is %0.16e\n", rms(out_mat(:, end) - ...
-                                                         out_txt(:, end)));
-fprintf("\n");
-
-% =============================================================================
+%%
+% Now check whether the synthesis with the GGM from the MATLAB's binary file 
+% and the text file are equal.
+fprintf("The RMS of the difference is %0.16e\n", rms(out_mat(:, end) - ...
+                                                     out_txt(:, end)));
 
 
+%% GFC format
+% The "gfc" format is defined by ICGEM 
+% (http://icgem.gfz-potsdam.de/ICGEM-Format-2011.pdf).
+%
+% GrafLab should be able to process most of the *static* models found on the 
+% ICGEM website. It *cannot* process temporal models. The temporal models can 
+% easily be identified, as they use terms such as "gfct",
+% "trnd", "acos", "asin", etc. If you attempt import a temporal model, you 
+% should get an error message.
+%
+% Whenever you import a "gfc" file, GrafLab reads its header and takes the "GM" 
+% and "R" constants from that file.  The "GM" and "R" values that we pass to 
+% GrafLab are *not* used in case of "gfc" files, so we can use any positive 
+% real number, it simply does not matter. GrafLab will print a warning if your 
+% "GM" and/or "R" values are different from those found in the "gfc" file. You 
+% may verify that GrafLab took correctly the "GM" and "R" values from the "gfc" 
+% file by inspecting the report file exported by GrafLab. In this example, we 
+% import some more or less random static model downloaded from the ICGEM 
+% website.
 
-
-
-
-% gfc format as defined by ICGEM
-% =============================================================================
-
+%%
+% Define the GrafLab input parameters.  We intentionally set "GM" and "R" to
+% a wrong value "1.0" to demonstrate that GrafLab will ignore our choice and 
+% will use the correct ones from the "gfc" file.
 GM       = 1.0;
 R        = 1.0;
-GGM_gfc  = '../data/input/GO_CONS_GCF_2_TIM_R6.gfc';
-out_path = sprintf('../data/output/howto03-gfc');
+GGM_gfc  = '../data/input/GO_CONS_GCF_2_TIM_R6.gfc';  % This is the "gfc" file
+out_path = '../data/output/howto02-gfc';
 
 
-fprintf("\n\n\n\n");
-fprintf("-----------------------------------------\n");
-fprintf("gfc file ""%s""\n", GGM_gfc);
-fprintf("-----------------------------------------\n");
-fprintf("\n");
-fprintf( ...
-        "This example shows how to import a ""gfc"" file format defined " + ...
-        "by ICGEM (http://icgem.gfz-potsdam.de/home).  The ""gfc"" " + ...
-        "format is defined here:\n" + ...
-        "\n" + ...
-        "      http://icgem.gfz-potsdam.de/ICGEM-Format-2011.pdf\n" + ...
-        "\n" + ...
-        "GrafLab should be able to process most of the *static* models " + ...
-        "found on the ICGEM website.  However, it *cannot* process the " + ...
-        "temporal models.  The temporal models can easily be " + ...
-        "identified, as they contain terms such as ""gfct"", ""trnd"", " + ...
-        """acos"", ""asin"", etc.  If you attempt import a " + ...
-        "temporal model, you should get an error message.\n" + ...
-        "\n" + ...
-        "Whenever you import a ""gfc"" file, GrafLab reads its header " + ...
-        "and takes the ""GM"" and ""R"" constants from that file.  " + ...
-        "The ""GM"" and ""R"" values that we pass to " + ...
-        "GrafLab are *not* used in case of ""gfc"" files, so we can " + ...
-        "use any positive real number, it simply does not matter.  " + ...
-        "GrafLab will print a warning if your values of ""GM"" and/or " + ...
-        """R"" are different from those found in the ""gfc"" file.  " + ...
-        "You may check that GrafLab took correctly the ""GM"" and " + ...
-        """R"" values from the ""gfc"" file by inspecting the report " + ...
-        "file exported by GrafLab.\n" + ...
-        "\n" + ...
-        "In this example, we import some more or less random static " + ...
-        "model downloaded from the ICGEM website.\n");
-fprintf("\n");
-fprintf("Before the synthesis, we set ""GM"" to ""%0.16e"" and " + ...
-        """R"" to ""%0.16e"" and enter these value to GrafLab.  ", GM, R);
-fprintf("GrafLab will, however, ignore our constants and will take " + ...
-        "the correct values of the two parameters from the header of " + ...
-        "the ""%s"" file.\n", GGM_gfc);
-fprintf("\n");
-
-
+%%
 % Do the synthesis
 out_txt = GrafLab('OK', ...
     GM, ...
@@ -304,17 +247,7 @@ out_txt = GrafLab('OK', ...
     status_bar);
 
 
-fprintf("\n");
-fprintf("You may now want to inspect the ""%s_Report.txt"" file to see " + ...
-        "that GrafLab indeed used the correct values of ""GM"" and " + ...
-        """R"" from the input gfc file.\n", out_path);
-fprintf("\n");
-
-% =============================================================================
-
-
-
-
-
-
-outro(howto);
+%%
+% You may now want to inspect the report file to see that GrafLab indeed used 
+% the correct "GM" and "R" values from the "gfc" file.
+fprintf("The name of the report file is ""%s_Report.txt"".\n", out_path);

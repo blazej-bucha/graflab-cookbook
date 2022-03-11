@@ -1,74 +1,65 @@
-% HOWTO NO. 6: Synthesis of other functions than gravity field quantities,
-% e.g. planetary topographies
+%% HOWTO NO. 6: Synthesis of planetary topographies
 %
-% All the GrafLab input parameters are explained in "../doc/graflab.md".
+% You will learn how to synthese a planetary topography.  In fact, the same 
+% approach can be applied to any surface spherical harmonic synthesis of the 
+% form
+%
+% $$f(\varphi, \lambda) = \sum_{n = 0}^{n_\max} \sum_{m = 0}^n \left(
+% \bar{C}_{nm} \, \cos(m \, \lambda) + \bar{S}_{nm} \, \sin(m \lambda) \right)
+% \, \bar{P}_{nm}(\sin\varphi){,}$$
+%
+% where $\bar{C}_{nm}$ and $\bar{S}_{nm}$ are $4\pi$-fully-normalized (real)
+% surface spherical harmonic coefficients of the function $f$, $n$ and $m$
+% are spherical harmonic degree and order, respectively,
+% $\bar{P}_{nm}(\sin\varphi)$ are the $4\pi$-fully-normalized (real)
+% associated Legendre functions of the first-kind, and, finally, $\varphi$
+% and $\lambda$ are the spherical latitude and longitude,
+% respectively. This means GrafLab can synthesize a wide range of (real)
+% functions given on a sphere.
+%
+% All the GrafLab input parameters are explained in <../doc/graflab.md 
+% ../doc/graflab.md>.
 
 
-clear;
-clc;
-howto = 6;
-intro(howto, "SYNTHESIS OF OTHER FUNCTIONS THAN GRAVITY FIELD " + ...
-      "QUANTITIES, E.G. PLANETARY TOPOGRAPHIES", ...
-      "This HOWTO demonstrates synthesis of the Earth's topography.  " + ...
-      "The same method can be used to synthesize any function on a " + ...
-      "sphere essentially.");
 
 
-
-
-
-
-% Synthesis of the Earth's topography
-% =============================================================================
-
-fprintf("\n\n\n\n");
-fprintf("-------------------\n");
-fprintf("Synthesis of the Earth's topography\n");
-fprintf("-------------------\n");
-fprintf("\n");
-fprintf("To synthesize the Earth's topography, we need to perform a " + ...
-        "basic *surface* spherical harmonic synthesis.  This can be " + ...
-        "achieved with the *surface* synthesis of the gravitational " + ...
-        "potential, see the equation for ""V"" in\n" + ...
-        "\n" + ...
-        "   ""https://blazejbucha.com/graflab/" + ...
-        "Definition_of_functionals_of_the_geopotential_used_in_" + ...
-        "GrafLab_software.pdf"".\n" + ...
-        "\n" + ...
-        "We have only have to set " + ...
-        """GM = 1.0"", ""R = 1.0"" and the radius of the evaluation " + ...
-        "points to ""r = 1.0"".  Obviously, we have to do the synthesis " + ...
-        "on the unit sphere, so ""crd = 1"".  Finally, set " + ...
-        """quantity"" to ""11"" (see ""../doc/graflab.md"").\n");
-fprintf("\n");
-
-
-GM                = 1.0;
-R                 = 1.0;
+%% Synthesis of the Earth's topography
+% We need to perform the basic *surface* spherical harmonic synthesis shown 
+% above. This can be achieved with the *surface* synthesis of the gravitational 
+% potential, see the equation for "V" in 
+% https://blazejbucha.com/graflab/Definition_of_functionals_of_the_geopotential_used_in_GrafLab_software.pdf.
+%
+% The trick is that we have to set "GM = 1.0", "R = 1.0" and the radius of the 
+% evaluation points to "r = 1.0". Obviously, we have to do the synthesis on the 
+% unit sphere, so "crd = 1".  Finally, we set "quantity" to "11" (see
+% <../doc/graflab.md ../doc/graflab.md>).
+%
+% Define the GrafLab inputs.
+GM                = 1.0;  % Important
+R                 = 1.0;  % Important
 nmin              = 0;
 nmax              = 360;
-ellipsoid         = 1;  % GRS80
+ellipsoid         = 1;
 GGM_path          = '../data/input/DTM2006.mat';
-crd               = 1;  % Evaluation points are defined in spherical 
-                        % coordinates
-point_type        = 0;  % Computation at a grid
+crd               = 1;  % Important
+point_type        = 0;
 lat_grd_min       = -90.0;
 lat_grd_step      =   1.0;
 lat_grd_max       =  90.0;
 lon_grd_min       =   0.0;
 lon_grd_step      = lat_grd_step;
 lon_grd_max       = 360.0;
-h_grd             =   0.0; % Note that the synthesis is done here in a grid,
+h_grd             =   0.0; % Note that the synthesis is here done at a grid,
                            % so "h_grd" needs to be set to a height above the 
                            % sphere with the radius "R", hence "0.0" (see
-                           % "../doc/graflab.md").  In this way, the radius of 
-                           % the evaluation points "r" is "1.0".  If you do the 
-                           % synthesis at scattered points, you should set 
-                           % "h_sctr" to "1.0".
+                           % <../doc/graflab.md ../doc/graflab.md>).  In this 
+                           % way, the radius of the evaluation points "r" will 
+                           % be "1.0".  If you do the synthesis at scattered 
+                           % points, you should set "h_sctr" to "1.0".
 out_path          = '../data/output/howto06-topography';
 quantity_or_error = 0;
-quantity          = [11];  % Gravitational potential; in this case, however, 
-                           % gravitational potential
+quantity          = 11;  % Gravitational potential; in this case, however, 
+                         % we synthese the Earth's topography
 fnALFs            = 1;
 export_data_txt   = 1;
 export_report     = 1;
@@ -81,6 +72,7 @@ dpi               = 300;
 status_bar        = 1;
 
 
+%%
 % Do the synthesis
 out = GrafLab('OK', ...
     GM, ...
@@ -118,20 +110,7 @@ out = GrafLab('OK', ...
     status_bar);
 
 
-fprintf("\n");
-fprintf("You may now take a look at the ""%s*"" files.\n\n", out_path);
+%%
+% You may now take a look at the ouput files.
 fprintf("The ""%s*_Gravitational_potential.png"" file shows the " + ...
         "synthesized topography.\n", out_path);
-fprintf("\n");
-fprintf("In the very same way, you can synthesize any real " + ...
-        "function on a sphere essentially.\n\n");
-
-
-% =============================================================================
-
-
-
-
-
-
-outro(howto);

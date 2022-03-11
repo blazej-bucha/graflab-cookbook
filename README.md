@@ -2,10 +2,6 @@
 
 GrafLab and isGrafLab cookbooks.
 
-Provided are HOWTOs, showing basic and advanced applications using the command 
-line. The cookbooks are centered around gravity field modelling, but included 
-are several tricks to exploit the routines beyond their original intention 
-(planetary topographies, etc.).
 
 [GrafLab](https://blazejbucha.com/#GrafLab) (GRAvity Field LABoratory) is 
 a MATLAB-based routine to compute gravity field quantities up to high degrees 
@@ -21,8 +17,17 @@ gravity field quantities at dense grids residing on irregular surfaces, such as
 the Earth's surface.
 
 
+Provided are HOWTOs, showing basic and advanced applications using the command 
+line. The cookbooks are centered around gravity field modelling, but included 
+are several tricks to exploit the routines beyond their original intention 
+(planetary topographies, etc.).
 
 
+The HOWTOs are ordinary MATLAB m-file scripts. Attached is the 
+`./src/compile_doc.m` script to convert the m-files to Live Scripts, PDF and 
+HTML documentation if this is what you prefer. The outputs are saved to the 
+`./doc` directory. Their current version is also available online at 
+[https://blazejbucha.com/graflab/doc](https://blazejbucha.com/graflab/doc).
 
 
 # HOWTOs
@@ -31,9 +36,7 @@ Each HOWTO has its own source code. Beginners should go through the HOWTOs in
 the order they are numbered. Advanced users may pick whatever HOWTO they are 
 interested in. In any case, you **must** start by executing the `init.m` script 
 from the `src` directory. It downloads the source codes of GrafLab and 
-isGrafLab and some input data. The most useful information is usually given as 
-comments in the HOWTO m-files, so instead of just executing the scripts, feel 
-free to study the code as well.
+isGrafLab and some input data.
 
 
 ## GrafLab
@@ -50,19 +53,17 @@ back.
 
 * [03](src/howto03.m): Minimum and maximum harmonic degree of the synthesis
 
-* [04](src/howto04.m): Methods to compute the fully-normalized associated 
-  Legendre functions
+* [04](src/howto04.m): Methods to compute the Legendre functions
 
 * [05](src/howto05.m): Plotting in GrafLab and the output variable
 
 
 ### Advanced
 
-* [06](src/howto06.m): Synthesis of other functions than gravity field 
-                       quantities, e.g. planetary topographies
+* [06](src/howto06.m): Synthesis of planetary topographies
 
 * [07](src/howto07.m): Stop the Earth's rotation to get gravitational 
-                       quantities instead of the gravity quantities
+                       quantities
 
 * [08](src/howto08.m): Grids with varying spacings in latitudes and longitudes
 

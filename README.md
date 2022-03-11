@@ -45,30 +45,30 @@ If you are not familiar with the GrafLab command line interface, you may want
 to go [here](doc/graflab.md), learn the interface at first and then return 
 back.
 
-* [g01](src/howto-g01.m): Synthesis at grids and at scattered points
+* [g01](src/howto_g01.m): Synthesis at grids and at scattered points
 
-* [g02](src/howto-g02.m): Gravitational field models
+* [g02](src/howto_g02.m): Gravitational field models
 
-* [g03](src/howto-g03.m): Minimum and maximum harmonic degree of the 
+* [g03](src/howto_g03.m): Minimum and maximum harmonic degree of the 
   synthesis
 
-* [g04](src/howto-g04.m): Methods to compute the Legendre functions
+* [g04](src/howto_g04.m): Methods to compute the Legendre functions
 
-* [g05](src/howto-g05.m): Plotting in GrafLab and the output variable
+* [g05](src/howto_g05.m): Plotting in GrafLab and the output variable
 
-* [g06](src/howto-g06.m): Synthesis of planetary topographies
+* [g06](src/howto_g06.m): Synthesis of planetary topographies
 
-* [g07](src/howto-g07.m): Stop the Earth's rotation to get gravitational 
+* [g07](src/howto_g07.m): Stop the Earth's rotation to get gravitational 
   quantities
 
-* [g08](src/howto-g08.m): Grids with varying spacings in latitudes and 
+* [g08](src/howto_g08.m): Grids with varying spacings in latitudes and 
   longitudes
 
-* [g09](src/howto-g09.m): Exploit the symmetry of Legendre functions
+* [g09](src/howto_g09.m): Exploit the symmetry of Legendre functions
 
-* [g10](src/howto-g10.m): Commission error
+* [g10](src/howto_g10.m): Commission error
 
-* [g11](src/howto-g11.m): A trick with the minimum and the maximum degree of 
+* [g11](src/howto_g11.m): A trick with the minimum and the maximum degree of 
   the synthesis
 
 
@@ -79,10 +79,10 @@ If you are not familiar with the isGrafLab command line interface, you may want
 to go [here](doc/isgraflab.md), learn the interface at first and then return 
 back.
 
-* [i01](src/howto-i01.m): Synthesis at grids residing on the Earth's topography 
+* [i01](src/howto_i01.m): Synthesis at grids residing on the Earth's topography 
   in spherical coordinates
 
-* [i02](src/howto-i02.m): Synthesis at grids residing on the Earth's topography 
+* [i02](src/howto_i02.m): Synthesis at grids residing on the Earth's topography 
   in ellipsoidal coordinates
 
 

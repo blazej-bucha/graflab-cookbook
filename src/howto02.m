@@ -195,14 +195,15 @@ fprintf("The RMS of the difference is %0.16e\n", rms(out_mat(:, end) - ...
 % real number, it simply does not matter. GrafLab will print a warning if your 
 % "GM" and/or "R" values are different from those found in the "gfc" file. You 
 % may verify that GrafLab took correctly the "GM" and "R" values from the "gfc" 
-% file by inspecting the report file exported by GrafLab. In this example, we 
-% import some more or less random static model downloaded from the ICGEM 
-% website.
+% file by inspecting the report file exported by GrafLab.
+%
+% In this example, we import some more or less random static model downloaded 
+% from the ICGEM website.
 
 %%
 % Define the GrafLab input parameters.  We intentionally set "GM" and "R" to
 % a wrong value "1.0" to demonstrate that GrafLab will ignore our choice and 
-% will use the correct ones from the "gfc" file.
+% will use the correct values from the "gfc" file.
 GM       = 1.0;
 R        = 1.0;
 GGM_gfc  = '../data/input/GO_CONS_GCF_2_TIM_R6.gfc';  % This is the "gfc" file

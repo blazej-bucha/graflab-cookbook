@@ -31,10 +31,10 @@ clear; clc; init_checker();
 % varying spacing) can then be used to defined the grid in GrafLab.
 
 % Vector of spherical latitudes
-lat_sph = [-90:1:90]';
+lat_sph = -90.0:1.0:90.0;
 
 % Vector of longitudes
-lon = [0:1:360]';
+lon = 0.0:1.0:360.0;
 
 % Constant ellipsoidal height
 h = 0.0;
@@ -121,5 +121,5 @@ GrafLab('OK', ...
 
 %%
 % In the very same way, you can also work with varying longitudinal step.  The 
-% spacing may vary also if the coordinates of the evaluation points that enter 
+% spacing may also vary if the coordinates of the evaluation points that enter 
 % GrafLab are spherical ("crd = 0"). It doesn't matter.

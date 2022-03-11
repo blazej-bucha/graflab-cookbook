@@ -32,7 +32,7 @@
 % The trick is that we have to set "GM = 1.0", "R = 1.0" and the radius of the 
 % evaluation points to "r = 1.0". Obviously, we have to do the synthesis on the 
 % unit sphere, so "crd = 1".  Finally, we set "quantity" to "11" (see
-% <../doc/graflab.md ../doc/graflab.md>).
+% <../graflab.md ../graflab.md>).
 %
 % Define the GrafLab inputs.
 GM                = 1.0;  % Important
@@ -52,10 +52,10 @@ lon_grd_max       = 360.0;
 h_grd             =   0.0; % Note that the synthesis is here done at a grid,
                            % so "h_grd" needs to be set to a height above the 
                            % sphere with the radius "R", hence "0.0" (see
-                           % <../doc/graflab.md ../doc/graflab.md>).  In this 
-                           % way, the radius of the evaluation points "r" will 
-                           % be "1.0".  If you do the synthesis at scattered 
-                           % points, you should set "h_sctr" to "1.0".
+                           % <../graflab.md ../graflab.md>).  In this way, the 
+                           % radius of the evaluation points "r" will be "1.0".  
+                           % If you do the synthesis at scattered points, you 
+                           % should set "h_sctr" to "1.0".
 out_path          = '../data/output/howto06-topography';
 quantity_or_error = 0;
 quantity          = 11;  % Gravitational potential; in this case, however, 

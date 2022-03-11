@@ -163,7 +163,7 @@ out_grd = GrafLab('OK', ...
 % represents the minimum degree of the harmonic synthesis. For some gravity 
 % field quantities, GrafLab does not, however, allow non-zero "nmin" value. The 
 % quantities includes: 9, 10, 15, 20, 23 (see the code numbers for "quantity"
-% from <../doc/graflab.md ../doc/graflab.md>). If you attempt to evaluate these 
+% from <../graflab.md ../graflab.md>). If you attempt to evaluate these 
 % quantities with "nmin > 0", you will get an error. If you set "nmin" to 
 % a value larger than "nmax", you will get an error, too.
 

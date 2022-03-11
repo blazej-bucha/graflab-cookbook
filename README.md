@@ -3,20 +3,6 @@
 GrafLab and isGrafLab cookbooks.
 
 
-[GrafLab](https://blazejbucha.com/#GrafLab) (GRAvity Field LABoratory) is 
-a MATLAB-based routine to compute gravity field quantities up to high degrees 
-(tens of thousands and beyond) from spherical harmonic gravity models. Computed 
-can be, for instance, the geoid, the height anomaly, gravity 
-anomalies/disturbances, deflections of the vertical or the gravitational 
-tensors.
-
-
-[isGrafLab](https://blazejbucha.com/#isGrafLab) (Irregular Surface GRAvity 
-Field LABorary) is a modified version of GrafLab that efficiently computes 
-gravity field quantities at dense grids residing on irregular surfaces, such as 
-the Earth's surface.
-
-
 Provided are HOWTOs, showing basic and advanced applications using the command 
 line. The cookbooks are centered around gravity field modelling, but included 
 are several tricks to exploit the routines beyond their original intention 
@@ -29,6 +15,20 @@ HTML documentation if this is what you prefer. It saves the outputs to the
 `./doc` directory. The current version of the compiled cookbook is also 
 available online at 
 [https://blazejbucha.com/graflab/doc](https://blazejbucha.com/graflab/doc).
+
+
+[GrafLab](https://blazejbucha.com/#GrafLab) (GRAvity Field LABoratory) is 
+a MATLAB-based routine to compute gravity field quantities up to high degrees 
+(tens of thousands and beyond) from spherical harmonic gravity models. Computed 
+can be, for instance, the geoid, the height anomaly, gravity 
+anomalies/disturbances, deflections of the vertical or the gravitational 
+tensors.
+
+
+[isGrafLab](https://blazejbucha.com/#isGrafLab) (Irregular Surface GRAvity 
+Field LABorary) is a modified version of GrafLab that efficiently computes 
+gravity field quantities at dense grids residing on irregular surfaces, such as 
+the Earth's surface.
 
 
 # HOWTOs
@@ -68,8 +68,7 @@ back.
 
 * [08](src/howto08.m): Grids with varying spacings in latitudes and longitudes
 
-* [09](src/howto09.m): Exploit the symmetry of Legendre functions with respect 
-  to the equator to improve the computational speed
+* [09](src/howto09.m): Exploit the symmetry of Legendre functions
 
 * [10](src/howto10.m): Commission error
 

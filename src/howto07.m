@@ -24,10 +24,10 @@ clear; clc; init_checker();
 %
 % To stop the Earth's rotation, you have to set the angular velocity of the
 % ellipsoid to zero (see the "ellipsoid" variable in
-% <../doc/graflab.md ../doc/graflab.md>). This is because, GGMs do not have 
-% their own value of the angular velocity, so it is usually taken from the 
-% definition parameters of the reference ellipsoid. In fact, all elements of 
-% the "ellipsoid" array can safely be set to zero as long as you work with 
+% <../graflab.md ../graflab.md>). This is because, GGMs do not have their own 
+% value of the angular velocity, so it is usually taken from the definition 
+% parameters of the reference ellipsoid. In fact, all elements of the 
+% "ellipsoid" array can safely be set to zero as long as you work with 
 % spherical coordinates of evaluation points.
 %
 % Define the GrafLab input parameters

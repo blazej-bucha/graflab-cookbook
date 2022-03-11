@@ -68,9 +68,6 @@
 clear; clc; init_checker();
 
 
-
-
-
 %% Numerical example
 % Let's define a spherical grid that is symmetric with respect to the equator.
 

@@ -106,10 +106,6 @@ fprintf("""%s.txt""\n", out_path);
 fprintf("""%s.mat""\n", out_path);
 
 
-
-
-
-
 %% Synthesis at scattered points from a text file
 % A few variables need to be modified to perform the synthesis at scattered 
 % points. We will load the evaluation points from the "sctr_points_path" file 
@@ -160,10 +156,6 @@ GrafLab('OK', ...
 %%
 %
 fprintf("Now you may want to explore the ""%s*"" files.\n", out_path);
-
-
-
-
 
 
 %% Synthesis at scattered points from a binary mat file
@@ -223,10 +215,6 @@ GrafLab('OK', ...
 %%
 %
 fprintf("Now you may want to explore the ""%s*"" files.\n\n", out_path);
-
-
-
-
 
 
 %% Synthesis at scattered points from MATLAB variables

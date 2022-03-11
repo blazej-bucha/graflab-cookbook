@@ -15,12 +15,7 @@
 clear; clc; init_checker();
 
 
-
-
-
 %% Computations of the commission error
-
-%%
 % Define the GrafLab input parameters.
 GM                = 3986004.415E+8;
 R                 = 6378136.3;

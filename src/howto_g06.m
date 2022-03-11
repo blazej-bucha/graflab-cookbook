@@ -21,8 +21,6 @@
 % ../graflab.md>.
 
 
-
-
 %% Synthesis of the Earth's topography
 % We need to perform the basic *surface* spherical harmonic synthesis shown 
 % above. This can be achieved with the *surface* synthesis of the gravitational 

@@ -13,9 +13,6 @@
 clear; clc; init_checker();
 
 
-
-
-
 %% Structure of a global geopotential model (GGM) file
 % The structure of the GGM coefficients table must follow either "Table 1" or  
 % "Table 2".  Any other ordering scheme may not be processed correctly by 
@@ -41,10 +38,6 @@ clear; clc; init_checker();
 %   1   1    0.00000E+00    0.00000E+00
 %   2   1   -0.20662E-09    0.13844E-08
 %   2   2    0.24394E-05   -0.14003E-05
-
-
-
-
 
 
 %% MATLAB's binary file

@@ -13,9 +13,6 @@
 clear; clc; init_checker();
 
 
-
-
-
 %% Varying grid spacing in latitude
 % Let's assume we want to synthesize the disturbing potential at a grid 
 % residing on the GRS80 reference ellipsoid. The tricky part is that we need 

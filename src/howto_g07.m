@@ -14,10 +14,6 @@
 clear; clc; init_checker();
 
 
-
-
-
-
 %% Synthesis of the gravitational vector (no centrifugal force)
 % At first, let's do the synthesis of the gravitational vector in *spherical* 
 % coordinates ("crd = 1").

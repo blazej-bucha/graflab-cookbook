@@ -1,5 +1,5 @@
 function init_checker()
-% Checks the presence of the files downloaded by "./init.m".  If any file is 
+% Checks the presence of the files downloaded by "./init.m".  If any file is
 % missing, an error is thrown.
 
 

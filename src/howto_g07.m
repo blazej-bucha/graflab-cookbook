@@ -1,30 +1,32 @@
 %% HOWTO g07: Stop the rotation to get gravitational quantities
 %
-% You will learn how to stop the Earth's rotation in order to compute, for 
-% instance, the *gravitational* vector instead of the *gravity* vector (no
+% You will learn how to stop the Earth's rotation in order to compute, for
+% instance, the _gravitational_ vector instead of the _gravity_ vector (no
 % centrifugal force).
 %
-% All the GrafLab input parameters are explained in <../graflab.md 
+% All the GrafLab input parameters are explained in <../graflab.md
 % ../graflab.md>.
 
 
 %%
-% Let's start by clearing the workspace, command window and by checking whether 
+%
+% Let's start by clearing the workspace, command window and by checking whether
 % all input data are available.
 clear; clc; init_checker();
 
 
 %% Synthesis of the gravitational vector (no centrifugal force)
-% At first, let's do the synthesis of the gravitational vector in *spherical* 
+%
+% At first, let's do the synthesis of the gravitational vector in _spherical_
 % coordinates ("crd = 1").
 %
 % To stop the Earth's rotation, you have to set the angular velocity of the
-% ellipsoid to zero (see the "ellipsoid" variable in
-% <../graflab.md ../graflab.md>). This is because, GGMs do not have their own 
-% value of the angular velocity, so it is usually taken from the definition 
-% parameters of the reference ellipsoid. In fact, all elements of the 
-% "ellipsoid" array can safely be set to zero as long as you work with 
-% spherical coordinates of evaluation points.
+% ellipsoid to zero (see the "ellipsoid" variable in <../graflab.md
+% ../graflab.md>).  This is because, GGMs do not have their own value of the
+% angular velocity, so it is usually taken from the definition parameters of
+% the reference ellipsoid.  In fact, all elements of the "ellipsoid" array can
+% safely be set to zero as long as you work with spherical coordinates of
+% evaluation points.
 %
 % Define the GrafLab input parameters
 GM                = 3986004.415E+8;
@@ -44,7 +46,7 @@ lon_grd_max       = 360.0;
 h_grd             =   0.0;
 out_path          = '../data/output/howto-g07-gravitational-vector-sph-crd';
 quantity_or_error = 0;
-quantity          = 16;  % Gravity vector; in this case, however, 
+quantity          = 16;  % Gravity vector; in this case, however,
                          % gravitational vector
 fnALFs            = 1;
 export_data_txt   = 1;
@@ -59,6 +61,7 @@ status_bar        = 1;
 
 
 %%
+%
 % Do the synthesis
 GrafLab('OK', ...
     GM, ...
@@ -97,17 +100,18 @@ GrafLab('OK', ...
 
 
 %%
-% Now, let's do the synthesis of the gravitational vector in *ellipsoidal* 
+%
+% Now, let's do the synthesis of the gravitational vector in _ellipsoidal_
 % coordinates ("crd = 0").
 %
-% Again, you have to set the angular velocity of the ellipsoid to zero. This 
-% time, however, two elements of the "ellipsoid" array are needed, the 
-% semimajor axis and the numerical eccentricity. This is because the 
-% ellipsoidal coordinates have to be transformed into spherical 
-% coordinates. The latter coordiantes are required for spherical harmonic 
-% synthesis. To do the transformation of the coordinates, you need set the 
-% semimajor axis and the numerical eccentricity to values of the ellipsoid you 
-% want to use (e.g., GRS80, WGS84 and so on).
+% Again, you have to set the angular velocity of the ellipsoid to zero.  This
+% time, however, two elements of the "ellipsoid" array are needed, the
+% semimajor axis and the numerical eccentricity.  This is because the
+% ellipsoidal coordinates have to be transformed into spherical coordinates.
+% The latter coordiantes are required for spherical harmonic synthesis.  To do
+% the transformation of the coordinates, you need set the semimajor axis and
+% the numerical eccentricity to values of the ellipsoid you want to use (e.g.,
+% GRS80, WGS84 and so on).
 %
 % Define the GrafLab input parameters.
 GM                = 3986004.415E+8;
@@ -127,7 +131,7 @@ lon_grd_max       = 360.0;
 h_grd             =   0.0;
 out_path          = '../data/output/howto07-gravitational-vector-ell-crd';
 quantity_or_error = 0;
-quantity          = 16;  % Gravity vector; in this case, however, 
+quantity          = 16;  % Gravity vector; in this case, however,
                          % gravitational vector
 fnALFs            = 1;
 export_data_txt   = 1;
@@ -142,6 +146,7 @@ status_bar        = 1;
 
 
 %%
+%
 % Do the synthesis
 GrafLab('OK', ...
     GM, ...
@@ -180,4 +185,5 @@ GrafLab('OK', ...
 
 
 %%
+%
 % The same comment as from the very end of HOWTO NO. 6 applies here, too.

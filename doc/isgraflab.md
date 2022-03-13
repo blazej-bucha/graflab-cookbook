@@ -36,7 +36,7 @@ function out = isGrafLab('OK', ...
     status_bar)
 ```
 
-Many of the parameters are the same as in [GrafLab](./graflab.md). Below are 
+Many of the parameters are the same as in [GrafLab](./graflab.md). Below are
 explained only the new ones that are unique to isGrafLab.
 
 * `ts` -- Order of the Taylor series
@@ -85,16 +85,16 @@ explained only the new ones that are unique to isGrafLab.
 
   where
 
-  * `H` is the height of the irregular surface above the reference surface (see 
-    `h_grd` in [GrafLab](graflab.md) for the definition of the reference 
+  * `H` is the height of the irregular surface above the reference surface (see
+    `h_grd` in [GrafLab](graflab.md) for the definition of the reference
     surface)
 
-  * `lat_1` and `lat_n` are the minimum and the maximum grid latitudes, 
+  * `lat_1` and `lat_n` are the minimum and the maximum grid latitudes,
     respectively
 
-  * `lon_1` and `lon_m` are the minimum and the maximum grid longitudes, 
+  * `lon_1` and `lon_m` are the minimum and the maximum grid longitudes,
     respectively
 
 
-You should now be ready to return [back](../README.md) and go through the 
+You should now be ready to return [back](../README.md) and go through the
 HOWTOs.

@@ -1,37 +1,40 @@
 %% HOWTO g04: Methods to compute the Legendre functions
 %
-% You will learn about the pros and cons of the three supported methods to 
+% You will learn about the pros and cons of the three supported methods to
 % compute Legendre functions.
 %
-% All the GrafLab input parameters are explained in <../graflab.md 
+% All the GrafLab input parameters are explained in <../graflab.md
 % ../graflab.md>.
 
 
 %%
-% Let's start by clearing the workspace, command window and by checking whether 
+%
+% Let's start by clearing the workspace, command window and by checking whether
 % all input data are available.
 clear; clc; init_checker();
 
 
 %% Brief summary
-% The standard forward column method (SFCM, "fnALFs = 1") can be used up to 
+%
+% The standard forward column method (SFCM, "fnALFs = 1") can be used up to
 % degree 1800.
 %
-% The modified forward column method (MFCM, "fnALFs = 2") can be used up to 
+% The modified forward column method (MFCM, "fnALFs = 2") can be used up to
 % degree 2700.
 %
-% The extended range arithmetic approach (ERA, "fnALFs = 3") can be used up to 
+% The extended range arithmetic approach (ERA, "fnALFs = 3") can be used up to
 % almost an arbitrary degree.
 %
-% Let's do some grid-wise and point-wise syntheses with all three methods to 
-% see which one should be preferred in case more than one method is stable 
+% Let's do some grid-wise and point-wise syntheses with all three methods to
+% see which one should be preferred in case more than one method is stable
 % within your range of harmonic degrees.
 
 
 %% Benchmarks for grid-wise computations
+%
 % Note that the same number of points is use for all grid computations.
 %
-% Define all GrafLab input parameters except the method to compute the Legendre 
+% Define all GrafLab input parameters except the method to compute the Legendre
 % functions.
 GM                = 3986004.415E+8;
 R                 = 6378136.3;
@@ -59,6 +62,7 @@ status_bar        = 1;
 
 
 %%
+%
 % Do the tests by looping over the methods to compute Legendre functions.
 time_grd = zeros(3, 1);
 for fnALFs = [1, 2, 3]
@@ -106,6 +110,7 @@ end
 
 
 %% Benchmarks for point-wise computations
+%
 % The same number of scattered points is use for all point-wise computations.
 %
 % Now let's define the scattered points
@@ -122,6 +127,7 @@ out_path   = '../data/output/howto-g04-sctr';
 
 
 %%
+%
 % Do the tests by looping over the methods to compute Legendre functions.
 time_sctr = zeros(3, 1);
 for fnALFs = [1, 2, 3]
@@ -171,6 +177,7 @@ end
 
 
 %% Results of the benchmarks
+%
 % Grid-wise computation times in sec:
 fprintf("SFCM: %0.1f\n", time_grd(1));
 fprintf("MFCM: %0.1f\n", time_grd(2));
@@ -178,6 +185,7 @@ fprintf(" ERA: %0.1f\n", time_grd(3));
 
 
 %%
+%
 % Point-wise computation times in sec:
 fprintf("SFCM: %0.1f\n", time_sctr(1));
 fprintf("MFCM: %0.1f\n", time_sctr(2));
@@ -186,8 +194,8 @@ fprintf(" ERA: %0.1f\n", time_sctr(3));
 
 %% Conclusions
 %
-% For grid computations up to degree 1800, use SFCM. Beyond that degree, use 
-% ERA. Avoid using MFCM.
+% For grid computations up to degree 1800, use SFCM.  Beyond that degree, use
+% ERA.  Avoid using MFCM.
 %
-% For point-wise synthesis up to degree 1800, use SFCM or MFCM. For degree from 
-% 1801 to 2700, use MFCM.  Beyond degree 2700, use ERA.
+% For point-wise synthesis up to degree 1800, use SFCM or MFCM.  For degree
+% from 1801 to 2700, use MFCM.  Beyond degree 2700, use ERA.

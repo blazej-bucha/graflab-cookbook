@@ -39,7 +39,7 @@ function out = GrafLab('OK', ...
     status_bar)
 ```
 
-Throughout the HOWTOs, we keep the same names of these **input** parameters, so 
+Throughout the HOWTOs, we keep the same names of these **input** parameters, so
 let's explain them:
 
 * `GM` -- Geocentric gravitational constant of GGM (`m^3 * s^-2`)
@@ -62,7 +62,7 @@ let's explain them:
 
     * `e` is the first numerical eccentricity
 
-    * `C20` is the *fully-normalized* spherical harmonic coefficients of degree 
+    * `C20` is the *fully-normalized* spherical harmonic coefficients of degree
       `2` and order `0`
 
     * `omega` is the angular velocity (`rad * s^-1`)
@@ -71,7 +71,7 @@ let's explain them:
 
   * GGM file if `quantity_or_error == 0` (see below) or
 
-  * file with the covariance matrix of spherical harmonic coefficients if 
+  * file with the covariance matrix of spherical harmonic coefficients if
     `quantity_or_error == 1`
 
 * `crd` -- Type of the coordinates of evaluation points
@@ -88,9 +88,9 @@ let's explain them:
 
   * `2` -- scattered points to be manually defined
 
-The following variables are relevant only if `point_type == 0`. If `point_type 
-~= 0`, set all these variables to `[]`. A grid can be defined in two ways, `A` 
-and `B`. A mix of the two is not allowed. The content of the variables depends 
+The following variables are relevant only if `point_type == 0`. If `point_type
+~= 0`, set all these variables to `[]`. A grid can be defined in two ways, `A`
+and `B`. A mix of the two is not allowed. The content of the variables depends
 on the grid type.
 
 * `lat_grd_min`
@@ -131,19 +131,19 @@ on the grid type.
 
 * `h_grd` -- Grid height above the reference surface in metres (a scalar).
 
-  * If `crd == 0` (ellipsoidal coordinates), `h` is the ellipsoidal height 
+  * If `crd == 0` (ellipsoidal coordinates), `h` is the ellipsoidal height
     above the reference ellipsoid (defined by `ellipsoid`)
 
-  * If `crd == 1` (spherical coordinates), `h` represents the height above the 
-    reference sphere defined by the radius `R` (see above); the height is 
+  * If `crd == 1` (spherical coordinates), `h` represents the height above the
+    reference sphere defined by the radius `R` (see above); the height is
     measured in the radial direction
 
-The following variable is relevant only if `point_type == 1`. If `point_type ~= 
+The following variable is relevant only if `point_type == 1`. If `point_type ~=
 1`, set all these variables to `[]`.
 
 * `sctr_points_path` -- Path to the scattered points file
 
-The following variables are relevant only if `point_type == 2`. If `point_type 
+The following variables are relevant only if `point_type == 2`. If `point_type
 ~= 2`, set all these variables to `[]`.
 
 * `lat_sctr` -- Latitudes in degrees as a column vector or a scalar
@@ -156,10 +156,10 @@ The following variables are relevant only if `point_type == 2`. If `point_type
 
   * If `crd == 1`, spherical radii in metres as a column vector or a scalar
 
-The variables that follow no longer depend on `point_type`, so must be 
+The variables that follow no longer depend on `point_type`, so must be
 specified for any computation.
 
-* `out_path` -- Path to the output data file (*without* any suffix such as 
+* `out_path` -- Path to the output data file (*without* any suffix such as
   `txt` or `mat`)
 
 * `quantity_or_error`
@@ -168,8 +168,8 @@ specified for any computation.
 
   * `1` -- Computed will be a commission error from a covariance matrix
 
-* `quantity` -- A scalar or a column vector defining quantities to be 
-  computed. If it is a vector, the maximum size allowed is `4`. The following 
+* `quantity` -- A scalar or a column vector defining quantities to be
+  computed. If it is a vector, the maximum size allowed is `4`. The following
   values are accepted:
 
   * 2  -- Deflection of the vertical `eta` (the east--west component)
@@ -184,10 +184,10 @@ specified for any computation.
 
   * 7  -- Disturbing tensor (`Trphi`, `Trlambda`, `Tphilambda`)
 
-  * 8  -- Disturbing tensor in the local north-oriented reference frame (`Txx`, 
+  * 8  -- Disturbing tensor in the local north-oriented reference frame (`Txx`,
     `Tyy`, `Tzz`)
 
-  * 9  -- Disturbing tensor in the local north-oriented reference frame (`Txy`, 
+  * 9  -- Disturbing tensor in the local north-oriented reference frame (`Txy`,
     `Txz`, `Tyz`)
 
   * 10 -- Geoid undulation
@@ -198,23 +198,23 @@ specified for any computation.
 
   * 13 -- Gravitational tensor (`Vrphi`, `Vrlambda`, `Vphilambda`)
 
-  * 14 -- Gravitational tensor in the local north-oriented reference frame 
+  * 14 -- Gravitational tensor in the local north-oriented reference frame
     (`Vxx`, `Vyy`, `Vzz`)
 
-  * 15 -- Gravitational tensor in the local north-oriented reference frame 
+  * 15 -- Gravitational tensor in the local north-oriented reference frame
     (`Vxy`, `Vxz`, `Vyz`)
 
-  * 16 -- Gravity vector in the local north-oriented reference frame (`gX`, 
+  * 16 -- Gravity vector in the local north-oriented reference frame (`gX`,
     `gY`, `gZ`)
 
-  * 17 -- Gravity in spherical approximation (magnitude of the gravity vector 
+  * 17 -- Gravity in spherical approximation (magnitude of the gravity vector
     in spherical approximation)
 
   * 18 -- Gravity potential
 
   * 19 -- Gravity anomaly in spherical approximation
 
-  * 20 -- Gravity disturbance (difference between magnitudes of the gravity 
+  * 20 -- Gravity disturbance (difference between magnitudes of the gravity
     vector and of the normal gravity vector)
 
   * 21 -- Gravity disturbance in spherical approximation
@@ -227,11 +227,11 @@ specified for any computation.
 
   * 25 -- Second radial derivative of gravity potential
 
-  The definition of each quantity can be found at 
+  The definition of each quantity can be found at
   [https://blazejbucha.com/graflab/Definition_of_functionals_of_the_geopotential_used_in_GrafLab_software.pdf](https://blazejbucha.com/graflab/Definition_of_functionals_of_the_geopotential_used_in_GrafLab_software.pdf).
 
 
-* `fnALFs` -- Method to compute the fully-normalized associated Legendre 
+* `fnALFs` -- Method to compute the fully-normalized associated Legendre
   functions
 
   * `1` -- Standard forward column method
@@ -240,8 +240,8 @@ specified for any computation.
 
   * `3` -- Extended-range arithmetic
 
-* `DTM_path` -- Path to a spherical harmonic coefficients file of a digital 
-  elevation model. This variable is used only if `quantity == 10` or `quantity 
+* `DTM_path` -- Path to a spherical harmonic coefficients file of a digital
+  elevation model. This variable is used only if `quantity == 10` or `quantity
   == 23`. Otherwise, set this variable to `[]`.
 
 * `export_data_txt` -- Export data to a text file, `0` for no, `1` for yes
@@ -250,18 +250,18 @@ specified for any computation.
 
 * `export_data_mat` -- Export data to a `mat` file, `0` for no, `1` for yes
 
-* `display_data` -- Display data. This is option can be used only if 
+* `display_data` -- Display data. This is option can be used only if
   `point_type == 0` (grid-wise computation)
 
   * `0` -- No
 
-  * `1` -- Yes and use the Mapping Toolbox to plot the data (may be painfully 
+  * `1` -- Yes and use the Mapping Toolbox to plot the data (may be painfully
     slow)
 
-  * `2` -- Yes and use the `imagesc` function (not as nice as with `1`, but the 
+  * `2` -- Yes and use the `imagesc` function (not as nice as with `1`, but the
     plotting is very fast)
 
-The following variables are used only if `display_data == 1`. Otherwise, set 
+The following variables are used only if `display_data == 1`. Otherwise, set
 these variables to `[]`.
 
 * `graphic_format` -- Graphic file format
@@ -312,16 +312,16 @@ these variables to `[]`.
 
 * `dpi` -- I am sure you got this one
 
-The following variable no longer depend on `display_data` and needs to be 
+The following variable no longer depend on `display_data` and needs to be
 specified.
 
 * `status_bar` -- Display a kind of a progress bar, `0` for no, `1` for yes
 
-The only **output** parameter is the `out` variable.  It contains the numerical 
-data used to prepare the output data files if `export_data_txt == 1` and/or 
-`export_data_mat == 1`.  Throughout the cookbook, the name of this output 
+The only **output** parameter is the `out` variable.  It contains the numerical
+data used to prepare the output data files if `export_data_txt == 1` and/or
+`export_data_mat == 1`.  Throughout the cookbook, the name of this output
 variable may vary.
 
 
-You should now be ready to return [back](../README.md) and go through the 
+You should now be ready to return [back](../README.md) and go through the
 HOWTOs.

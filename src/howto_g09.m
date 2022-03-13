@@ -1,6 +1,6 @@
 %% HOWTO g09: Exploit the symmetry of Legendre functions
 %
-% You will learn about the conditions that must be satisfied to take advantage 
+% You will learn about the conditions that must be satisfied to take advantage
 % of the symmetry property of Legendre functions.
 %
 % Legendre functions are symmetric with respect to the equator as follows,
@@ -9,11 +9,11 @@
 %   \bar{P}_{nm}(\sin(-\varphi)){.}$$
 %
 % Therefore, if the grid contains both the positive and the negative latitudes,
-% $\varphi$ and $-\varphi$, respectively, the Legendre function for one of the 
-% two needs to be computed only.  The other is obtained efficiently by the 
+% $\varphi$ and $-\varphi$, respectively, the Legendre function for one of the
+% two needs to be computed only.  The other is obtained efficiently by the
 % symmetry property.
 %
-% In GrafLab, *all* of the following conditions must be satisfied to employ the 
+% In GrafLab, _all_ of the following conditions must be satisfied to employ the
 % symmetry of Legendre functions.
 %
 % * A functional of the geopotential is selected (the symmetry property
@@ -21,19 +21,19 @@
 %
 % * The grid-wise computation mode is selected.
 %
-% * The extended-range arithmetic approach is selected to compute Legendre 
+% * The extended-range arithmetic approach is selected to compute Legendre
 %   functions (the whole improvement is tailored to high harmonic
-%   degrees, for which the standard and modified forward column approaches do 
+%   degrees, for which the standard and modified forward column approaches do
 %   not provide accurate results anyway).
 %
 % * All positive latitudes have their negative counterpart or vice versa
 %   (up to a given threshold to suppress numerical inaccuracies, currently
-%   "100.0 * eps" degrees). The zero latitude, i.e., the equator, may be 
+%   "100.0 * eps" degrees).  The zero latitude, i.e., the equator, may be
 %   included in the grid (again, within the "100.0 * eps" deg numerical
 %   threshold).
 %
-% If all these conditions are satisfied, the symmetry property is employed 
-% *automatically*, meaning that no additional action from the user is required 
+% If all these conditions are satisfied, the symmetry property is employed
+% _automatically_, meaning that no additional action from the user is required
 % to enable the more efficient variant.
 %
 % Examples of some symmetric grids (shown are only the latitudes):
@@ -53,29 +53,31 @@
 %
 %    % The negative latitude of -90 deg does not have its positive counterpart
 %    lat = [-90 -60 -30 0 30 60];
-%    % The difference "abs(abs(-4.99) - 5.0)" is larger than the threshold of 
+%    % The difference "abs(abs(-4.99) - 5.0)" is larger than the threshold of
 %    "100.0 * eps" degrees
 %    lat = [-35 -25 -15 -4.99 5 15 25 35];
 %
 %
-% All the GrafLab input parameters are explained in <../graflab.md 
+% All the GrafLab input parameters are explained in <../graflab.md
 % ../graflab.md>.
 
 
 %%
-% Let's start by clearing the workspace, command window and by checking whether 
+%
+% Let's start by clearing the workspace, command window and by checking whether
 % all input data are available.
 clear; clc; init_checker();
 
 
 %% Numerical example
+%
 % Let's define a spherical grid that is symmetric with respect to the equator.
 
 
 % Latitudes
 lat = -90.0:0.1:90.0;
 
-% Longitudes.  The grid step is larger in this example, as longitudes do not 
+% Longitudes.  The grid step is larger in this example, as longitudes do not
 % affect the grid symmetry in any way
 lon = 0.0:5.0:360.0;
 
@@ -85,6 +87,7 @@ h   = 0;
 
 
 %%
+%
 % Now define the GrafLab input parameters.
 GM                = 3986004.415E+8;
 R                 = 6378136.3;
@@ -113,6 +116,7 @@ status_bar        = 1;
 
 
 %%
+%
 % Do the synthesis
 tic
 GrafLab('OK', ...
@@ -153,13 +157,15 @@ time_symm = toc;
 
 
 %%
-% Now let's modify a single latitude, such that the last symmetry property 
+%
+% Now let's modify a single latitude, such that the last symmetry property
 % discussed above is not satisfied.
 lat(1)      = lat(1) + 1000.0 * eps;
 lat_grd_min = lat;
 
 
 %%
+%
 % Do the synthesis
 tic
 GrafLab('OK', ...
@@ -200,17 +206,19 @@ time_nosymm = toc;
 
 
 %%
+%
 % Now let's compare the computation times.
 fprintf("Symmetric grid:     %0.1f sec\n", time_symm);
 fprintf("Non-symmetric grid: %0.1f sec\n", time_nosymm);
 
 
 %%
-% The speed-up factor grows with increasing harmonic degree and/or increasing 
-% number of latitudes. If possible, you should always try to exploit the 
+%
+% The speed-up factor grows with increasing harmonic degree and/or increasing
+% number of latitudes.  If possible, you should always try to exploit the
 % symmetry property.
 
-% For instance, if, for some reason, you have to slice your grid into 
+% For instance, if, for some reason, you have to slice your grid into
 % latitudinal bands and call GrafLab multiple times, slice your grid like this
 lat1 = [-90.0:0.01:-80.0 80.0:0.01:90.0];
 lat2 = [-79.9:0.01:-70.0 70.0:0.01:79.9];

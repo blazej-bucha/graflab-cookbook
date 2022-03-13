@@ -1,31 +1,33 @@
 %% HOWTO g08: Grids with varying spacings in latitudes and longitudes
 %
-% You will learn how to do the efficient grid-wise synthesis, but this time 
+% You will learn how to do the efficient grid-wise synthesis, but this time
 % with varying grid step in latitude and/or longitude.
 %
-% All the GrafLab input parameters are explained in <../graflab.md 
+% All the GrafLab input parameters are explained in <../graflab.md
 % ../graflab.md>.
 
 
 %%
-% Let's start by clearing the workspace, command window and by checking whether 
+%
+% Let's start by clearing the workspace, command window and by checking whether
 % all input data are available.
 clear; clc; init_checker();
 
 
 %% Varying grid spacing in latitude
-% Let's assume we want to synthesize the disturbing potential at a grid 
-% residing on the GRS80 reference ellipsoid. The tricky part is that we need 
-% a constant sampling in *spherical* latitude. In terms of the *ellipsoidal* 
-% latitude, the spacing therefore varies. Fortunately, GrafLab makes it 
+%
+% Let's assume we want to synthesize the disturbing potential at a grid
+% residing on the GRS80 reference ellipsoid.  The tricky part is that we need
+% a constant sampling in _spherical_ latitude.  In terms of the _ellipsoidal_
+% latitude, the spacing therefore varies.  Fortunately, GrafLab makes it
 % possible to define grids with varying spacing in latitude and longitude.
 %
-% Suppose that our grid resides on GRS80, but is defined by a vector of 
-% spherical latitudes "lat_sph" with a constant spacing. Next, we have a vector 
-% of spherical longitudes "lon" and the constant height of the grid above the 
-% reference ellipsoid "h". The spherical latitudes "lat_sph" can be transformed 
-% into ellipsoidal ones "lat_ell", and these ellipsoidal latitudes (with
-% varying spacing) can then be used to defined the grid in GrafLab.
+% Suppose that our grid resides on GRS80, but is defined by a vector of
+% spherical latitudes "lat_sph" with a constant spacing.  Next, we have
+% a vector of spherical longitudes "lon" and the constant height of the grid
+% above the reference ellipsoid "h".  The spherical latitudes "lat_sph" can be
+% transformed into ellipsoidal ones "lat_ell", and these ellipsoidal latitudes
+% (with varying spacing) can then be used to defined the grid in GrafLab.
 
 % Vector of spherical latitudes
 lat_sph = -90.0:1.0:90.0;
@@ -39,15 +41,17 @@ h = 0.0;
 % The first eccentricity of GRS80
 eEl = sqrt(0.006694380022903416);
 
-% Now let's transform the spherical latitudes "lat_sph" to ellipsoidal 
-% latitudes. The formula holds for points lying on the reference ellipsoid 
+% Now let's transform the spherical latitudes "lat_sph" to ellipsoidal
+% latitudes.  The formula holds for points lying on the reference ellipsoid
 % only.
 lat_ell = atan(tan(lat_sph * pi / 180.0) ./ sqrt(1.0 - eEl^2)) * 180.0 / pi;
 
 
 %%
-% The spherical and the ellipsoidal longitudes are equal, so no transformation 
-% is required for the grid longitudes. Now define the GrafLab input parameters.
+%
+% The spherical and the ellipsoidal longitudes are equal, so no transformation
+% is required for the grid longitudes.  Now define the GrafLab input
+% parameters.
 GM                = 3986004.415E+8;
 R                 = 6378136.3;
 nmin              = 0;
@@ -79,6 +83,7 @@ status_bar        = 1;
 
 
 %%
+%
 % Do the synthesis
 GrafLab('OK', ...
     GM, ...
@@ -117,6 +122,7 @@ GrafLab('OK', ...
 
 
 %%
-% In the very same way, you can also work with varying longitudinal step.  The 
-% spacing may also vary if the coordinates of the evaluation points that enter 
-% GrafLab are spherical ("crd = 0"). It doesn't matter.
+%
+% In the very same way, you can also work with varying longitudinal step.  The
+% spacing may also vary if the coordinates of the evaluation points that enter
+% GrafLab are spherical ("crd = 0").  It doesn't matter.

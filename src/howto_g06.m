@@ -1,7 +1,7 @@
 %% HOWTO g06: Synthesis of planetary topographies
 %
-% You will learn how to synthese a planetary topography.  In fact, the same 
-% approach can be applied to any surface spherical harmonic synthesis of the 
+% You will learn how to synthese a planetary topography.  In fact, the same
+% approach can be applied to any surface spherical harmonic synthesis of the
 % form
 %
 % $$f(\varphi, \lambda) = \sum_{n = 0}^{n_\max} \sum_{m = 0}^n \left(
@@ -13,23 +13,24 @@
 % are spherical harmonic degree and order, respectively,
 % $\bar{P}_{nm}(\sin\varphi)$ are the $4\pi$-fully-normalized (real)
 % associated Legendre functions of the first-kind, and, finally, $\varphi$
-% and $\lambda$ are the spherical latitude and longitude,
-% respectively. This means GrafLab can synthesize a wide range of (real)
-% functions given on a sphere.
+% and $\lambda$ are the spherical latitude and longitude, respectively.  This
+% means GrafLab can synthesize a wide range of (real) functions given on
+% a sphere.
 %
-% All the GrafLab input parameters are explained in <../graflab.md 
+% All the GrafLab input parameters are explained in <../graflab.md
 % ../graflab.md>.
 
 
 %% Synthesis of the Earth's topography
-% We need to perform the basic *surface* spherical harmonic synthesis shown 
-% above. This can be achieved with the *surface* synthesis of the gravitational 
-% potential, see the equation for "V" in 
+%
+% We need to perform the basic _surface_ spherical harmonic synthesis shown
+% above.  This can be achieved with the _surface_ synthesis of the
+% gravitational potential, see the equation for "V" in
 % https://blazejbucha.com/graflab/Definition_of_functionals_of_the_geopotential_used_in_GrafLab_software.pdf.
 %
-% The trick is that we have to set "GM = 1.0", "R = 1.0" and the radius of the 
-% evaluation points to "r = 1.0". Obviously, we have to do the synthesis on the 
-% unit sphere, so "crd = 1".  Finally, we set "quantity" to "11" (see
+% The trick is that we have to set "GM = 1.0", "R = 1.0" and the radius of the
+% evaluation points to "r = 1.0".  Obviously, we have to do the synthesis on
+% the unit sphere, so "crd = 1".  Finally, we set "quantity" to "11" (see
 % <../graflab.md ../graflab.md>).
 %
 % Define the GrafLab inputs.
@@ -48,15 +49,15 @@ lon_grd_min       =   0.0;
 lon_grd_step      = lat_grd_step;
 lon_grd_max       = 360.0;
 h_grd             =   0.0; % Note that the synthesis is here done at a grid,
-                           % so "h_grd" needs to be set to a height above the 
+                           % so "h_grd" needs to be set to a height above the
                            % sphere with the radius "R", hence "0.0" (see
-                           % <../graflab.md ../graflab.md>).  In this way, the 
-                           % radius of the evaluation points "r" will be "1.0".  
-                           % If you do the synthesis at scattered points, you 
+                           % <../graflab.md ../graflab.md>).  In this way, the
+                           % radius of the evaluation points "r" will be "1.0".
+                           % If you do the synthesis at scattered points, you
                            % should set "h_sctr" to "1.0".
 out_path          = '../data/output/howto-g06-topography';
 quantity_or_error = 0;
-quantity          = 11;  % Gravitational potential; in this case, however, 
+quantity          = 11;  % Gravitational potential; in this case, however,
                          % we synthese the Earth's topography
 fnALFs            = 1;
 export_data_txt   = 1;
@@ -71,6 +72,7 @@ status_bar        = 1;
 
 
 %%
+%
 % Do the synthesis
 out = GrafLab('OK', ...
     GM, ...
@@ -109,14 +111,16 @@ out = GrafLab('OK', ...
 
 
 %%
+%
 % You may now take a look at the ouput files.
 fprintf("The ""%s*_Gravitational_potential.png"" file shows the " + ...
         "synthesized topography.\n", out_path);
 
 
 %%
-% Note that GrafLab thinks it computed the gravitational potential. It has no 
-% idea (how could it?) that we actually computed the Earth's topography. This 
-% is why the plot, the report file, the file name, etc. still report the 
+%
+% Note that GrafLab thinks it computed the gravitational potential.  It has no
+% idea (how could it?) that we actually computed the Earth's topography.  This
+% is why the plot, the report file, the file name, etc. still report the
 % gravitational potential.
 

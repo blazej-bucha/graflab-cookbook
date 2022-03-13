@@ -1,4 +1,4 @@
-% Converts all "howto*.m" files from this directory to live scripts, PDF and 
+% Converts all "howto*.m" files from this directory to live scripts, PDF and
 % HTML files.
 
 
@@ -7,19 +7,19 @@ clc;
 
 
 mlx_dir = '../doc/mlx';
-if exist(mlx_dir) ~= 7
+if exist(mlx_dir, 'dir') ~= 7
     mkdir(mlx_dir);
 end
 
 
 latex_dir = '../doc/latex';
-if exist(latex_dir) ~= 7
+if exist(latex_dir, 'dir') ~= 7
     mkdir(latex_dir);
 end
 
 
 html_dir = '../doc/html';
-if exist(html_dir) ~= 7
+if exist(html_dir, 'dir') ~= 7
     mkdir(html_dir);
 end
 
@@ -80,7 +80,7 @@ fprintf("Done.\n");
 
 
 % Merges the pdf-Documents in the input cell array fileNames into one
-% single pdf-Document with file name outputFile.  The code is taken from 
+% single pdf-Document with file name outputFile.  The code is taken from
 % "https://de.mathworks.com/matlabcentral/fileexchange/89127-merge-pdf-documents"
 function mergePDFs(fileNames, outputFile)
     memSet = org.apache.pdfbox.io.MemoryUsageSetting.setupMainMemoryOnly();

@@ -1,21 +1,23 @@
 %% HOWTO g02: Gravitational field models
 %
-% You will learn about the formats of gravitational field models that are 
+% You will learn about the formats of gravitational field models that are
 % supported by GrafLab.
 %
-% All the GrafLab input parameters are explained in <../graflab.md 
+% All the GrafLab input parameters are explained in <../graflab.md
 % ../graflab.md>.
 
 
 %%
-% Let's start by clearing the workspace, command window and by checking whether 
+%
+% Let's start by clearing the workspace, command window and by checking whether
 % all input data are available.
 clear; clc; init_checker();
 
 
 %% Structure of a global geopotential model (GGM) file
-% The structure of the GGM coefficients table must follow either "Table 1" or  
-% "Table 2".  Any other ordering scheme may not be processed correctly by 
+%
+% The structure of the GGM coefficients table must follow either "Table 1" or
+% "Table 2".  Any other ordering scheme may not be processed correctly by
 % GrafLab, so is not recommended.
 %
 % Table 1: GGM coefficients table up to degree 2.  The column order is degree,
@@ -41,20 +43,22 @@ clear; clc; init_checker();
 
 
 %% MATLAB's binary file
-% The "mat" file must store one variable only. The variable must be a matrix 
-% with the structure as shown in "Table 1" or "Table 2" above. An example of 
-% a valid MATLAB binary file format of a GGM can be found in 
+%
+% The "mat" file must store one variable only.  The variable must be a matrix
+% with the structure as shown in "Table 1" or "Table 2" above.  An example of
+% a valid MATLAB binary file format of a GGM can be found in
 % "../data/input/EGM96.mat".
 
 
 %%
+%
 % Let's define the GrafLab input parameters.
 GM                = 3986004.415E+8;
 R                 = 6378136.3;
 nmin              = 0;
 nmax              = 'nmaxGGM';
 ellipsoid         = 1;
-GGM_mat           = '../data/input/EGM96.mat';  % This is the MATLAB binary 
+GGM_mat           = '../data/input/EGM96.mat';  % This is the MATLAB binary
                                                 % file with GGM coefficients
 crd               = 0;
 point_type        = 0;
@@ -77,6 +81,7 @@ status_bar        = 1;
 
 
 %%
+%
 % Do the synthesis
 out_mat = GrafLab('OK', ...
     GM, ...
@@ -115,10 +120,11 @@ out_mat = GrafLab('OK', ...
 
 
 %% Text format
-% This example shows how to import a text format of GGM that obeys the 
+%
+% This example shows how to import a text format of GGM that obeys the
 % structure of "Table 1" or "Table 2".
 %
-% Let's save now the "GGM_mat" file to a text file and update some GrafLab 
+% Let's save now the "GGM_mat" file to a text file and update some GrafLab
 % input parameters.
 GGM = load(GGM_mat);
 GGM = GGM.EGM96;
@@ -128,6 +134,7 @@ out_path = sprintf('../data/output/howto-g02-table-txt');
 
 
 %%
+%
 % Do the synthesis
 out_txt = GrafLab('OK', ...
     GM, ...
@@ -166,36 +173,39 @@ out_txt = GrafLab('OK', ...
 
 
 %%
-% Now check whether the synthesis with the GGM from the MATLAB's binary file 
+%
+% Now check whether the synthesis with the GGM from the MATLAB's binary file
 % and the text file are equal.
 fprintf("The RMS of the difference is %0.16e\n", rms(out_mat(:, end) - ...
                                                      out_txt(:, end)));
 
 
 %% GFC format
-% The "gfc" format is defined by ICGEM 
+%
+% The "gfc" format is defined by ICGEM
 % (http://icgem.gfz-potsdam.de/ICGEM-Format-2011.pdf).
 %
-% GrafLab should be able to process most of the *static* models found on the 
-% ICGEM website. It *cannot* process temporal models. The temporal models can 
-% easily be identified, as they use terms such as "gfct",
-% "trnd", "acos", "asin", etc. If you attempt import a temporal model, you 
-% should get an error message.
+% GrafLab should be able to process most of the _static_ models found on the
+% ICGEM website.  It _cannot_ process temporal models.  The temporal models can
+% easily be identified, as they use terms such as "gfct", "trnd", "acos",
+% "asin", etc.  If you attempt import a temporal model, you should get an error
+% message.
 %
-% Whenever you import a "gfc" file, GrafLab reads its header and takes the "GM" 
-% and "R" constants from that file.  The "GM" and "R" values that we pass to 
-% GrafLab are *not* used in case of "gfc" files, so we can use any positive 
-% real number, it simply does not matter. GrafLab will print a warning if your 
-% "GM" and/or "R" values are different from those found in the "gfc" file. You 
-% may verify that GrafLab took correctly the "GM" and "R" values from the "gfc" 
+% Whenever you import a "gfc" file, GrafLab reads its header and takes the "GM"
+% and "R" constants from that file.  The "GM" and "R" values that we pass to
+% GrafLab are _not_ used in case of "gfc" files, so we can use any positive
+% real number, it simply does not matter.  GrafLab will print a warning if your
+% "GM" and/or "R" values are different from those found in the "gfc" file.  You
+% may verify that GrafLab took correctly the "GM" and "R" values from the "gfc"
 % file by inspecting the report file exported by GrafLab.
 %
-% In this example, we import some more or less random static model downloaded 
+% In this example, we import some more or less random static model downloaded
 % from the ICGEM website.
 
 %%
+%
 % Define the GrafLab input parameters.  We intentionally set "GM" and "R" to
-% a wrong value "1.0" to demonstrate that GrafLab will ignore our choice and 
+% a wrong value "1.0" to demonstrate that GrafLab will ignore our choice and
 % will use the correct values from the "gfc" file.
 GM       = 1.0;
 R        = 1.0;
@@ -204,6 +214,7 @@ out_path = '../data/output/howto-g02-gfc';
 
 
 %%
+%
 % Do the synthesis
 out_txt = GrafLab('OK', ...
     GM, ...
@@ -242,6 +253,7 @@ out_txt = GrafLab('OK', ...
 
 
 %%
-% You may now want to inspect the report file to see that GrafLab indeed used 
+%
+% You may now want to inspect the report file to see that GrafLab indeed used
 % the correct "GM" and "R" values from the "gfc" file.
 fprintf("The name of the report file is ""%s_Report.txt"".\n", out_path);

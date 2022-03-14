@@ -81,10 +81,6 @@ to go [here](doc/isgraflab.md), learn the interface at first and then return
 back.
 
 * [i01](src/howto_i01.m): Synthesis at grids residing on the Earth's topography
-  in spherical coordinates
-
-* [i02](src/howto_i02.m): Synthesis at grids residing on the Earth's topography
-  in ellipsoidal coordinates
 
 
 

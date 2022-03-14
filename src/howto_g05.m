@@ -5,20 +5,14 @@
 %
 % Only synthesis at a grid can be plotted with GrafLab.
 %
-% All the GrafLab input parameters are explained in <../graflab.md
-% ../graflab.md>.
+% All the GrafLab input parameters are explained in <../doc/graflab.md
+% ../doc/graflab.md>.
 
 
-%%
-%
-% Let's start by clearing the workspace, command window and by checking whether
-% all input data are available.
 clear; clc; init_checker();
 
 
 %% Plotting with "Mapping Toolbox"
-%
-% The plots are nice, but the plotting may be very slow for large grids.
 %
 % Define the GrafLab input parameters.
 GM                = 3986004.415E+8;
@@ -104,13 +98,17 @@ fprintf("""%s*.png"".\n", out_path);
 fprintf("%0.1f sec.\n", time_mt);
 
 
+%%
+%
+% Conclution: the plots are nice, but the plotting may be very slow for large
+% grids.
+
+
 
 
 
 
 %% Plotting with the "imagesc" function
-%
-% Very simple plots, but also very fast plotting, even with large grids.
 %
 % Update some of the GrafLab input paramaters.
 display_data = 2;  % Use the "imagesc" function to plot the synthesis
@@ -171,12 +169,18 @@ fprintf("""%s*.png"".\n", out_path);
 fprintf("%0.1f sec.\n", time_imagsc);
 
 
+%%
+%
+% Conclusion: very simple plots, but also very fast plotting, even with large
+% grids.
+
+
 %% Output variable from GrafLab
 %
 % You may redirect the numerical outputs from GrafLab to a MATLAB variable.
-% The output variable contains the numerical data that GrafLab uses to prepare
-% the "txt" and/or "mat" file(s).  Note that the "out_path" must be specified,
-% even if you do not export any data or plot.
+% The output variable stores the numerical data used by GrafLab to prepare the
+% "txt" and/or "mat" file(s).  Note that the "out_path" must be specified, even
+% if you do not export any data or plot.
 %
-% In this HOWTO, the GrafLab numerical outputs are stored in "out_mt" and
-% "out_imgsc" variables.  You may explore these variables now.
+% Now, you may want to explore the GrafLab numerical outputs stored in the
+% "out_mt" and "out_imgsc" variables.

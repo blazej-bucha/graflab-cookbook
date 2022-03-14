@@ -4,14 +4,10 @@
 % instance, the _gravitational_ vector instead of the _gravity_ vector (no
 % centrifugal force).
 %
-% All the GrafLab input parameters are explained in <../graflab.md
-% ../graflab.md>.
+% All the GrafLab input parameters are explained in <../doc/graflab.md
+% ../doc/graflab.md>.
 
 
-%%
-%
-% Let's start by clearing the workspace, command window and by checking whether
-% all input data are available.
 clear; clc; init_checker();
 
 
@@ -21,11 +17,11 @@ clear; clc; init_checker();
 % coordinates ("crd = 1").
 %
 % To stop the Earth's rotation, you have to set the angular velocity of the
-% ellipsoid to zero (see the "ellipsoid" variable in <../graflab.md
-% ../graflab.md>).  This is because, GGMs do not have their own value of the
-% angular velocity, so it is usually taken from the definition parameters of
-% the reference ellipsoid.  In fact, all elements of the "ellipsoid" array can
-% safely be set to zero as long as you work with spherical coordinates of
+% ellipsoid to zero (see the "ellipsoid" variable in <../doc/graflab.md
+% ../doc/graflab.md>).  This is because, GGMs do not have their own value of
+% the angular velocity, so it is usually taken from the definition parameters
+% of the reference ellipsoid.  In fact, all elements of the "ellipsoid" array
+% can safely be set to zero as long as you work with spherical coordinates of
 % evaluation points.
 %
 % Define the GrafLab input parameters
@@ -33,7 +29,8 @@ GM                = 3986004.415E+8;
 R                 = 6378136.3;
 nmin              = 0;
 nmax              = 360;
-ellipsoid         = [0.0 0.0 0.0 0.0 0.0];
+ellipsoid         = [0.0 0.0 0.0 0.0 0.0];  % Make all parameters of the
+                                            % reference ellipsoid zero.
 GGM_path          = '../data/input/EGM96.mat';
 crd               = 1;  % Spherical coordinates
 point_type        = 0;
@@ -107,18 +104,20 @@ GrafLab('OK', ...
 % Again, you have to set the angular velocity of the ellipsoid to zero.  This
 % time, however, two elements of the "ellipsoid" array are needed, the
 % semimajor axis and the numerical eccentricity.  This is because the
-% ellipsoidal coordinates have to be transformed into spherical coordinates.
-% The latter coordiantes are required for spherical harmonic synthesis.  To do
-% the transformation of the coordinates, you need set the semimajor axis and
-% the numerical eccentricity to values of the ellipsoid you want to use (e.g.,
-% GRS80, WGS84 and so on).
+% ellipsoidal coordinates of the evaluation points have to be transformed into
+% spherical coordinates.  The latter coordinates are required for spherical
+% harmonic synthesis.  To do the coordinates transformation, you need set the
+% semimajor axis and the numerical eccentricity to values of the ellipsoid you
+% want to use (e.g., GRS80, WGS84 and so on).
 %
 % Define the GrafLab input parameters.
 GM                = 3986004.415E+8;
 R                 = 6378136.3;
 nmin              = 0;
 nmax              = 360;
-ellipsoid         = [0.0 6378137.0 sqrt(0.006694380022903416) 0.0 0.0];
+ellipsoid         = [0.0 6378137.0 sqrt(0.006694380022903416) 0.0 0.0];  % Note
+                    % the semimajor axis of the numerical eccentricity of the
+                    % reference ellipsoid.  Here, we are using GRS80.
 GGM_path          = '../data/input/EGM96.mat';
 crd               = 0;  % Ellipsoidal coordinates
 point_type        = 0;

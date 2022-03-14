@@ -3,14 +3,10 @@
 % You will learn how to do the efficient grid-wise synthesis, but this time
 % with varying grid step in latitude and/or longitude.
 %
-% All the GrafLab input parameters are explained in <../graflab.md
-% ../graflab.md>.
+% All the GrafLab input parameters are explained in <../doc/graflab.md
+% ../doc/graflab.md>.
 
 
-%%
-%
-% Let's start by clearing the workspace, command window and by checking whether
-% all input data are available.
 clear; clc; init_checker();
 
 
@@ -27,7 +23,7 @@ clear; clc; init_checker();
 % a vector of spherical longitudes "lon" and the constant height of the grid
 % above the reference ellipsoid "h".  The spherical latitudes "lat_sph" can be
 % transformed into ellipsoidal ones "lat_ell", and these ellipsoidal latitudes
-% (with varying spacing) can then be used to defined the grid in GrafLab.
+% (with varying spacing) can then be used to define a grid in GrafLab.
 
 % Vector of spherical latitudes
 lat_sph = -90.0:1.0:90.0;
@@ -50,8 +46,7 @@ lat_ell = atan(tan(lat_sph * pi / 180.0) ./ sqrt(1.0 - eEl^2)) * 180.0 / pi;
 %%
 %
 % The spherical and the ellipsoidal longitudes are equal, so no transformation
-% is required for the grid longitudes.  Now define the GrafLab input
-% parameters.
+% is required for grid longitudes.  Now define the GrafLab input parameters.
 GM                = 3986004.415E+8;
 R                 = 6378136.3;
 nmin              = 0;

@@ -38,34 +38,41 @@
 %
 % Examples of some symmetric grids (shown are only the latitudes):
 %
-%    % Equator included
-%    lat = [-90 -60 -30 0 30 60 90];
-%    % Equator included
-%    lat = [-80 -60 -40 -20 0 20 40 60 80];
-%    % Equator excluded
-%    lat = [-35 -25 -15 -5 5 15 25 35];
-%    lat = [-90 -85 -80 80 85 90];
-%    % Varying spacing
-%    lat = [-90 -80 -75 -70 -69 -68 -67 -66 -65 65 66 67 68 69 70 75 80 90];
+% * Equator included
+%
+%    lat = [-90 -60 -30 0 30 60 90]
+%
+% * Equator included
+%
+%    lat = [-80 -60 -40 -20 0 20 40 60 80]
+%
+% * Equator excluded
+%
+%    lat = [-35 -25 -15 -5 5 15 25 35]
+%
+%    lat = [-90 -85 -80 80 85 90]
+%
+% * Varying spacing
+%
+%    lat = [-90 -80 -75 -70 -69 -68 -67 -66 -65 65 66 67 68 69 70 75 80 90]
 %
 % Examples of some grids that are not considered as symmetric (shown are only
 % latitudes):
 %
-%    % The negative latitude of -90 deg does not have its positive counterpart
-%    lat = [-90 -60 -30 0 30 60];
-%    % The difference "abs(abs(-4.99) - 5.0)" is larger than the threshold of
-%    "100.0 * eps" degrees
-%    lat = [-35 -25 -15 -4.99 5 15 25 35];
+% * The negative latitude of -90 deg does not have its positive counterpart
+%
+%    lat = [-90 -60 -30 0 30 60]
+%
+% * The difference "abs(abs(-4.99) - 5.0)" is larger than the threshold of
+% "100.0 * eps" degrees
+%
+%    lat = [-35 -25 -15 -4.99 5 15 25 35]
 %
 %
-% All the GrafLab input parameters are explained in <../graflab.md
-% ../graflab.md>.
+% All the GrafLab input parameters are explained in <../doc/graflab.md
+% ../doc/graflab.md>.
 
 
-%%
-%
-% Let's start by clearing the workspace, command window and by checking whether
-% all input data are available.
 clear; clc; init_checker();
 
 
@@ -77,13 +84,13 @@ clear; clc; init_checker();
 % Latitudes
 lat = -90.0:0.1:90.0;
 
-% Longitudes.  The grid step is larger in this example, as longitudes do not
+% Longitudes.  The grid step is large in this example, as longitudes do not
 % affect the grid symmetry in any way
 lon = 0.0:5.0:360.0;
 
 
 % Grid height
-h   = 0;
+h = 0;
 
 
 %%
@@ -220,8 +227,8 @@ fprintf("Non-symmetric grid: %0.1f sec\n", time_nosymm);
 
 % For instance, if, for some reason, you have to slice your grid into
 % latitudinal bands and call GrafLab multiple times, slice your grid like this
-lat1 = [-90.0:0.01:-80.0 80.0:0.01:90.0];
-lat2 = [-79.9:0.01:-70.0 70.0:0.01:79.9];
+lat1 = [-90.0: 0.01:-80.0 80.0:0.01:90.0];
+lat2 = [-79.99:0.01:-70.0 70.0:0.01:79.99];
 
 % Not like this
 lat3 = [-90.0:0.01:-70.0];

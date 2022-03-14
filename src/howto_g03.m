@@ -3,14 +3,10 @@
 % You will learn how to modify the minimum and the maximum harmonic degrees of
 % the synthesis.
 %
-% All the GrafLab input parameters are explained in <../graflab.md
-% ../graflab.md>.
+% All the GrafLab input parameters are explained in <../doc/graflab.md
+% ../doc/graflab.md>.
 
 
-%%
-%
-% Let's start by clearing the workspace, command window and by checking whether
-% all input data are available.
 clear; clc; init_checker();
 
 
@@ -88,18 +84,18 @@ GrafLab('OK', ...
 
 %% Synthesis up to the maximum degree of a GGM
 %
-% The maximum harmonic degree in "GGM_path" is 360.  To do the synthesis up to
-% this degree, you can manually set "nmax" to 360 or, even better, to
-% 'nmaxGGM'.  In the latter case, GrafLab scans the file for its maximum
-% harmonic degree and automatically uses the maximum value it founds.  This is
-% useful when dealing with multiple GGM files with varying maximum harmonic
-% degree, e.g., monthly gravity field solutions.
+% The maximum harmonic degree in "GGM_path" is 360.  To synthesize up to this
+% degree, you can manually set "nmax" to 360 or, even better, to 'nmaxGGM'.  In
+% the latter case, GrafLab scans the file for its maximum harmonic degree and
+% automatically uses the maximum value it founds.  This is useful when dealing
+% with multiple GGM files with varying maximum harmonic degree, e.g., monthly
+% gravity field solutions.
 
 
 %%
 %
 % Update the GrafLab input parameters.
-nmax     = 'nmaxGGM';
+nmax     = 'nmaxGGM';  % Uses automatically the maximum degree of GGM
 out_path = sprintf('../data/output/howto-g03-nmin%d-nmaxGGM', nmin);
 
 
@@ -171,9 +167,9 @@ out_grd = GrafLab('OK', ...
 % represents the minimum degree of the harmonic synthesis.  For some gravity
 % field quantities, GrafLab does not, however, allow non-zero "nmin" value.
 % The quantities includes: 9, 10, 15, 20, 23 (see the code numbers for
-% "quantity" from <../graflab.md ../graflab.md>).  If you attempt to evaluate
-% these quantities with "nmin > 0", you will get an error.  If you set "nmin"
-% to a value larger than "nmax", you will get an error, too.
+% "quantity" from <../doc/graflab.md ../doc/graflab.md>).  If you attempt to
+% evaluate these quantities with "nmin > 0", you will get an error.  If you set
+% "nmin" to a value larger than "nmax", you will get an error, too.
 
 %%
 %

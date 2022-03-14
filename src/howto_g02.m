@@ -3,14 +3,10 @@
 % You will learn about the formats of gravitational field models that are
 % supported by GrafLab.
 %
-% All the GrafLab input parameters are explained in <../graflab.md
-% ../graflab.md>.
+% All the GrafLab input parameters are explained in <../doc/graflab.md
+% ../doc/graflab.md>.
 
 
-%%
-%
-% Let's start by clearing the workspace, command window and by checking whether
-% all input data are available.
 clear; clc; init_checker();
 
 
@@ -20,8 +16,8 @@ clear; clc; init_checker();
 % "Table 2".  Any other ordering scheme may not be processed correctly by
 % GrafLab, so is not recommended.
 %
-% Table 1: GGM coefficients table up to degree 2.  The column order is degree,
-% order, Cnm and Snm
+% Table 1: GGM coefficients table up to degree 2.  The order of the columns is
+% harmonic degree, harmonic order, Cnm and Snm
 %
 %   0   0    1.00000E+00    0.00000E+00
 %   1   0    0.00000E+00    0.00000E+00
@@ -31,8 +27,8 @@ clear; clc; init_checker();
 %   2   2    0.24394E-05   -0.14003E-05
 %
 %
-% Table 2: GGM coefficients table up to degree 2.  The column order is degree,
-% order, Cnm and Snm
+% Table 2: GGM coefficients table up to degree 2.  The order of the columns is
+% harmonic degree, harmonic order, Cnm and Snm
 %
 %   0   0    1.00000E+00    0.00000E+00
 %   1   0    0.00000E+00    0.00000E+00
@@ -42,7 +38,7 @@ clear; clc; init_checker();
 %   2   2    0.24394E-05   -0.14003E-05
 
 
-%% MATLAB's binary file
+%% GGM as a MATLAB's binary file
 %
 % The "mat" file must store one variable only (there is an exception to be
 % explained in "HOWTO g11").  The variable must be a matrix with the structure
@@ -119,16 +115,15 @@ out_mat = GrafLab('OK', ...
     status_bar);
 
 
-%% Text format
+%% GGM in a text format
 %
 % This example shows how to import a text format of GGM that obeys the
-% structure of "Table 1" or "Table 2".
-%
-% Let's save now the "GGM_mat" file to a text file and update some GrafLab
-% input parameters.
+% structure of "Table 1" or "Table 2".  To this end, we save the "GGM_mat" file
+% to a text file.  Next, we update some GrafLab input parameters.
 GGM = load(GGM_mat);
 GGM = GGM.EGM96;
-GGM_txt  = '../data/output/EGM96.txt';  % This is the text version of "GGM_mat"
+GGM_txt  = '../data/output/EGM96.txt';  % This will be the text version of
+                                        % "GGM_mat"
 save(GGM_txt, 'GGM', '-ascii', '-double');
 out_path = sprintf('../data/output/howto-g02-table-txt');
 
@@ -174,13 +169,12 @@ out_txt = GrafLab('OK', ...
 
 %%
 %
-% Now check whether the synthesis with the GGM from the MATLAB's binary file
-% and the text file are equal.
+% Now check the synthesis from the MATLAB's binary file and from the text file.
 fprintf("The RMS of the difference is %0.16e\n", rms(out_mat(:, end) - ...
                                                      out_txt(:, end)));
 
 
-%% GFC format
+%% GGM in the GFC format
 %
 % The "gfc" format is defined by ICGEM
 % (http://icgem.gfz-potsdam.de/ICGEM-Format-2011.pdf).
@@ -204,9 +198,9 @@ fprintf("The RMS of the difference is %0.16e\n", rms(out_mat(:, end) - ...
 
 %%
 %
-% Define the GrafLab input parameters.  We intentionally set "GM" and "R" to
-% a wrong value "1.0" to demonstrate that GrafLab will ignore our choice and
-% will use the correct values from the "gfc" file.
+% Now we need to define the GrafLab input parameters.  We intentionally set
+% "GM" and "R" to a wrong value "1.0" to demonstrate that GrafLab will ignore
+% our choice and will use the correct values from the "gfc" file.
 GM       = 1.0;
 R        = 1.0;
 GGM_gfc  = '../data/input/GO_CONS_GCF_2_TIM_R6.gfc';  % This is the "gfc" file

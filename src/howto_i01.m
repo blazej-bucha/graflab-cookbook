@@ -1,16 +1,12 @@
 %% HOWTO i01: Synthesis at grids residing on the Earth's topography
 %
 % You will learn how to perform an efficient solid spherical harmonic synthesis
-% at grids residing on irregular surfaces, e.g. the planetary topography.
+% at grids residing on irregular surfaces, e.g. planetary topographies.
 %
-% All the isGrafLab input parameters are explained in <../graflab.md
-% ../graflab.md> and <../isgraflab.md ../isgraflab.md>.
+% All the isGrafLab input parameters are explained in <../doc/graflab.md
+% ../doc/graflab.md> and <../doc/isgraflab.md ../doc/isgraflab.md>.
 
 
-%%
-%
-% Let's start by clearing the workspace, command window and by checking whether
-% all input data are available.
 clear; clc; init_checker();
 
 
@@ -24,8 +20,8 @@ clear; clc; init_checker();
 % we use isGrafLab to compute the disturbing potential at the very same points
 % on the Earth's surface.  The synthesis in isGrafLab is approximate but
 % significantly faster than the point-wise evaluation in GrafLab.  The
-% approximation errors can be well-controlled and even mitigated to safely
-% negligible errors for most applications.
+% approximation errors can be well-controlled and even safely negligible errors
+% for most applications.
 %
 % Let's start by synthesizing the Earth's topography from "DTM2006" up to
 % degree "360". At first, we need to define some input parameters (see "HOWTO

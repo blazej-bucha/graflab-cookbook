@@ -5,14 +5,10 @@
 % mistake when computing commission errors.
 %
 %
-% All the GrafLab input parameters are explained in <../graflab.md
-% ../graflab.md>.
+% All the GrafLab input parameters are explained in <../doc/graflab.md
+% ../doc/graflab.md>.
 
 
-%%
-%
-% Let's start by clearing the workspace, command window and by checking whether
-% all input data are available.
 clear; clc; init_checker();
 
 
@@ -88,8 +84,9 @@ GrafLab('OK', ...
     status_bar);
 
 
-%% You may now want to inspect the output files.  Importantly, this particular
+%%
 %
+% You may now want to inspect the output files.  Importantly, this particular
 % covariance matrix "GGM_path" is not calibrated (scaled).  As a result, the
 % values of the commission errors are off by several orders of magnitudes.
 % Nevertheless, the relative spatial relations are correct.

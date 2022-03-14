@@ -1,9 +1,11 @@
 %% HOWTO g11: A trick with the minimum and the maximum degree of the synthesis
 %
 % You will learn a trick to work with a GGM, the size of which exceeds your
-% RAM.  The main idea is to slice your GGM into several spectral bands (1st
-% band: "0" ... "nmax1", 2nd band: "nmax1 + 1" ... "nmax2", 3rd band: "nmax2
-% + 1" ... "nmax3", etc.), each of which is small enough to be stored in RAM at
+% RAM.
+%
+% The main idea is to slice your GGM into several spectral bands (1st band: "0"
+% ... "nmax1", 2nd band: "nmax1 + 1" ... "nmax2", 3rd band: "nmax2 + 1"
+% ... "nmax3", etc.), each of which is small enough to be stored in RAM at
 % once.  Then, you can perform the synthesis for each sliced GGM and, finally,
 % sum the syntheses (outside GrafLab) to the get final result.  Certainly, this
 % is substantially slower than using a single GGM, so this procedure should be
@@ -27,14 +29,10 @@
 % * an integer names as "nmax" specifying the maximum degree of the
 % coefficients to be imported.
 %
-% All the GrafLab input parameters are explained in <../graflab.md
-% ../graflab.md>.
+% All the GrafLab input parameters are explained in <../doc/graflab.md
+% ../doc/graflab.md>.
 
 
-%%
-%
-% Let's start by clearing the workspace, command window and by checking whether
-% all input data are available.
 clear; clc; init_checker();
 
 

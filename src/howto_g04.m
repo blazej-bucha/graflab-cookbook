@@ -3,14 +3,10 @@
 % You will learn about the pros and cons of the three supported methods to
 % compute Legendre functions.
 %
-% All the GrafLab input parameters are explained in <../graflab.md
-% ../graflab.md>.
+% All the GrafLab input parameters are explained in <../doc/graflab.md
+% ../doc/graflab.md>.
 
 
-%%
-%
-% Let's start by clearing the workspace, command window and by checking whether
-% all input data are available.
 clear; clc; init_checker();
 
 
@@ -31,8 +27,6 @@ clear; clc; init_checker();
 
 
 %% Benchmarks for grid-wise computations
-%
-% Note that the same number of points is use for all grid computations.
 %
 % Define all GrafLab input parameters except the method to compute the Legendre
 % functions.
@@ -63,7 +57,8 @@ status_bar        = 1;
 
 %%
 %
-% Do the tests by looping over the methods to compute Legendre functions.
+% Do the tests by looping over the methods to compute Legendre functions.  Note
+% that the same number of points is use for all grid computations.
 time_grd = zeros(3, 1);
 for fnALFs = [1, 2, 3]
 
@@ -111,8 +106,6 @@ end
 
 %% Benchmarks for point-wise computations
 %
-% The same number of scattered points is use for all point-wise computations.
-%
 % Now let's define the scattered points
 [lon_sctr, lat_sctr] = meshgrid(0.0:2.0:360.0, ...
                                 -90.0:2.0:90.0);
@@ -120,6 +113,7 @@ lat_sctr = lat_sctr(:);
 lon_sctr = lon_sctr(:);
 h_sctr   = zeros(length(lat_sctr), 1);
 
+%%
 %
 % Update some GrafLab input parameters.
 point_type = 2;  % Computation at a grid
@@ -129,6 +123,8 @@ out_path   = '../data/output/howto-g04-sctr';
 %%
 %
 % Do the tests by looping over the methods to compute Legendre functions.
+% Again, the same number of scattered points is use for all point-wise
+% computations.
 time_sctr = zeros(3, 1);
 for fnALFs = [1, 2, 3]
 
@@ -197,5 +193,5 @@ fprintf(" ERA: %0.1f\n", time_sctr(3));
 % For grid computations up to degree 1800, use SFCM.  Beyond that degree, use
 % ERA.  Avoid using MFCM.
 %
-% For point-wise synthesis up to degree 1800, use SFCM or MFCM.  For degree
-% from 1801 to 2700, use MFCM.  Beyond degree 2700, use ERA.
+% For point-wise synthesis up to degree 1800, use SFCM or MFCM.  For maximum
+% degrees from 1801 to 2700, use MFCM.  Beyond degree 2700, use ERA.

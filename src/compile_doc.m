@@ -6,7 +6,7 @@ clear;
 clc;
 
 
-mlx_dir = '../doc/mlx';
+mlx_dir = '.';
 if exist(mlx_dir, 'dir') ~= 7
     mkdir(mlx_dir);
 end

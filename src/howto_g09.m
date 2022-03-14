@@ -117,7 +117,7 @@ status_bar        = 1;
 
 %%
 %
-% Do the synthesis
+% Do the synthesis.
 tic
 GrafLab('OK', ...
     GM, ...
@@ -166,7 +166,7 @@ lat_grd_min = lat;
 
 %%
 %
-% Do the synthesis
+% Do the synthesis.
 tic
 GrafLab('OK', ...
     GM, ...

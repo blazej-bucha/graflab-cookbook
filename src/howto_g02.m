@@ -44,10 +44,10 @@ clear; clc; init_checker();
 
 %% MATLAB's binary file
 %
-% The "mat" file must store one variable only.  The variable must be a matrix
-% with the structure as shown in "Table 1" or "Table 2" above.  An example of
-% a valid MATLAB binary file format of a GGM can be found in
-% "../data/input/EGM96.mat".
+% The "mat" file must store one variable only (there is an exception to be
+% explained in "HOWTO g11").  The variable must be a matrix with the structure
+% as shown in "Table 1" or "Table 2" above.  An example of a valid MATLAB
+% binary file format of a GGM can be found in "../data/input/EGM96.mat".
 
 
 %%

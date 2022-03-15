@@ -118,8 +118,8 @@ save('../data/output/GRIM5C1_covmat_diag.mat', 'cm', '-v7.3');
 % Now let's repeat the same computation but with the new covariance matrix,
 % this time having only the diagonal elements.  Update the GrafLab input
 % parameters.
-GGM_path          = '../data/output/GRIM5C1_covmat_diag.mat';
-out_path          = '../data/output/howto-g10-diag';
+GGM_path = '../data/output/GRIM5C1_covmat_diag.mat';
+out_path = '../data/output/howto-g10-diag';
 
 
 %%
@@ -169,4 +169,4 @@ GrafLab('OK', ...
 % diagonal covariance matrix leads to commission errors that are perfectly
 % symmetric with respect to the equator, _regardless of the matrix elements_.
 % Obviously, this is not at all realistic.
-fprintf("The maps are available here ""%s*.png""\n", 'howto-g10');
+fprintf("The output files are ""%s*"".\n", out_path);

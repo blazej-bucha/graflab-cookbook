@@ -217,7 +217,7 @@ GrafLab('OK', ...
 
 %%
 %
-fprintf("Now you may want to explore the ""%s*"" files.\n\n", out_path);
+fprintf("Now you may want to explore the ""%s*"" files.\n", out_path);
 
 
 %% Synthesis at scattered points from MATLAB variables

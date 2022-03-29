@@ -12,8 +12,8 @@ are several tricks to exploit the routines beyond their original intention
 The HOWTOs are ordinary MATLAB scripts.  Attached is the `./src/compile_doc.m`
 script to convert the m-files to Live Scripts, PDF and HTML documentation if
 this is what you prefer.  The Live Scripts are saved to `./src` and the PDF and
-HTML documentation to `./doc`.  The current version of the compiled cookbook is
-also available online at
+HTML documentation is exported `./doc`.  The current version of the compiled
+cookbook is also available online at
 [https://blazejbucha.com/graflab/doc](https://blazejbucha.com/graflab/doc).
 
 

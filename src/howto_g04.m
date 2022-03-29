@@ -107,8 +107,8 @@ end
 %% Benchmarks for point-wise computations
 %
 % Now let's define the scattered points
-[lon_sctr, lat_sctr] = meshgrid(0.0:2.0:360.0, ...
-                                -90.0:2.0:90.0);
+[lon_sctr, lat_sctr] = meshgrid(0.0:5.0:360.0, ...
+                                -90.0:5.0:90.0);
 lat_sctr = lat_sctr(:);
 lon_sctr = lon_sctr(:);
 h_sctr   = zeros(length(lat_sctr), 1);

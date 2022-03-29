@@ -6,12 +6,6 @@ clear;
 clc;
 
 
-mlx_dir = '.';
-if exist(mlx_dir, 'dir') ~= 7
-    mkdir(mlx_dir);
-end
-
-
 latex_dir = '../doc/latex';
 if exist(latex_dir, 'dir') ~= 7
     mkdir(latex_dir);
@@ -34,7 +28,7 @@ for n = 1:length(howtos)
 
     % Convert to a live script
     [path, name, ext] = fileparts(file);
-    mlx = [mlx_dir '/' name '.mlx'];
+    mlx = [name '.mlx'];
     fprintf("   Live Script ""%s""...\n", mlx);
     try
         matlab.internal.liveeditor.openAndSave(file, mlx);

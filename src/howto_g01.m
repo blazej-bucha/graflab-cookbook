@@ -305,7 +305,7 @@ fprintf("The point-wise synthesis took %0.3f sec.\n", time_sctr);
 % Now let's compute the RMS of the differences between the synthesis at a grid
 % and at scattered points.  The value shoud be very small, say, "10^-12" or
 % less.
-fprintf("The RMS is: %0.16e\n", rms (out_grd(:, end) - out_sctr(:, end)));
+fprintf("The RMS is: %0.16e\n", rms(out_grd(:, end) - out_sctr(:, end)));
 
 
 %%

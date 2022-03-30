@@ -95,6 +95,8 @@ explained only the new ones that are unique to isGrafLab.
   * `lon_1` and `lon_m` are the minimum and the maximum grid longitudes,
     respectively
 
+Keep in mind that the `isGrafLab.m` function may use slightly different names
+of the variables. This is useful to know when you are debugging.
 
 You should now be ready to return [back](../README.md) and go through the
 HOWTOs.

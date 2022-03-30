@@ -80,7 +80,7 @@ let's explain them:
 
   * `1` -- spherical
 
-* `point_type` -- Organization of evaluation points
+* `point_type` -- Distribution of evaluation points
 
   * `0` -- grid
 
@@ -317,11 +317,11 @@ specified.
 
 * `status_bar` -- Display a kind of a progress bar, `0` for no, `1` for yes
 
-The only **output** parameter is the `out` variable.  It contains the numerical
-data used to prepare the output data files if `export_data_txt == 1` and/or
-`export_data_mat == 1`.  Throughout the cookbook, the name of this output
-variable may vary.
+The only **output** parameter is the `out` variable with the output numerical
+data. Throughout the cookbook, the name of this output variable may vary.
 
+Keep in mind that the `GrafLab.m` function may use slightly different names of
+the variables. This is useful to know when you are debugging.
 
 You should now be ready to return [back](../README.md) and go through the
 HOWTOs.

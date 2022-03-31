@@ -99,7 +99,7 @@ out_t = GrafLab('OK', ...
 % point-wise mode.  The grid mode cannot be used, as the radius of the grid
 % points varies irregularly.  With the point-wise mode in GrafLab, we need,
 % however, the full spherical radius of each evaluation point.  Therefore, for
-% simplicity, we approximtate the geoid by a sphere and add its radius "R" to
+% simplicity, we approximate the geoid by a sphere and add its radius "R" to
 % the synthesized heights.
 
 % Define the radius of the reference sphere of "EGM96"

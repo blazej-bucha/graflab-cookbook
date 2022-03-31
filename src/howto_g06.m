@@ -1,6 +1,6 @@
 %% HOWTO g06: Synthesis of planetary topographies
 %
-% You will learn how to synthese a planetary topography.  In fact, the same
+% You will learn how to synthesize a planetary topography.  In fact, the same
 % approach can be applied to any surface spherical harmonic synthesis of the
 % form
 %
@@ -61,7 +61,7 @@ h_grd             =   0.0; % Note that the synthesis is here done at a grid,
 out_path          = '../data/output/howto-g06-topography';
 quantity_or_error = 0;
 quantity          = 11;  % Gravitational potential; in this case, however,
-                         % we synthese the Earth's topography
+                         % we synthesize the Earth's topography
 fnALFs            = 1;
 export_data_txt   = 1;
 export_report     = 1;
@@ -115,7 +115,7 @@ out = GrafLab('OK', ...
 
 %%
 %
-% You may now take a look at the ouput files.
+% You may now take a look at the output files.
 fprintf("The ""%s*_Gravitational_potential.png"" file shows the " + ...
         "synthesized topography.\n", out_path);
 

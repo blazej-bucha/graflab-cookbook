@@ -177,7 +177,8 @@ time_sctr = toc;
 %%
 %
 % Did you notice how slow the synthesis was at scattered points, despite using
-% the very same points as in the grid-wise synthesis?  This is because the synthesis in grids takes advantage of an efficient FFT-based algorithm.  This
+% the very same points as in the grid-wise synthesis?  This is because the
+% synthesis in grids takes advantage of an efficient FFT-based algorithm.  This
 % technique cannot be used, however, with scattered points.  With increasing
 % number of evaluation points and/or maximum degree of the synthesis, the
 % point-wise computations are therefore slower.

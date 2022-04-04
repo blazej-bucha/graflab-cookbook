@@ -161,7 +161,7 @@ out_grd = GrafLab('OK', ...
 %   reference frame.
 
 
-%% Synthesis from with "nmin" larger than zero
+%% Synthesis with "nmin" larger than zero
 %
 % In addition to modifying "nmax", you may also change the "nmin" value. "nmin"
 % represents the minimum degree of the harmonic synthesis.  For some gravity

@@ -190,7 +190,7 @@ specified for any computation.
   * 9  -- Disturbing tensor in the local north-oriented reference frame (`Txy`,
     `Txz`, `Tyz`)
 
-  * 10 -- Geoid undulation
+  * 10 -- Geoid undulation (requires to specify `DTM_path`, see below)
 
   * 11 -- Gravitational potential
 
@@ -221,7 +221,7 @@ specified for any computation.
 
   * 22 -- Height anomaly ell (approximation of height anomaly or geoid)
 
-  * 23 -- Height anomaly
+  * 23 -- Height anomaly (requires to specify `DTM_path`, see below)
 
   * 24 -- Second radial derivative of disturbing potential
 

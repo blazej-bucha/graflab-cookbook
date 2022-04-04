@@ -1,10 +1,10 @@
 # Description
 
-GrafLab and isGrafLab cookbooks.
+GrafLab and isGrafLab cookbook.
 
 
 Provided are HOWTOs, showing basic and advanced applications using the command
-line.  The cookbooks are centered around gravity field modelling, but included
+line.  The cookbook is centered around gravity field modelling, but included
 are several tricks to exploit the routines beyond their original intention
 (planetary topographies, etc.).
 

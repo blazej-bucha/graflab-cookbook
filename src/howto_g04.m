@@ -116,7 +116,7 @@ h_sctr   = zeros(length(lat_sctr), 1);
 %%
 %
 % Update some GrafLab input parameters.
-point_type = 2;  % Computation at a grid
+point_type = 2;  % Synthesis at scattered points defined by MATLAB variables
 out_path   = '../data/output/howto-g04-sctr';
 
 

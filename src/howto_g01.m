@@ -205,7 +205,7 @@ fprintf("Now you may want to explore the ""%s*"" files.\n\n", out_path);
 % points.  We will load the evaluation points from the "sctr_points_path" file
 % (5 points).
 point_type       = 1;  % Evaluation points from a text file
-sctr_points_path = '../data/input/input-points.txt';
+sctr_points_path = '../data/input/sctr-points.txt';
 out_path         = '../data/output/howto-g01-sctr-load-txt';
 
 
@@ -259,7 +259,7 @@ fprintf("Now you may want to explore the ""%s*"" files.\n", out_path);
 % points from the text file "sctr_points_path" into a binary file and use the
 % new binary file to load the points.
 sctr_points = load(sctr_points_path);
-sctr_points_path = '../data/output/input-points.mat';
+sctr_points_path = '../data/output/sctr-points.mat';
 save(sctr_points_path, 'sctr_points', '-v7.3');
 
 

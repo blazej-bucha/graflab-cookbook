@@ -11,7 +11,7 @@ are several tricks to exploit the routines beyond their original intention
 
 The HOWTO files are ordinary MATLAB scripts.  A pre-compiled cookbook consists
 of Live Scripts that can be found inside the `src` directory and their PDF and
-HTML versions that are stored inside the [docs](docs) folder.
+HTML versions that are stored inside the `docs` folder.
 
 
 [GrafLab](https://github.com/blazej-bucha/graflab) (GRAvity Field LABoratory)

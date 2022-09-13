@@ -47,5 +47,13 @@ copyfile("../isgraflab-master/src/isGrafLab.m", ".");
 fprintf("Done\n");
 
 
+fprintf("Copying GrafLab and isGrafLab data files to ""../data/input""...");
+copyfile("../graflab-master/data/input/*", "../data/input/");
+copyfile("../graflab-master/data/output/*", "../data/input/");
+copyfile("../isgraflab-master/data/input/*", "../data/input/");
+copyfile("../isgraflab-master/data/output/*", "../data/input/");
+fprintf("Done\n");
+
+
 fprintf("Great, all done!  You are now ready to run the HOWTOs " + ...
         "if you like.\n");

@@ -4,8 +4,8 @@
 % instance, the _gravitational_ vector instead of the _gravity_ vector (no
 % centrifugal force).
 %
-% All the GrafLab input parameters are explained in <../doc/graflab.md
-% ../doc/graflab.md>.
+% All the GrafLab input parameters are explained in <../docs/graflab.md
+% ../docs/graflab.md>.
 
 
 clear; clc; init_checker();
@@ -17,8 +17,8 @@ clear; clc; init_checker();
 % coordinates ("crd = 1").
 %
 % To stop the Earth's rotation, you have to set the angular velocity of the
-% ellipsoid to zero (see the "ellipsoid" variable in <../doc/graflab.md
-% ../doc/graflab.md>).  This is because, GGMs do not have their own value of
+% ellipsoid to zero (see the "ellipsoid" variable in <../docs/graflab.md
+% ../docs/graflab.md>).  This is because, GGMs do not have their own value of
 % the angular velocity, so it is usually taken from the definition parameters
 % of the reference ellipsoid.  In fact, all elements of the "ellipsoid" array
 % can safely be set to zero as long as you work with spherical coordinates of

@@ -5,8 +5,8 @@
 % a binary "mat" file and also will be taken from MATLAB variables.
 %
 % Throughout the cookbook, we keep the same names of the input parameters to
-% the GrafLab function.  They are all explained in detail in <../doc/graflab.md
-% ../doc/graflab.md>.
+% the GrafLab function.  They are all explained in detail in
+% <../docs/graflab.md ../docs/graflab.md>.
 
 
 clear; clc; init_checker();

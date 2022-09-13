@@ -69,8 +69,8 @@
 %    lat = [-35 -25 -15 -4.99 5 15 25 35]
 %
 %
-% All the GrafLab input parameters are explained in <../doc/graflab.md
-% ../doc/graflab.md>.
+% All the GrafLab input parameters are explained in <../docs/graflab.md
+% ../docs/graflab.md>.
 
 
 clear; clc; init_checker();

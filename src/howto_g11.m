@@ -29,8 +29,8 @@
 % * an integer names as "nmax" specifying the maximum degree of the
 % coefficients to be imported.
 %
-% All the GrafLab input parameters are explained in <../doc/graflab.md
-% ../doc/graflab.md>.
+% All the GrafLab input parameters are explained in <../docs/graflab.md
+% ../docs/graflab.md>.
 
 
 clear; clc; init_checker();

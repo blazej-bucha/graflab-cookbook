@@ -6,13 +6,13 @@ clear;
 clc;
 
 
-latex_dir = '../doc/latex';
+latex_dir = '../docs/latex';
 if exist(latex_dir, 'dir') ~= 7
     mkdir(latex_dir);
 end
 
 
-html_dir = '../doc/html';
+html_dir = '../docs/html';
 if exist(html_dir, 'dir') ~= 7
     mkdir(html_dir);
 end
@@ -61,7 +61,7 @@ for n = 1:length(howtos)
 end
 
 
-pdf_merged = '../doc/latex/graflab-cookbook.pdf';
+pdf_merged = '../docs/latex/graflab-cookbook.pdf';
 fprintf("Merging all PDFs to ""%s""\n", pdf_merged);
 try
     mergePDFs(pdf, pdf_merged);

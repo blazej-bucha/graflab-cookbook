@@ -5,8 +5,8 @@
 %
 % Only synthesis at a grid can be plotted with GrafLab.
 %
-% All the GrafLab input parameters are explained in <../doc/graflab.md
-% ../doc/graflab.md>.
+% All the GrafLab input parameters are explained in <../docs/graflab.md
+% ../docs/graflab.md>.
 
 
 clear; clc; init_checker();

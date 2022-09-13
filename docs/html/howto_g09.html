@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2021b"><title>HOWTO g09: Exploit the symmetry of Legendre functions</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S2 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: center;  }
+.S3 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S4 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }
+.S5 { border-left: 0px none rgb(0, 0, 0); border-right: 0px none rgb(0, 0, 0); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px; line-height: 15.6px; min-height: 16px; white-space: pre; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S6 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S8 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S9 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S10 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 17.234px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>HOWTO g09: Exploit the symmetry of Legendre functions</span></h1><div  class = 'S1'><span>You will learn about the conditions that must be satisfied to take advantage of the symmetry property of Legendre functions.</span></div><div  class = 'S1'><span>Legendre functions are symmetric with respect to the equator as follows,</span></div><div  class = 'S2'><span texencoding="\bar{P}_{nm}(\sin\varphi) = (-1)^{(n + m)} \,
+  \bar{P}_{nm}(\sin(-\varphi)){.}" style="vertical-align:-6px"><img src="data:image/png;base64,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" width="231.5" height="22" /></span></div><div  class = 'S1'><span>Therefore, if the grid contains both the positive and the negative latitudes,</span><span> </span><span style="font-family: STIXGeneral, STIXGeneral-webfont, serif; font-style: italic; font-weight: 400; color: rgb(0, 0, 0);">φ</span><span> and</span><span> </span><span texencoding="-\varphi" style="vertical-align:-5px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAkCAYAAAAdFbNSAAACZElEQVRYR+3WS6hNURzH8c/1iBiQEsojA+UVJpRMlJAoE48wEEmKkMww8UrJhIEkUkRISeQxUCITDEhMiAF5pDyS8tZfa99Wp9N1z1X7dGr/J2fvtfY++7v+/9//t1abFoy2FmRWQZdVtSrTVaY7yEAlj0oelTzK0kCV6SrTXctAs3x6IDZiIvbgVsJfhyV4iQk4iV34mS+vGdBzcRznsBbfEtB2LMcUvME+bMJObGsm9FYE3GXMw+8EE7DHsBhn0tgKHMUXDMDXArzMTEfZo9xR+kl4lyB64Sl+YWQmhZU4kp4ZhScdQQ/C8661SPtbUf7V2X+Mxj30wSKczeZCxwewHxuy8ZDFlnQ/DC/+Bf36P6Gj1FHeIk5gGV5hOH5kcw8xDjNwPRsPmSzER/QvW9MjUml71GmqMXhUR7chmWjGfmkhsaD2KEPTa3AwfXEy7mbfj8bcgSuYk43Px/l0H9cXyoYOvYZuIyJznzKA25iKzcniiqmLCGuMKozPXObvfBmZjqZbgOiTIRlw6DQcpHvaZB6kuZm4liwurm/W9lcZ0MUm8RbhTEXEQmJBMT44ZbN3cpnQeljk6XqGUAZ0eHLoODI6DSGJiMNYlbw7nCXsMHx8Ntan+XrMpcgjPrw0+XA3HMJ97MVQnEruErvhnXTWeFyXNg2Wkeni+z0xNvl0NNfuNBGwsYhn2TmkI+bSMl0LEQeh0HpkNBbSUJSZ6RzsKmbV2bo7Bd8M6HCI94jfOOld6hRp9lAzoMMdYgf8no6cn1sBuvDtG5jeKHBZO2ItV9hcX3xIh6KGuZshj4Yha1/4A/fkbiW7RagiAAAAAElFTkSuQmCC" width="22.5" height="18" /></span><span>, respectively, the Legendre function for one of the two needs to be computed only. The other is obtained efficiently by the symmetry property.</span></div><div  class = 'S1'><span>In GrafLab,</span><span> </span><span style=' font-style: italic;'>all</span><span> of the following conditions must be satisfied to employ the symmetry of Legendre functions.</span></div><ul  class = 'S3'><li  class = 'S4'><span>A functional of the geopotential is selected (the symmetry property is not implemented for commission errors).</span></li><li  class = 'S4'><span>The grid-wise computation mode is selected.</span></li><li  class = 'S4'><span>The extended-range arithmetic approach is selected to compute Legendre functions (the whole improvement is tailored to high harmonic degrees, for which the standard and modified forward column approaches do not provide accurate results anyway).</span></li><li  class = 'S4'><span>All positive latitudes have their negative counterpart or vice versa (up to a given threshold to suppress numerical inaccuracies, currently "100.0 * eps" degrees). The zero latitude, i.e., the equator, may be included in the grid (again, within the "100.0 * eps" deg numerical threshold).</span></li></ul><div  class = 'S1'><span>If all these conditions are satisfied, the symmetry property is employed</span><span> </span><span style=' font-style: italic;'>automatically</span><span>, meaning that no additional action from the user is required to enable the more efficient variant.</span></div><div  class = 'S1'><span>Examples of some symmetric grids (shown are only the latitudes):</span></div><ul  class = 'S3'><li  class = 'S4'><span>Equator included</span></li></ul><div class = 'preformatted-plain' style = 'margin: 10px 3px 10px 55px; padding: 10px 10px 10px 5px; '><div  class = 'S5'><span style="white-space: pre"><span >  lat = [-90 -60 -30 0 30 60 90]</span></span></div></div><ul  class = 'S3'><li  class = 'S4'><span>Equator included</span></li></ul><div class = 'preformatted-plain' style = 'margin: 10px 3px 10px 55px; padding: 10px 10px 10px 5px; '><div  class = 'S5'><span style="white-space: pre"><span >  lat = [-80 -60 -40 -20 0 20 40 60 80]</span></span></div></div><ul  class = 'S3'><li  class = 'S4'><span>Equator excluded</span></li></ul><div class = 'preformatted-plain' style = 'margin: 10px 3px 10px 55px; padding: 10px 10px 10px 5px; '><div  class = 'S5'><span style="white-space: pre"><span >  lat = [-35 -25 -15 -5 5 15 25 35]</span></span></div></div><div class = 'preformatted-plain' style = 'margin: 10px 3px 10px 55px; padding: 10px 10px 10px 5px; '><div  class = 'S5'><span style="white-space: pre"><span >  lat = [-90 -85 -80 80 85 90]</span></span></div></div><ul  class = 'S3'><li  class = 'S4'><span>Varying spacing</span></li></ul><div class = 'preformatted-plain' style = 'margin: 10px 3px 10px 55px; padding: 10px 10px 10px 5px; '><div  class = 'S5'><span style="white-space: pre"><span >  lat = [-90 -80 -75 -70 -69 -68 -67 -66 -65 65 66 67 68 69 70 75 80 90]</span></span></div></div><div  class = 'S1'><span>Examples of some grids that are not considered as symmetric (shown are only latitudes):</span></div><ul  class = 'S3'><li  class = 'S4'><span>The negative latitude of -90 deg does not have its positive counterpart</span></li></ul><div class = 'preformatted-plain' style = 'margin: 10px 3px 10px 55px; padding: 10px 10px 10px 5px; '><div  class = 'S5'><span style="white-space: pre"><span >  lat = [-90 -60 -30 0 30 60]</span></span></div></div><ul  class = 'S3'><li  class = 'S4'><span>The difference "abs(abs(-4.99) - 5.0)" is larger than the threshold of "100.0 * eps" degrees</span></li></ul><div class = 'preformatted-plain' style = 'margin: 10px 3px 10px 55px; padding: 10px 10px 10px 5px; '><div  class = 'S5'><span style="white-space: pre"><span >  lat = [-35 -25 -15 -4.99 5 15 25 35]</span></span></div></div><div  class = 'S1'><span>All the GrafLab input parameters are explained in</span><span> </span><a href = "../docs/graflab.md"><span>../docs/graflab.md</span></a><span>.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre"><span >clear; clc; init_checker();</span></span></div></div></div><h2  class = 'S7'><span>Numerical example</span></h2><div  class = 'S1'><span>Let's define a spherical grid that is symmetric with respect to the equator.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% Latitudes</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >lat = -90.0:0.1:90.0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% Longitudes.  The grid step is large in this example, as longitudes do not</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% affect the grid symmetry in any way</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >lon = 0.0:5.0:360.0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'></div></div><div class="inlineWrapper"><div  class = 'S9'></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% Grid height</span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >h = 0;</span></span></div></div></div><div  class = 'S1'><span>Now define the GrafLab input parameters.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >GM                = 3986004.415E+8;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >R                 = 6378136.3;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >nmin              = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >nmax              = 360;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >ellipsoid         = 1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >GGM_path          = </span><span style="color: rgb(170, 4, 249);">'../data/input/EGM96.mat'</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >crd               = 1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >point_type        = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >lat_grd_min       = lat;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >lat_grd_step      = </span><span style="color: rgb(170, 4, 249);">'empty'</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >lat_grd_max       = </span><span style="color: rgb(170, 4, 249);">'empty'</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >lon_grd_min       = lon;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >lon_grd_step      = </span><span style="color: rgb(170, 4, 249);">'empty'</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >lon_grd_max       = </span><span style="color: rgb(170, 4, 249);">'empty'</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >h_grd             = h;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >out_path          = </span><span style="color: rgb(170, 4, 249);">'../data/output/howto-g09-symm'</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >quantity_or_error = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >quantity          = 5;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >fnALFs            = 3;  </span><span style="color: rgb(2, 128, 9);">% Important</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >export_data_txt   = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >export_report     = 1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >export_data_mat   = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >display_data      = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >status_bar        = 1;</span></span></div></div></div><div  class = 'S1'><span>Do the synthesis.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >tic</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >GrafLab(</span><span style="color: rgb(170, 4, 249);">'OK'</span><span >, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    GM, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    R, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    nmin, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    nmax, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    ellipsoid, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    GGM_path, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    crd, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    point_type, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    lat_grd_min, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    lat_grd_step, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    lat_grd_max, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    lon_grd_min, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    lon_grd_step, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    lon_grd_max, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    h_grd, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    out_path, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    quantity_or_error, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    quantity, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    fnALFs, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    export_data_txt, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    export_report, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    export_data_mat, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    display_data, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    status_bar);</span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >time_symm = toc;</span></span></div></div></div><div  class = 'S1'><span>Now let's modify a single latitude, such that the last symmetry property discussed above is not satisfied.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >lat(1)      = lat(1) + 1000.0 * eps;</span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >lat_grd_min = lat;</span></span></div></div></div><div  class = 'S1'><span>Do the synthesis.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >tic</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >GrafLab(</span><span style="color: rgb(170, 4, 249);">'OK'</span><span >, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    GM, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    R, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    nmin, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    nmax, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    ellipsoid, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    GGM_path, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    crd, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    point_type, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    lat_grd_min, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    lat_grd_step, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    lat_grd_max, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    lon_grd_min, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    lon_grd_step, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    lon_grd_max, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    h_grd, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    out_path, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    quantity_or_error, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    quantity, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    fnALFs, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    export_data_txt, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    export_report, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    export_data_mat, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    display_data, </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    [], </span><span style="color: rgb(14, 0, 255);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >    status_bar);</span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >time_nosymm = toc;</span></span></div></div></div><div  class = 'S1'><span>Now let's compare the computation times.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span >fprintf(</span><span style="color: rgb(170, 4, 249);">"Symmetric grid:     %0.1f sec\n"</span><span >, time_symm);</span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >fprintf(</span><span style="color: rgb(170, 4, 249);">"Non-symmetric grid: %0.1f sec\n"</span><span >, time_nosymm);</span></span></div></div></div><div  class = 'S1'><span>The speed-up factor grows with increasing harmonic degree and/or increasing number of latitudes. If possible, you should always try to exploit the symmetry property.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S8'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% For instance, if, for some reason, you have to slice your grid into</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% latitudinal bands and call GrafLab multiple times, slice your grid like this</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >lat1 = [-90.0: 0.01:-80.0 80.0:0.01:90.0];</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >lat2 = [-79.99:0.01:-70.0 70.0:0.01:79.99];</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span style="color: rgb(2, 128, 9);">% Not like this</span></span></div></div><div class="inlineWrapper"><div  class = 'S9'><span style="white-space: pre"><span >lat3 = [-90.0:0.01:-70.0];</span></span></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre"><span >lat4 = [ 70.0:0.01: 90.0];</span></span></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% HOWTO g09: Exploit the symmetry of Legendre functions
+% You will learn about the conditions that must be satisfied to take advantage 
+% of the symmetry property of Legendre functions.
+% 
+% Legendre functions are symmetric with respect to the equator as follows,
+% 
+% $$\bar{P}_{nm}(\sin\varphi) = (-1)^{(n + m)} \,  \bar{P}_{nm}(\sin(-\varphi)){.}$$
+% 
+% Therefore, if the grid contains both the positive and the negative latitudes, 
+% $\varphi$ and $-\varphi$, respectively, the Legendre function for one of the 
+% two needs to be computed only. The other is obtained efficiently by the symmetry 
+% property.
+% 
+% In GrafLab, _all_ of the following conditions must be satisfied to employ 
+% the symmetry of Legendre functions.
+%% 
+% * A functional of the geopotential is selected (the symmetry property is not 
+% implemented for commission errors).
+% * The grid-wise computation mode is selected.
+% * The extended-range arithmetic approach is selected to compute Legendre functions 
+% (the whole improvement is tailored to high harmonic degrees, for which the standard 
+% and modified forward column approaches do not provide accurate results anyway).
+% * All positive latitudes have their negative counterpart or vice versa (up 
+% to a given threshold to suppress numerical inaccuracies, currently "100.0 * 
+% eps" degrees). The zero latitude, i.e., the equator, may be included in the 
+% grid (again, within the "100.0 * eps" deg numerical threshold).
+%% 
+% If all these conditions are satisfied, the symmetry property is employed _automatically_, 
+% meaning that no additional action from the user is required to enable the more 
+% efficient variant.
+% 
+% Examples of some symmetric grids (shown are only the latitudes):
+%% 
+% * Equator included
+%%
+% 
+%    lat = [-90 -60 -30 0 30 60 90]
+%
+%% 
+% * Equator included
+%%
+% 
+%    lat = [-80 -60 -40 -20 0 20 40 60 80]
+%
+%% 
+% * Equator excluded
+%%
+% 
+%    lat = [-35 -25 -15 -5 5 15 25 35]
+%
+%%
+% 
+%    lat = [-90 -85 -80 80 85 90]
+%
+%% 
+% * Varying spacing
+%%
+% 
+%    lat = [-90 -80 -75 -70 -69 -68 -67 -66 -65 65 66 67 68 69 70 75 80 90]
+%
+%% 
+% Examples of some grids that are not considered as symmetric (shown are only 
+% latitudes):
+%% 
+% * The negative latitude of -90 deg does not have its positive counterpart
+%%
+% 
+%    lat = [-90 -60 -30 0 30 60]
+%
+%% 
+% * The difference "abs(abs(-4.99) - 5.0)" is larger than the threshold of "100.0 
+% * eps" degrees
+%%
+% 
+%    lat = [-35 -25 -15 -4.99 5 15 25 35]
+%
+%% 
+% All the GrafLab input parameters are explained in <../docs/graflab.md ../docs/graflab.md>.
+
+clear; clc; init_checker();
+%% Numerical example
+% Let's define a spherical grid that is symmetric with respect to the equator.
+
+% Latitudes
+lat = -90.0:0.1:90.0;
+
+% Longitudes.  The grid step is large in this example, as longitudes do not
+% affect the grid symmetry in any way
+lon = 0.0:5.0:360.0;
+
+
+% Grid height
+h = 0;
+%% 
+% Now define the GrafLab input parameters.
+
+GM                = 3986004.415E+8;
+R                 = 6378136.3;
+nmin              = 0;
+nmax              = 360;
+ellipsoid         = 1;
+GGM_path          = '../data/input/EGM96.mat';
+crd               = 1;
+point_type        = 0;
+lat_grd_min       = lat;
+lat_grd_step      = 'empty';
+lat_grd_max       = 'empty';
+lon_grd_min       = lon;
+lon_grd_step      = 'empty';
+lon_grd_max       = 'empty';
+h_grd             = h;
+out_path          = '../data/output/howto-g09-symm';
+quantity_or_error = 0;
+quantity          = 5;
+fnALFs            = 3;  % Important
+export_data_txt   = 0;
+export_report     = 1;
+export_data_mat   = 0;
+display_data      = 0;
+status_bar        = 1;
+%% 
+% Do the synthesis.
+
+tic
+GrafLab('OK', ...
+    GM, ...
+    R, ...
+    nmin, ...
+    nmax, ...
+    ellipsoid, ...
+    GGM_path, ...
+    crd, ...
+    point_type, ...
+    lat_grd_min, ...
+    lat_grd_step, ...
+    lat_grd_max, ...
+    lon_grd_min, ...
+    lon_grd_step, ...
+    lon_grd_max, ...
+    h_grd, ...
+    [], ...
+    [], ...
+    [], ...
+    [], ...
+    out_path, ...
+    quantity_or_error, ...
+    quantity, ...
+    fnALFs, ...
+    [], ...
+    export_data_txt, ...
+    export_report, ...
+    export_data_mat, ...
+    display_data, ...
+    [], ...
+    [], ...
+    [], ...
+    [], ...
+    status_bar);
+time_symm = toc;
+%% 
+% Now let's modify a single latitude, such that the last symmetry property discussed 
+% above is not satisfied.
+
+lat(1)      = lat(1) + 1000.0 * eps;
+lat_grd_min = lat;
+%% 
+% Do the synthesis.
+
+tic
+GrafLab('OK', ...
+    GM, ...
+    R, ...
+    nmin, ...
+    nmax, ...
+    ellipsoid, ...
+    GGM_path, ...
+    crd, ...
+    point_type, ...
+    lat_grd_min, ...
+    lat_grd_step, ...
+    lat_grd_max, ...
+    lon_grd_min, ...
+    lon_grd_step, ...
+    lon_grd_max, ...
+    h_grd, ...
+    [], ...
+    [], ...
+    [], ...
+    [], ...
+    out_path, ...
+    quantity_or_error, ...
+    quantity, ...
+    fnALFs, ...
+    [], ...
+    export_data_txt, ...
+    export_report, ...
+    export_data_mat, ...
+    display_data, ...
+    [], ...
+    [], ...
+    [], ...
+    [], ...
+    status_bar);
+time_nosymm = toc;
+%% 
+% Now let's compare the computation times.
+
+fprintf("Symmetric grid:     %0.1f sec\n", time_symm);
+fprintf("Non-symmetric grid: %0.1f sec\n", time_nosymm);
+%% 
+% The speed-up factor grows with increasing harmonic degree and/or increasing 
+% number of latitudes. If possible, you should always try to exploit the symmetry 
+% property.
+
+% For instance, if, for some reason, you have to slice your grid into
+% latitudinal bands and call GrafLab multiple times, slice your grid like this
+lat1 = [-90.0: 0.01:-80.0 80.0:0.01:90.0];
+lat2 = [-79.99:0.01:-70.0 70.0:0.01:79.99];
+
+% Not like this
+lat3 = [-90.0:0.01:-70.0];
+lat4 = [ 70.0:0.01: 90.0];
+##### SOURCE END #####
+-->
+</div></body></html>

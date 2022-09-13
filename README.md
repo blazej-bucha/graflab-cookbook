@@ -9,26 +9,23 @@ are several tricks to exploit the routines beyond their original intention
 (planetary topographies, etc.).
 
 
-The HOWTOs are ordinary MATLAB scripts.  Attached is the `./src/compile_doc.m`
-script to convert the m-files to Live Scripts, PDF and HTML documentation if
-this is what you prefer.  The Live Scripts are saved to `./src` and the PDF and
-HTML documentation is exported to `./doc`.  The current version of the compiled
-cookbook is also available online at
-[https://blazejbucha.com/graflab/doc](https://blazejbucha.com/graflab/doc).
+The HOWTO files are ordinary MATLAB scripts.  A pre-compiled cookbook consists
+of Live Scripts that can be found inside the `src` directory and their PDF and
+HTML versions that are stored inside the [docs](docs) folder.
 
 
-[GrafLab](https://blazejbucha.com/#GrafLab) (GRAvity Field LABoratory) is
-a MATLAB-based routine to compute gravity field quantities up to high degrees
-(tens of thousands and beyond) from spherical harmonic gravity models.
+[GrafLab](https://github.com/blazej-bucha/graflab) (GRAvity Field LABoratory)
+is a MATLAB-based routine to compute gravity field quantities up to high
+degrees (tens of thousands and beyond) from spherical harmonic gravity models.
 Computed can be, for instance, the geoid, the height anomaly, gravity
 anomalies/disturbances, deflections of the vertical or the gravitational
 tensors.
 
 
-[isGrafLab](https://blazejbucha.com/#isGrafLab) (Irregular Surface GRAvity
-Field LABorary) is a modified version of GrafLab that efficiently computes
-gravity field quantities at dense grids residing on irregular surfaces, such as
-the Earth's surface.
+[isGrafLab](https://github.com/blazej-bucha/isgraflab) (Irregular Surface
+GRAvity Field LABorary) is a modified version of GrafLab that efficiently
+computes gravity field quantities at dense grids residing on irregular
+surfaces, such as the Earth's surface.
 
 
 # HOWTOs
@@ -43,7 +40,7 @@ isGrafLab and some input data.
 ## GrafLab
 
 If you are not familiar with the GrafLab command line interface, you may want
-to go [here](doc/graflab.md), learn the interface at first and then return
+to go [here](docs/graflab.md), learn the interface at first and then return
 back.
 
 * [g01](src/howto_g01.m): Synthesis at grids and at scattered points
@@ -77,7 +74,7 @@ back.
 ## isGrafLab
 
 If you are not familiar with the isGrafLab command line interface, you may want
-to go [here](doc/isgraflab.md), learn the interface at first and then return
+to go [here](docs/isgraflab.md), learn the interface at first and then return
 back.
 
 * [i01](src/howto_i01.m): Synthesis at grids residing on the Earth's topography

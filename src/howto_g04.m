@@ -3,8 +3,8 @@
 % You will learn about the pros and cons of the three supported methods to
 % compute Legendre functions.
 %
-% All the GrafLab input parameters are explained in <../doc/graflab.md
-% ../doc/graflab.md>.
+% All the GrafLab input parameters are explained in <../docs/graflab.md
+% ../docs/graflab.md>.
 
 
 clear; clc; init_checker();

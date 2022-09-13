@@ -3,8 +3,8 @@
 % You will learn how to modify the minimum and the maximum harmonic degrees of
 % the synthesis.
 %
-% All the GrafLab input parameters are explained in <../doc/graflab.md
-% ../doc/graflab.md>.
+% All the GrafLab input parameters are explained in <../docs/graflab.md
+% ../docs/graflab.md>.
 
 
 clear; clc; init_checker();
@@ -167,7 +167,7 @@ out_grd = GrafLab('OK', ...
 % represents the minimum degree of the harmonic synthesis.  For some gravity
 % field quantities, GrafLab does not, however, allow non-zero "nmin" value.
 % The quantities includes: 9, 10, 15, 20, 23 (see the code numbers for
-% "quantity" from <../doc/graflab.md ../doc/graflab.md>).  If you attempt to
+% "quantity" from <../docs/graflab.md ../docs/graflab.md>).  If you attempt to
 % evaluate these quantities with "nmin > 0", you will get an error.  If you set
 % "nmin" to a value larger than "nmax", you will get an error, too.
 

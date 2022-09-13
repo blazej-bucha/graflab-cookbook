@@ -3,8 +3,8 @@
 % You will learn how to do the efficient grid-wise synthesis, but this time
 % with varying grid step in latitude and/or longitude.
 %
-% All the GrafLab input parameters are explained in <../doc/graflab.md
-% ../doc/graflab.md>.
+% All the GrafLab input parameters are explained in <../docs/graflab.md
+% ../docs/graflab.md>.
 
 
 clear; clc; init_checker();

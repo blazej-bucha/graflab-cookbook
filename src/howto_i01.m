@@ -3,8 +3,8 @@
 % You will learn how to perform an efficient solid spherical harmonic synthesis
 % at grids residing on irregular surfaces, e.g. planetary topographies.
 %
-% All the isGrafLab input parameters are explained in <../doc/graflab.md
-% ../doc/graflab.md> and <../doc/isgraflab.md ../doc/isgraflab.md>.
+% All the isGrafLab input parameters are explained in <../docs/graflab.md
+% ../docs/graflab.md> and <../docs/isgraflab.md ../docs/isgraflab.md>.
 
 
 clear; clc; init_checker();

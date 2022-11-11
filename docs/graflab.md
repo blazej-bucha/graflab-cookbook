@@ -228,7 +228,7 @@ specified for any computation.
   * 25 -- Second radial derivative of gravity potential
 
   The definition of each quantity can be found at
-  [https://blazejbucha.com/graflab/Definition_of_functionals_of_the_geopotential_used_in_GrafLab_software.pdf](https://blazejbucha.com/graflab/Definition_of_functionals_of_the_geopotential_used_in_GrafLab_software.pdf).
+  [https://github.com/blazej-bucha/graflab/blob/master/docs/Definition_of_functionals_of_the_geopotential_used_in_GrafLab_software.pdf](https://github.com/blazej-bucha/graflab/blob/master/docs/Definition_of_functionals_of_the_geopotential_used_in_GrafLab_software.pdf).
 
 
 * `fnALFs` -- Method to compute the fully-normalized associated Legendre

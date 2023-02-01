@@ -158,7 +158,7 @@ eEl = sqrt(0.006694380022903416);
 % Now let's transform the ellipsoidal latitudes "lat_ell" to spherical
 % latitudes "lat_sph".  The formula holds for points lying on the reference
 % ellipsoid only.
-lat_sph = atan(tan(lat_ell * pi / 180.0) * sqrt(1.0 - eEl^2)) * 180.0 / pi;
+lat_sph = atan(tan(lat_ell * pi / 180.0) * (1.0 - eEl^2)) * 180.0 / pi;
 
 %%
 %

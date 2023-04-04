@@ -46,15 +46,19 @@ let's explain them:
 
 * `R` -- Radius of the reference sphere of the GGM (`m`)
 
-* `nmin` -- Minimum degree of the synthesis
+* `nmin` -- Minimum degree of the synthesis (non-negative integer)
 
 * `nmax` -- Maximum degree of the synthesis
 
+  * Non-negative integer
+
+  * `'nmaxGGM'` to use the maximum degree of the GGM
+
 * `ellipsoid` -- Reference ellipsoid
 
-  * scalar `1` for GRS80 or `2` for WGS84
+  * Scalar `1` for GRS80 or `2` for WGS84
 
-  * vector with `5` elements: `[GM a e C20 omega]`, where
+  * Vector with `5` elements: `[GM a e C20 omega]`, where
 
     * `GM` is the geocentric gravitational constant (`m^3 * s^-2`)
 
@@ -172,60 +176,60 @@ specified for any computation.
   computed. If it is a vector, the maximum size allowed is `4`. The following
   values are accepted:
 
-  * 2  -- Deflection of the vertical `eta` (the east--west component)
+  * `2`  -- Deflection of the vertical `eta` (the east--west component)
 
-  * 3  -- Deflection of the vertical `xi` (the north--south component)
+  * `3`  -- Deflection of the vertical `xi` (the north--south component)
 
-  * 4  -- Deflection of the vertical `Theta` (total)
+  * `4`  -- Deflection of the vertical `Theta` (total)
 
-  * 5  -- Disturbing potential
+  * `5`  -- Disturbing potential
 
-  * 6  -- Disturbing tensor (`Trr`, `Tphiphi`, `Tlambdalambda`)
+  * `6`  -- Disturbing tensor (`Trr`, `Tphiphi`, `Tlambdalambda`)
 
-  * 7  -- Disturbing tensor (`Trphi`, `Trlambda`, `Tphilambda`)
+  * `7`  -- Disturbing tensor (`Trphi`, `Trlambda`, `Tphilambda`)
 
-  * 8  -- Disturbing tensor in the local north-oriented reference frame (`Txx`,
-    `Tyy`, `Tzz`)
+  * `8`  -- Disturbing tensor in the local north-oriented reference frame
+    (`Txx`, `Tyy`, `Tzz`)
 
-  * 9  -- Disturbing tensor in the local north-oriented reference frame (`Txy`,
-    `Txz`, `Tyz`)
+  * `9`  -- Disturbing tensor in the local north-oriented reference frame
+    (`Txy`, `Txz`, `Tyz`)
 
-  * 10 -- Geoid undulation (requires to specify `DTM_path`, see below)
+  * `10` -- Geoid undulation (requires to specify `DTM_path`, see below)
 
-  * 11 -- Gravitational potential
+  * `11` -- Gravitational potential
 
-  * 12 -- Gravitational tensor (`Vrr`, `Vphiphi`, `Vlambdalambda`)
+  * `12` -- Gravitational tensor (`Vrr`, `Vphiphi`, `Vlambdalambda`)
 
-  * 13 -- Gravitational tensor (`Vrphi`, `Vrlambda`, `Vphilambda`)
+  * `13` -- Gravitational tensor (`Vrphi`, `Vrlambda`, `Vphilambda`)
 
-  * 14 -- Gravitational tensor in the local north-oriented reference frame
+  * `14` -- Gravitational tensor in the local north-oriented reference frame
     (`Vxx`, `Vyy`, `Vzz`)
 
-  * 15 -- Gravitational tensor in the local north-oriented reference frame
+  * `15` -- Gravitational tensor in the local north-oriented reference frame
     (`Vxy`, `Vxz`, `Vyz`)
 
-  * 16 -- Gravity vector in the local north-oriented reference frame (`gX`,
+  * `16` -- Gravity vector in the local north-oriented reference frame (`gX`,
     `gY`, `gZ`)
 
-  * 17 -- Gravity in spherical approximation (magnitude of the gravity vector
+  * `17` -- Gravity in spherical approximation (magnitude of the gravity vector
     in spherical approximation)
 
-  * 18 -- Gravity potential
+  * `18` -- Gravity potential
 
-  * 19 -- Gravity anomaly in spherical approximation
+  * `19` -- Gravity anomaly in spherical approximation
 
-  * 20 -- Gravity disturbance (difference between magnitudes of the gravity
+  * `20` -- Gravity disturbance (difference between magnitudes of the gravity
     vector and of the normal gravity vector)
 
-  * 21 -- Gravity disturbance in spherical approximation
+  * `21` -- Gravity disturbance in spherical approximation
 
-  * 22 -- Height anomaly ell (approximation of height anomaly or geoid)
+  * `22` -- Height anomaly ell (approximation of height anomaly or geoid)
 
-  * 23 -- Height anomaly (requires to specify `DTM_path`, see below)
+  * `23` -- Height anomaly (requires to specify `DTM_path`, see below)
 
-  * 24 -- Second radial derivative of disturbing potential
+  * `24` -- Second radial derivative of disturbing potential
 
-  * 25 -- Second radial derivative of gravity potential
+  * `25` -- Second radial derivative of gravity potential
 
   The definition of each quantity can be found at
   [https://github.com/blazej-bucha/graflab/blob/master/docs/Definition_of_functionals_of_the_geopotential_used_in_GrafLab_software.pdf](https://github.com/blazej-bucha/graflab/blob/master/docs/Definition_of_functionals_of_the_geopotential_used_in_GrafLab_software.pdf).
